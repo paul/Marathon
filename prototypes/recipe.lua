@@ -42,20 +42,6 @@ data:extend(
 {
   {
     type = "recipe",
-    name = "iron-gear-wheel",
-    energy_required = 1.5,	--na
-    ingredients = {{"iron-plate", 5}},	--2
-    result = "iron-gear-wheel"
-  },
-  {
-    type = "recipe",
-    name = "iron-stick",
-    ingredients = {{"iron-plate", 5}},	--1
-    result = "iron-stick",
-    result_count = 2
-  },
-  {
-    type = "recipe",
     name = "radar",
     ingredients =
     {
@@ -89,19 +75,5 @@ data:extend(
       {"iron-plate", 50}	--20
     },
     result = "gun-turret"
-  },
-  {
-    type = "recipe",
-    name = "low-density-structure",
-    energy_required = 30,
-    enabled = false,
-    category = "crafting",
-    ingredients =
-    {
-      {"steel-plate", 10},
-      {"copper-plate", 25},	--5
-      {"plastic-bar", 10}	--5
-    },
-    result= "low-density-structure"
   },
 })
