@@ -68,18 +68,6 @@ data:extend(
     order = "b[coal]",
     stack_size = 50
   },
-  {
-    type = "recipe",
-    name = "burner-mining-drill",
-    energy_required = 2,
-    ingredients =
-    {
-      {"iron-gear-wheel", 5}, 	--3
-      {"stone-furnace", 1},
-      {"iron-plate", 10}	--3
-    },
-    result = "burner-mining-drill"
-  },
 }
 )
 
@@ -92,94 +80,6 @@ data:extend(
     enabled = false,
     ingredients = {{"steel-plate", 8}},
     result = "steel-chest"
-  },
-  {
-    type = "recipe",
-    name = "basic-mining-drill",
-    energy_required = 10,	--2
-    ingredients =
-    {
-      {"electronic-circuit", 25},	--3
-      {"iron-gear-wheel", 25},	--5
-      {"iron-plate", 100}	---10
-    },
-    result = "basic-mining-drill"
-  },
-  {
-    type = "recipe",
-    name = "steel-furnace",
-    ingredients = {{"steel-plate", 25}, {"stone-brick", 10}},	--8,10
-    result = "steel-furnace",
-    energy_required = 10,	--3
-    enabled = false
-  },
-  {
-    type = "recipe",
-    name = "steam-engine",
-    ingredients =
-    {
-      {"iron-gear-wheel", 100},	--5
-      {"pipe", 50},	--5
-      {"iron-plate", 100}	--5
-    },
-    energy_required = 60,	--1
-    result = "steam-engine"
-  },
-  {
-    type = "recipe",
-    name = "boiler",
-    ingredients = {{"stone-furnace", 2}, {"pipe", 15}},	--1,1
-    result = "boiler"
-  },
-  {
-    type = "recipe",
-    name = "solar-panel",
-    energy_required = 20,	--10
-    enabled = false,
-    ingredients =
-    {
-      {"steel-plate", 5},
-      {"electronic-circuit", 15},
-      {"copper-plate", 30}	--5
-    },
-    result = "solar-panel"
-  },
-  {
-    type = "recipe",
-    name = "basic-accumulator",
-    energy_required = 20,	--10
-    enabled = false,
-    ingredients =
-    {
-      {"iron-plate", 10},	--2
-      {"battery", 10}	--5
-    },
-    result = "basic-accumulator"
-  },
-  {
-    type = "recipe",
-    name = "assembling-machine-1",
-    enabled = false,
-    ingredients =
-    {
-      {"electronic-circuit", 25},	--3
-      {"iron-gear-wheel", 25},	--5
-      {"iron-plate", 25}	--9
-    },
-    result = "assembling-machine-1"
-  },
-  {
-    type = "recipe",
-    name = "assembling-machine-2",
-    enabled = false,
-    ingredients =
-    {
-      {"iron-plate", 100},	--9
-      {"electronic-circuit", 25},	--3
-      {"iron-gear-wheel", 25},	--5
-      {"assembling-machine-1", 1}
-    },
-    result = "assembling-machine-2"
   },
   {
     type = "recipe",
