@@ -42,33 +42,6 @@ data:extend(
 {
   {
     type = "recipe",
-    name = "copper-plate",
-    category = "smelting",
-    energy_required = 6.33,	--3.5
-    ingredients = {{ "copper-ore", 1}},
-    result = "copper-plate",
-    result_count = 5	--1
-  },
-  {
-    type = "recipe",
-    name = "iron-plate",
-    category = "smelting",
-    energy_required = 7,	--3.5
-    ingredients = {{"iron-ore", 2}},	--1
-    result = "iron-plate",
-    result_count = 5	--1
-  },
-  {
-    type = "recipe",
-    name = "stone-brick",
-    category = "smelting",
-    energy_required = 3.5,
-    enabled = true,
-    ingredients = {{"stone", 2}},
-    result = "stone-brick"
-  },
-  {
-    type = "recipe",
     name = "iron-gear-wheel",
     energy_required = 1.5,	--na
     ingredients = {{"iron-plate", 5}},	--2
@@ -119,15 +92,6 @@ data:extend(
     enabled = false,
     ingredients = {{"steel-plate", 8}},
     result = "steel-chest"
-  },
-  {
-    type = "recipe",
-    name = "steel-plate",
-    category = "smelting",
-    enabled = false,
-    energy_required = 27.5,	--17.5
-    ingredients = {{"iron-plate", 10}},	--5
-    result = "steel-plate"
   },
   {
     type = "recipe",
@@ -390,17 +354,6 @@ data:extend(
       {"steel-plate", 2}
     },
     result = "piercing-shotgun-shell"
-  },
-
--- demo-furnace-recipe.lua
-  {
-    type = "recipe",
-    name = "stone-brick",
-    category = "smelting",
-    energy_required = 7,	--3.5
-    enabled = true,
-    ingredients = {{"stone", 5}},	--2
-    result = "stone-brick"
   },
 
 --demo-recipe.lua
