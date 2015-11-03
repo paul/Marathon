@@ -48,38 +48,6 @@ data:extend(
     result = "iron-gear-wheel"
   },
   {
-    type = "item",
-    name = "raw-wood",
-    icon = "__base__/graphics/icons/raw-wood.png",
-    flags = {"goes-to-main-inventory"},
-    fuel_value = "2MJ",	--4
-    subgroup = "raw-material",
-    order = "a[raw-wood]",
-    stack_size = 50
-  },
-  {
-    type = "item",
-    name = "coal",
-    icon = "__base__/graphics/icons/coal.png",
-    dark_background_icon = "__base__/graphics/icons/coal-dark-background.png",
-    flags = {"goes-to-main-inventory"},
-    fuel_value = "4MJ",	--8
-    subgroup = "raw-material",
-    order = "b[coal]",
-    stack_size = 50
-  },
-  {
-    type = "item",
-    name = "solid-fuel",
-    icon = "__base__/graphics/icons/solid-fuel.png",
-    flags = {"goes-to-main-inventory"},
-    fuel_value = "10MJ",	-- 25
-    subgroup = "raw-resource",
-    order = "c[solid-fuel]",
-    stack_size = 50
-  },
-
-  {
     type = "recipe",
     name = "iron-stick",
     ingredients = {{"iron-plate", 5}},	--1
