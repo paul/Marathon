@@ -141,54 +141,6 @@ data:extend(
   },
   {
     type = "recipe",
-    name = "science-pack-1",
-    energy_required = 10,	--5
-    ingredients =
-    {
-      {"copper-plate", 30},	--1
-      {"iron-gear-wheel", 5}	--1
-    },
-    result = "science-pack-1"
-  },
-  {
-    type = "recipe",
-    name = "science-pack-2",
-    energy_required = 15,	--6
-    ingredients =
-    {
-      {"basic-inserter", 5},	--1
-      {"basic-transport-belt", 5}	--1
-    },
-    result = "science-pack-2"
-  },
-  {
-    type = "recipe",
-    name = "science-pack-3",
-    enabled = false,
-    energy_required = 30,	--12
-    ingredients =
-    {
-      {"battery", 5},	--1
-      {"advanced-circuit", 5},	--1
-      {"smart-inserter", 5},	--1
-      {"steel-plate", 5},	--1
-    },
-    result = "science-pack-3"
-  },
-  {
-    type = "recipe",
-    name = "lab",
-    energy_required = 20,	--5
-    ingredients =
-    {
-      {"electronic-circuit", 25},	--10
-      {"iron-gear-wheel", 25},	--10
-      {"basic-transport-belt", 20}	--4	
-    },
-    result = "lab"
-  },
-  {
-    type = "recipe",
     name = "basic-mining-drill",
     energy_required = 10,	--2
     ingredients =
