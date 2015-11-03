@@ -95,38 +95,6 @@ data:extend(
   },
   {
     type = "recipe",
-    name = "copper-cable",
-    ingredients = {{"copper-plate", 10}},	--1
-    energy_required = 2,	--na
-    result = "copper-cable",
-    result_count = 2
-  },
-  {
-    type = "recipe",
-    name = "electronic-circuit",
-    energy_required = 8,	--na
-    ingredients =
-    {
-      {"iron-plate", 10},	--1
-      {"copper-cable", 10}	--3
-    },
-    result = "electronic-circuit"
-  },
-  {
-    type = "recipe",
-    name = "advanced-circuit",
-    enabled = false,
-    energy_required = 16,	--8
-    ingredients =
-    {
-      {"electronic-circuit", 5},	--2
-      {"plastic-bar", 5},	--2
-      {"copper-cable", 10}	--4
-    },
-    result = "advanced-circuit"
-  },
-  {
-    type = "recipe",
     name = "battery",
     category = "chemistry",
     energy_required = 6,	--5
@@ -633,19 +601,6 @@ data:extend(
       {"wood", 10}
     },
     result = "combat-shotgun"
-  },
-  {
-    type = "recipe",
-    name = "advanced-circuit",
-    enabled = false,
-    energy_required = 8,
-    ingredients =
-    {
-      {"electronic-circuit", 2},
-      {"plastic-bar", 4},	--2
-      {"copper-cable", 4}
-    },
-    result = "advanced-circuit"
   },
   {
     type = "recipe",
