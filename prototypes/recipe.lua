@@ -68,15 +68,6 @@ data:extend(
     order = "b[coal]",
     stack_size = 50
   },
-}
-)
-
--- recipe
-data:extend(
-{
--- KeepOnBuilding additions:
-
--- item.lua
   {
     type = "item",
     name = "solid-fuel",
@@ -88,104 +79,12 @@ data:extend(
     stack_size = 50
   },
 
--- ammo.lua
-  {
-    type = "recipe",
-    name = "piercing-bullet-magazine",
-    enabled = false,
-    energy_required = 3,
-    ingredients =
-    {
-      {"copper-plate", 25},	--5
-      {"steel-plate", 1}
-    },
-    result = "piercing-bullet-magazine"
-  },
-  {
-    type = "recipe",
-    name = "rocket",
-    enabled = false,
-    energy_required = 8,
-    ingredients =
-    {
-      {"electronic-circuit", 1},
-      {"explosives", 2},
-      {"iron-plate", 10}	--2
-    },
-    result = "rocket"
-  },
-  {
-    type = "recipe",
-    name = "shotgun-shell",
-    enabled = false,
-    energy_required = 3,
-    ingredients =
-    {
-      {"copper-plate", 10},	--2
-      {"iron-plate", 10}	--2
-    },
-    result = "shotgun-shell"
-  },
-  {
-    type = "recipe",
-    name = "piercing-shotgun-shell",
-    enabled = false,
-    energy_required = 8,
-    ingredients =
-    {
-      {"copper-plate", 10},	--2
-      {"steel-plate", 2}
-    },
-    result = "piercing-shotgun-shell"
-  },
-
---demo-recipe.lua
   {
     type = "recipe",
     name = "iron-stick",
     ingredients = {{"iron-plate", 5}},	--1
     result = "iron-stick",
     result_count = 2
-  },
-  {
-    type = "recipe",
-    name = "pistol",
-    energy_required = 1,
-    ingredients =
-    {
-      {"copper-plate", 25},	--5
-      {"iron-plate", 25}	--5
-    },
-    result = "pistol"
-  },
-  {
-    type = "recipe",
-    name = "submachine-gun",
-    enabled = false,
-    energy_required = 3,
-    ingredients =
-    {
-      {"iron-gear-wheel", 25},	--10
-      {"copper-plate", 25},	--5
-      {"iron-plate", 25}	--10
-    },
-    result = "submachine-gun"
-  },
-  {
-    type = "recipe",
-    name = "basic-bullet-magazine",
-    energy_required = 2,
-    ingredients = {{"iron-plate", 5}},	--2
-    result = "basic-bullet-magazine",
-    result_count = 1
-  },
-  {
-    type = "recipe",
-    name = "basic-armor",
-    enabled = false,
-    energy_required = 3,
-    ingredients = {{"iron-plate", 100}},	--40
-    result = "basic-armor"
   },
   {
     type = "recipe",
@@ -210,8 +109,6 @@ data:extend(
     },
     result = "small-lamp"
   },
-
---demo-turret.lua
   {
     type = "recipe",
     name = "gun-turret",
@@ -224,44 +121,6 @@ data:extend(
       {"iron-plate", 50}	--20
     },
     result = "gun-turret"
-  },
-
---recipe.lua
-  {
-    type = "recipe",
-    name = "heavy-armor",
-    enabled = false,
-    energy_required = 8,
-    ingredients = {{ "copper-plate", 500}, {"steel-plate", 50}},	--100,50
-    result = "heavy-armor"
-  },
-  {
-    type = "recipe",
-    name = "shotgun",
-    enabled = false,
-    energy_required = 4,
-    ingredients =
-    {
-      {"iron-plate", 25},	--15
-      {"iron-gear-wheel", 10},	--5
-      {"copper-plate", 50},	--10
-      {"wood", 5}
-    },
-    result = "shotgun"
-  },
-  {
-    type = "recipe",
-    name = "combat-shotgun",
-    enabled = false,
-    energy_required = 8,
-    ingredients =
-    {
-      {"steel-plate", 15},
-      {"iron-gear-wheel", 10},	--5
-      {"copper-plate", 50},	--10
-      {"wood", 10}
-    },
-    result = "combat-shotgun"
   },
   {
     type = "recipe",
@@ -277,5 +136,4 @@ data:extend(
     },
     result= "low-density-structure"
   },
-}
-)
+})
