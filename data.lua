@@ -1,6 +1,7 @@
 require("prototypes.recipe")
 require("prototypes.recipe-chemistry")
 require("prototypes.recipe-circuit")
+require("prototypes.recipe-logistics")
 require("prototypes.recipe-production")
 require("prototypes.recipe-science")
 require("prototypes.recipe-smelting")

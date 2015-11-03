@@ -74,29 +74,6 @@ data:extend(
 -- recipe
 data:extend(
 {
-  {
-    type = "recipe",
-    name = "steel-chest",
-    enabled = false,
-    ingredients = {{"steel-plate", 8}},
-    result = "steel-chest"
-  },
-  {
-    type = "recipe",
-    name = "flying-robot-frame",
-    energy_required = 20,
-    ingredients =
-    {
-      {"electric-engine-unit", 5},	--1
-      {"battery", 2},
-      {"steel-plate", 1},
-      {"electronic-circuit", 3}
-    },
-    result = "flying-robot-frame",
-    enabled = false
-  },
-
-
 -- KeepOnBuilding additions:
 
 -- item.lua
@@ -172,44 +149,6 @@ data:extend(
   },
   {
     type = "recipe",
-    name = "basic-transport-belt",
-    ingredients =
-    {
-      {"iron-plate", 2},	--1
-      {"iron-gear-wheel", 1}
-    },
-    result = "basic-transport-belt",
-    result_count = 2
-  },
-  {
-    type = "recipe",
-    name = "basic-inserter",
-    ingredients =
-    {
-      {"electronic-circuit", 1},
-      {"iron-gear-wheel", 1},
-      {"iron-plate", 2}	--1
-    },
-    result = "basic-inserter"
-  },
-  {
-    type = "recipe",
-    name = "burner-inserter",
-    ingredients =
-    {
-      {"iron-plate", 2},	--1
-      {"iron-gear-wheel", 2}	--1
-    },
-    result = "burner-inserter"
-  },
-  {
-    type = "recipe",
-    name = "pipe",
-    ingredients = {{"iron-plate", 2}},	--1
-    result = "pipe"
-  },
-  {
-    type = "recipe",
     name = "pistol",
     energy_required = 1,
     ingredients =
@@ -271,17 +210,6 @@ data:extend(
     },
     result = "small-lamp"
   },
-  {
-    type = "recipe",
-    name = "pipe-to-ground",
-    ingredients =
-    {
-      {"pipe", 10},
-      {"iron-plate", 10}	--5
-    },
-    result_count = 2,
-    result = "pipe-to-ground"
-  },
 
 --demo-turret.lua
   {
@@ -298,44 +226,7 @@ data:extend(
     result = "gun-turret"
   },
 
---flame-thrower-ammo uses iron-plate
-
---inserter.lua
-  {
-    type = "recipe",
-    name = "long-handed-inserter",
-    enabled = false,
-    ingredients =
-    {
-      {"iron-gear-wheel", 1},
-      {"iron-plate", 5},	--1
-      {"basic-inserter", 1}
-    },
-    result = "long-handed-inserter"
-  },
-
 --recipe.lua
-  {
-    type = "recipe",
-    name = "straight-rail",
-    enabled = false,
-    ingredients =
-    {
-      {"stone", 2},	--1
-      {"iron-stick", 2},	--1
-      {"steel-plate", 1}
-    },
-    result = "straight-rail",
-    result_count = 2
-  },
-  {
-    type = "recipe",
-    name = "curved-rail",
-    enabled = false,
-    ingredients = {{"stone", 8}, {"iron-stick", 8}, {"steel-plate", 4}},	--4,4,4
-    result = "curved-rail",
-    result_count = 2
-  },
   {
     type = "recipe",
     name = "heavy-armor",
@@ -343,13 +234,6 @@ data:extend(
     energy_required = 8,
     ingredients = {{ "copper-plate", 500}, {"steel-plate", 50}},	--100,50
     result = "heavy-armor"
-  },
-  {
-    type = "recipe",
-    name = "iron-chest",
-    enabled = true,
-    ingredients = {{"iron-plate", 20}},	--8
-    result = "iron-chest"
   },
   {
     type = "recipe",
@@ -378,40 +262,6 @@ data:extend(
       {"wood", 10}
     },
     result = "combat-shotgun"
-  },
-  {
-    type = "recipe",
-    name = "big-electric-pole",
-    enabled = false,
-    ingredients =
-    {
-      {"steel-plate", 5},
-      {"copper-plate", 25}	--5
-    },
-    result = "big-electric-pole"
-  },
-  {
-    type = "recipe",
-    name = "substation",
-    enabled = false,
-    ingredients =
-    {
-      {"steel-plate", 10},
-      {"advanced-circuit", 5},
-      {"copper-plate", 25}	--5
-    },
-    result = "substation"
-  },
-  {
-    type = "recipe",
-    name = "medium-electric-pole",
-    enabled = false,
-    ingredients =
-    {
-      {"steel-plate", 2},
-      {"copper-plate", 10}	--2
-    },
-    result = "medium-electric-pole"
   },
   {
     type = "recipe",
