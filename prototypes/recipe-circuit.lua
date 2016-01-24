@@ -20,21 +20,6 @@ data:extend(
     },
     result = "electronic-circuit",
   },
-  --[[
-  {
-    type = "recipe",
-    name = "advanced-circuit",
-    enabled = false,
-
-    energy_required = 16,
-    ingredients = {
-      {"electronic-circuit", 5},
-      {"plastic-bar", 5},
-      {"copper-cable", 10},
-    },
-    result = "advanced-circuit",
-  },
-  ]]
   {
     type = "recipe",
     name = "advanced-circuit",

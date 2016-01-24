@@ -19,17 +19,6 @@ data:extend({
     result = "iron-plate",
     result_count = 5,
   },
-  --[[
-  {
-    type = "recipe",
-    name = "stone-brick",
-    category = "smelting",
-
-    energy_required = 3.5,
-    ingredients = {{"stone", 2}},
-    result = "stone-brick",
-  },
-  ]]
   {
     type = "recipe",
     name = "stone-brick",
