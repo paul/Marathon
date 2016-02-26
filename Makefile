@@ -1,7 +1,7 @@
 VERSION := 0.6.0
 NAME := marathon
 
-all: clean build
+all: clean build install_mod
 
 build:
 	mkdir build/
@@ -14,3 +14,9 @@ build:
 
 clean:
 	rm -rf build/
+
+install_mod:
+	if [ -L factorio_mods ] ; \
+	then \
+		cp -R build/$(NAME)_$(VERSION) factorio_mods ; \
+	fi;
