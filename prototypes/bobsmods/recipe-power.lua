@@ -1,142 +1,172 @@
-local temp
+update_recipe("boiler-2",
+{
+	ingredients = {
+		{type="item", name="boiler", amount=1},
+		{type="item", name="steel-furnace", amount=2},
+	}
+})
 
-temp = data.raw.recipe["boiler-2"]
-temp.ingredients = {
-	{type="item", name="boiler", amount=1},
-	{type="item", name="steel-furnace", amount=2},
-}
+update_recipe("boiler-3",
+{
+	ingredients = {
+		{type="item", name="boiler-2", amount=1},
+		{type="item", name="steel-plate", amount=15},
+	}
+})
 
-temp = data.raw.recipe["boiler-3"]
-temp.ingredients = {
-	{type="item", name="boiler-2", amount=1},
-	{type="item", name="steel-plate", amount=15},
-}
+update_recipe("boiler-4",
+{
+	ingredients = {
+		{type="item", name="boiler-3", amount=1},
+		{type="item", name="steel-plate", amount=15},
+	}
+})
 
-temp = data.raw.recipe["boiler-4"]
-temp.ingredients = {
-	{type="item", name="boiler-3", amount=1},
-	{type="item", name="steel-plate", amount=15},
-}
+update_recipe("fast-accumulator",
+{
+	energy_required = 20,
+	ingredients = {
+		{type="item", name="iron-plate", amount=10},
+		{type="item", name="electronic-circuit", amount=6},
+		{type="item", name="battery", amount=8},
+	}
+})
 
-temp = data.raw.recipe["fast-accumulator"]
-temp.energy_required = 20
-temp.ingredients = {
-	{type="item", name="iron-plate", amount=10},
-	{type="item", name="electronic-circuit", amount=6},
-	{type="item", name="battery", amount=8},
-}
+update_recipe("fast-accumulator-2",
+{
+	energy_required = 20,
+	ingredients = {
+		{type="item", name="fast-accumulator", amount=1},
+		{type="item", name="steel-plate", amount=10},
+		{type="item", name="advanced-circuit", amount=12},
+		{type="item", name="battery", amount=8},
+	}
+})
 
-temp = data.raw.recipe["fast-accumulator-2"]
-temp.energy_required = 20
-temp.ingredients = {
-	{type="item", name="fast-accumulator", amount=1},
-	{type="item", name="steel-plate", amount=10},
-	{type="item", name="advanced-circuit", amount=12},
-	{type="item", name="battery", amount=8},
-}
+update_recipe("fast-accumulator-3",
+{
+	energy_required = 20,
+	ingredients = {
+		{type="item", name="fast-accumulator-2", amount=1},
+		{type="item", name="steel-plate", amount=10},
+		{type="item", name="processing-unit", amount=12},
+		{type="item", name="battery", amount=8},
+	}
+})
 
-temp = data.raw.recipe["fast-accumulator-3"]
-temp.energy_required = 20
-temp.ingredients = {
-	{type="item", name="fast-accumulator-2", amount=1},
-	{type="item", name="steel-plate", amount=10},
-	{type="item", name="processing-unit", amount=12},
-	{type="item", name="battery", amount=8},
-}
+update_recipe("large-accumulator",
+{
+	energy_required = 20,
+	ingredients = {
+		{type="item", name="iron-plate", amount=15},
+		{type="item", name="battery", amount=20},
+	}
+})
 
-temp = data.raw.recipe["large-accumulator"]
-temp.energy_required = 20
-temp.ingredients = {
-	{type="item", name="iron-plate", amount=15},
-	{type="item", name="battery", amount=20},
-}
+update_recipe("large-accumulator-2",
+{
+	energy_required = 20,
+	ingredients = {
+		{type="item", name="large-accumulator", amount=1},
+		{type="item", name="steel-plate", amount=15},
+		{type="item", name="advanced-circuit", amount=6},
+		{type="item", name="battery", amount=20},
+	}
+})
 
-temp = data.raw.recipe["large-accumulator-2"]
-temp.energy_required = 20
-temp.ingredients = {
-	{type="item", name="large-accumulator", amount=1},
-	{type="item", name="steel-plate", amount=15},
-	{type="item", name="advanced-circuit", amount=6},
-	{type="item", name="battery", amount=20},
-}
+update_recipe("large-accumulator-3",
+{
+	energy_required = 20,
+	ingredients = {
+		{type="item", name="large-accumulator-2", amount=1},
+		{type="item", name="steel-plate", amount=15},
+		{type="item", name="processing-unit", amount=6},
+		{type="item", name="battery", amount=20},
+	}
+})
 
-temp = data.raw.recipe["large-accumulator-3"]
-temp.energy_required = 20
-temp.ingredients = {
-	{type="item", name="large-accumulator-2", amount=1},
-	{type="item", name="steel-plate", amount=15},
-	{type="item", name="processing-unit", amount=6},
-	{type="item", name="battery", amount=20},
-}
+update_recipe("slow-accumulator",
+{
+	energy_required = 20,
+	ingredients = {
+		{type="item", name="iron-plate", amount=10},
+		{type="item", name="electronic-circuit", amount=6},
+		{type="item", name="battery", amount=8},
+	}
+})
 
-temp = data.raw.recipe["slow-accumulator"]
-temp.energy_required = 20
-temp.ingredients = {
-	{type="item", name="iron-plate", amount=10},
-	{type="item", name="electronic-circuit", amount=6},
-	{type="item", name="battery", amount=8},
-}
+update_recipe("slow-accumulator-2",
+{
+	energy_required = 20,
+	ingredients = {
+		{type="item", name="slow-accumulator", amount=1},
+		{type="item", name="steel-plate", amount=10},
+		{type="item", name="advanced-circuit", amount=12},
+		{type="item", name="battery", amount=8},
+	}
+})
 
-temp = data.raw.recipe["slow-accumulator-2"]
-temp.energy_required = 20
-temp.ingredients = {
-	{type="item", name="slow-accumulator", amount=1},
-	{type="item", name="steel-plate", amount=10},
-	{type="item", name="advanced-circuit", amount=12},
-	{type="item", name="battery", amount=8},
-}
+update_recipe("slow-accumulator-3",
+{
+	energy_required = 20,
+	ingredients = {
+		{type="item", name="slow-accumulator-2", amount=1},
+		{type="item", name="steel-plate", amount=10},
+		{type="item", name="processing-unit", amount=12},
+		{type="item", name="battery", amount=8},
+	}
+})
 
-temp = data.raw.recipe["slow-accumulator-3"]
-temp.energy_required = 20
-temp.ingredients = {
-	{type="item", name="slow-accumulator-2", amount=1},
-	{type="item", name="steel-plate", amount=10},
-	{type="item", name="processing-unit", amount=12},
-	{type="item", name="battery", amount=8},
-}
+update_recipe("solar-panel",
+{
+	energy_required = 20,
+	ingredients = {
+		{type="item", name="steel-plate", amount=6},
+		{type="item", name="electronic-circuit", amount=16},
+		{type="item", name="copper-plate", amount=30},
+	}
+})
 
-temp = data.raw.recipe["solar-panel"]
-temp.energy_required = 20
-temp.ingredients = {
-	{type="item", name="steel-plate", amount=6},
-	{type="item", name="electronic-circuit", amount=16},
-	{type="item", name="copper-plate", amount=30},
-}
+update_recipe("solar-panel-large",
+{
+	energy_required = 40,
+	ingredients = {
+		{type="item", name="steel-plate", amount=12},
+		{type="item", name="electronic-circuit", amount=32},
+		{type="item", name="copper-plate", amount=60},
+	}
+})
 
-temp = data.raw.recipe["solar-panel-large"]
-temp.energy_required = 40
-temp.ingredients = {
-	{type="item", name="steel-plate", amount=12},
-	{type="item", name="electronic-circuit", amount=32},
-	{type="item", name="copper-plate", amount=60},
-}
+update_recipe("solar-panel-small",
+{
+	energy_required = 10,
+	ingredients = {
+		{type="item", name="steel-plate", amount=3},
+		{type="item", name="electronic-circuit", amount=8},
+		{type="item", name="copper-plate", amount=15},
+	}
+})
 
-temp = data.raw.recipe["solar-panel-small"]
-temp.energy_required = 10
-temp.ingredients = {
-	{type="item", name="steel-plate", amount=3},
-	{type="item", name="electronic-circuit", amount=8},
-	{type="item", name="copper-plate", amount=15},
-}
+update_recipe("steam-engine-2",
+{
+	energy_required = 45,
+	ingredients = {
+		{type="item", name="steam-engine", amount=1},
+		{type="item", name="steel-plate", amount=20},
+		{type="item", name="iron-gear-wheel", amount=20},
+	}
+})
 
-temp = data.raw.recipe["steam-engine-2"]
-temp.energy_required = 45
-temp.ingredients = {
-	{type="item", name="steam-engine", amount=1},
-	{type="item", name="steel-plate", amount=20},
-	{type="item", name="iron-gear-wheel", amount=20},
-}
-
-temp = data.raw.recipe["steam-engine-3"]
-temp.energy_required = 30
-temp.ingredients = {
-	{type="item", name="steam-engine-2", amount=1},
-	{type="item", name="advanced-circuit", amount=10},
-	{type="item", name="steel-plate", amount=10},
-	{type="item", name="iron-gear-wheel", amount=10},
-}
-
-
+update_recipe("steam-engine-3",
+{
+	energy_required = 30,
+	ingredients = {
+		{type="item", name="steam-engine-2", amount=1},
+		{type="item", name="advanced-circuit", amount=10},
+		{type="item", name="steel-plate", amount=10},
+		{type="item", name="iron-gear-wheel", amount=10},
+	}
+})
 
 if data.raw.item["lithium-ion-battery"] then
 	bobmods.lib.replace_recipe_item ("large-accumulator-2", "battery", "lithium-ion-battery")
@@ -168,8 +198,6 @@ else
 	end
 end
 
-
-
 if data.raw.item["steel-pipe"] then
 	bobmods.lib.add_recipe_item ("boiler-2", {"steel-pipe", 10})
 end
@@ -190,8 +218,6 @@ if data.raw.item["tungsten-pipe"] then
 	bobmods.lib.add_recipe_item ("boiler-4", {"tungsten-pipe", 5})
 end
 
-
-
 if data.raw.item["steel-bearing"] then
 	bobmods.lib.add_new_recipe_item ("steam-engine-2", {"steel-bearing", 20})
 else
@@ -201,7 +227,6 @@ end
 if data.raw.item["steel-gear-wheel"] then
 	bobmods.lib.replace_recipe_item ("steam-engine-2", "iron-gear-wheel", "steel-gear-wheel")
 end
-
 
 if data.raw.item["titanium-bearing"] then
 	bobmods.lib.add_new_recipe_item ("steam-engine-3", {"titanium-bearing", 10})

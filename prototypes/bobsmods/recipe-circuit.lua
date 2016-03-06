@@ -27,7 +27,6 @@ update_recipe("basic-electronic-components",
 })
 update_recipe("circuit-board",
 {
-	energy_required = 3,
 	ingredients = {
 		{type="item", name="phenolic-board", amount=1},
 		{type="item", name="copper-plate", amount=4},
@@ -43,7 +42,7 @@ update_recipe("electronic-circuit",
 		{type="item", name="basic-electronic-components", amount=10},
 	}
 })
-update_recipe("electronic-circuit",
+update_recipe("electronic-components",
 {
 	energy_required = 7,
 	ingredients = {
@@ -106,11 +105,15 @@ update_recipe("processing-unit",
 		{"intergrated-electronics", 4},
 	}
 })
-update_recipe("solder-alloy",
-{
-	energy_required = 4,
-	result_count = 4
-})
+
+if data.raw.item["solder-alloy"] then
+	update_recipe("solder",
+	{
+		energy_required = 4,
+		result_count = 4
+	})
+end
+
 update_recipe("superior-circuit-board",
 {
 	ingredients = {

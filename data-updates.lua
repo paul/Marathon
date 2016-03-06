@@ -17,4 +17,10 @@ if bobmods and bobmods.config then
 	require("prototypes.bobsmods.recipe-resource")
 	require("prototypes.bobsmods.recipe-smelting")
 	require("prototypes.bobsmods.recipe-turret")
+	
+	print("Debug marathon")
+	print("Num recipes: " .. #data.raw.recipe)
+	for name, recipe in pairs(data.raw.recipe) do
+		print("recipe: " .. name .. " | " .. serpent.line(recipe))
+	end
 end

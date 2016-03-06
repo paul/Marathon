@@ -8,6 +8,7 @@ update_recipe("alumina",
 		{type="item", name="bauxite-ore", amount=2},
 	}
 })
+
 if bobmods.config.plates.BatteryUpdate then
 	update_recipe("battery",
 	{
@@ -18,6 +19,7 @@ if bobmods.config.plates.BatteryUpdate then
 		}
 	})
 end
+
 update_recipe("coal-cracking",
 {
 	energy_required = 6,
@@ -29,6 +31,7 @@ update_recipe("coal-cracking",
 		{type="fluid", name="heavy-oil", amount=0.8}
 	}
 })
+
 update_recipe("ferric-chloride-solution",
 {
 	energy_required = 5,
@@ -36,31 +39,28 @@ update_recipe("ferric-chloride-solution",
 		{type="fluid", name="ferric-chloride-solution", amount=3}
 	}
 })
+
 update_recipe("liquid-fuel",
 {
 	energy_required = 3,
-	results = {
+	ingredients = {
 		{type="fluid", name="light-oil", amount=3}
 	}
 })
+
 update_recipe("lithium-chloride",
 {
 	energy_required = 2,
-	results = {
+	ingredients = {
 		{type="fluid", name="lithia-water", amount=5}
 	}
 })
-update_recipe("lithium-chloride",
-{
-	energy_required = 2,
-	results = {
-		{type="fluid", name="lithia-water", amount=5}
-	}
-})
+
 update_recipe("sulfur-2",
 {
 	energy_required = 1.5
 })
+
 update_recipe("sulfuric-acid-2",
 {
 	ingredients = {
