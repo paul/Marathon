@@ -22,7 +22,7 @@ Expect the following:
 
 Mod compatibility
 =================
-This mod has not been tested with any other mod. If it works the balance will likely be completely off thus it's not suggested.
+This mod has been tested with bobs mods, and works intended. Other then that this mod's compatibility hasn't been tested, if it works the balance will likely be completely off thus it's not suggested.
 
 Contributing
 ============
