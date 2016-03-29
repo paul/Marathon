@@ -25,6 +25,22 @@ if data.raw.item["silicon-nitride"] then
 	})
 end
 
+update_recipe("cobalt-oxide-from-copper",
+{
+	energy_required = 37.5,
+	ingredients = {
+		{type = "item", name = "copper-ore", amount = 7},
+		{type = "item", name = "stone", amount = 2},
+		{type = "item", name = "coal", amount = 2},
+		{type = "fluid", name = "hydrogen", amount = 2},
+	},
+	results=
+	{
+		{type = "item", name = "copper-plate", amount = 50},
+		{type = "item", name = "cobalt-oxide", amount = 2},
+	},
+})
+
 update_recipe("lithium-ion-battery",
 {
 	energy_required = 1.5,
