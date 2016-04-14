@@ -17,7 +17,7 @@ data:extend({
 
     energy_required = 10,
     ingredients = {
-      {"copper-plate", 30},
+      {"copper-plate", 40},
       {"iron-gear-wheel", 5},
     },
     result = "science-pack-1",
