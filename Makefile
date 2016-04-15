@@ -1,4 +1,4 @@
-VERSION := 1.0.2
+VERSION := 1.0.3
 NAME := marathon
 
 all: clean build install_mod

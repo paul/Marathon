@@ -1,5 +1,5 @@
 if data.raw.item["brass-alloy"] then
-	update_recipe("brass-gear-wheel",
+	marathon.update_recipe("brass-gear-wheel",
 	{
 		energy_required = 1.5,
 		ingredients = {
@@ -9,7 +9,7 @@ if data.raw.item["brass-alloy"] then
 end
 
 if data.raw.item["silicon-nitride"] then
-	update_recipe("ceramic-bearing",
+	marathon.update_recipe("ceramic-bearing",
 	{
 		energy_required = 1.5,
 		ingredients = {
@@ -19,13 +19,13 @@ if data.raw.item["silicon-nitride"] then
 		}
 	})
 
-	update_recipe("ceramic-bearing-ball",
+	marathon.update_recipe("ceramic-bearing-ball",
 	{
 		result_count = 8
 	})
 end
 
-update_recipe("cobalt-oxide-from-copper",
+marathon.update_recipe("cobalt-oxide-from-copper",
 {
 	energy_required = 37.5,
 	ingredients = {
@@ -41,7 +41,7 @@ update_recipe("cobalt-oxide-from-copper",
 	},
 })
 
-update_recipe("lithium-ion-battery",
+marathon.update_recipe("lithium-ion-battery",
 {
 	energy_required = 1.5,
 	ingredients = {
@@ -53,8 +53,8 @@ update_recipe("lithium-ion-battery",
 })
 
 if data.raw.item["nitinol-alloy"] then
-	
-	update_recipe("nitinol-bearing",
+
+	marathon.update_recipe("nitinol-bearing",
 	{
 		energy_required = 1.5,
 		ingredients = {
@@ -63,13 +63,13 @@ if data.raw.item["nitinol-alloy"] then
 		  	{type="fluid", name="lubricant", amount=2}
 		}
 	})
-	
-	update_recipe("nitinol-bearing-ball",
+
+	marathon.update_recipe("nitinol-bearing-ball",
 	{
 		result_count = 8
 	})
 
-	update_recipe("nitinol-gear-wheel",
+	marathon.update_recipe("nitinol-gear-wheel",
 	{
 		energy_required = 1.5,
 		ingredients = {
@@ -78,12 +78,12 @@ if data.raw.item["nitinol-alloy"] then
 	})
 end
 
-update_recipe("silver-zinc-battery",
+marathon.update_recipe("silver-zinc-battery",
 {
 	energy_required = 3
 })
 
-update_recipe("steel-bearing",
+marathon.update_recipe("steel-bearing",
 {
 	energy_required = 1.5,
 	ingredients = {
@@ -92,12 +92,12 @@ update_recipe("steel-bearing",
 	}
 })
 
-update_recipe("steel-bearing-ball",
+marathon.update_recipe("steel-bearing-ball",
 {
 	result_count = 8
 })
 
-update_recipe("steel-gear-wheel",
+marathon.update_recipe("steel-gear-wheel",
 {
 	energy_required = 1.5,
 	ingredients = {
@@ -106,7 +106,7 @@ update_recipe("steel-gear-wheel",
 })
 
 if data.raw.item["titanium-plate"] then
-	update_recipe("titanium-bearing",
+	marathon.update_recipe("titanium-bearing",
 	{
 		energy_required = 1.5,
 		ingredients = {
@@ -116,12 +116,12 @@ if data.raw.item["titanium-plate"] then
 		}
 	})
 
-	update_recipe("titanium-bearing-ball",
+	marathon.update_recipe("titanium-bearing-ball",
 	{
 		result_count = 8
 	})
 
-	update_recipe("titanium-gear-wheel",
+	marathon.update_recipe("titanium-gear-wheel",
 	{
 		energy_required = 1.5,
 		ingredients = {
@@ -131,7 +131,7 @@ if data.raw.item["titanium-plate"] then
 end
 
 if data.raw.item["tungsten-plate"] then
-	update_recipe("tungsten-gear-wheel",
+	marathon.update_recipe("tungsten-gear-wheel",
 	{
 		energy_required = 1.5,
 		ingredients = {

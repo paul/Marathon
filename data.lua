@@ -10,3 +10,5 @@ require("prototypes.recipe-production")
 require("prototypes.recipe-science")
 require("prototypes.recipe-smelting")
 require("prototypes.recipe-weapon")
+
+marathon = {}

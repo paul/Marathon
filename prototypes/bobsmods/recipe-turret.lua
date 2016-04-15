@@ -1,4 +1,4 @@
-update_recipe("bob-gun-turret-2",
+marathon.update_recipe("bob-gun-turret-2",
 {
 	energy_required = 10,
 	ingredients = {
@@ -8,7 +8,7 @@ update_recipe("bob-gun-turret-2",
 	}
 })
 
-update_recipe("bob-sniper-turret-1",
+marathon.update_recipe("bob-sniper-turret-1",
 {
 	energy_required = 40,
 	ingredients = {
@@ -18,7 +18,7 @@ update_recipe("bob-sniper-turret-1",
 	}
 })
 
-update_recipe("bob-sniper-turret-2",
+marathon.update_recipe("bob-sniper-turret-2",
 {
 	energy_required = 30,
 	ingredients = {

@@ -1,4 +1,4 @@
-update_recipe("air-pump",
+marathon.update_recipe("air-pump",
 {
 	energy_required = 5,
 	ingredients = {
@@ -9,7 +9,7 @@ update_recipe("air-pump",
 	}
 })
 
-update_recipe("air-pump-2",
+marathon.update_recipe("air-pump-2",
 {
 	ingredients = {
 		{type="item", name="air-pump", amount=1},
@@ -20,7 +20,7 @@ update_recipe("air-pump-2",
 	}
 })
 
-update_recipe("chemical-plant",
+marathon.update_recipe("chemical-plant",
 {
 	ingredients = {
 		{type="item", name="steel-plate", amount=20},
@@ -30,7 +30,7 @@ update_recipe("chemical-plant",
 	}
 })
 
-update_recipe("chemical-plant-2",
+marathon.update_recipe("chemical-plant-2",
 {
 	ingredients = {
 		{type="item", name="chemical-plant", amount=1},
@@ -42,7 +42,7 @@ update_recipe("chemical-plant-2",
 	}
 })
 
-update_recipe("electrolyser",
+marathon.update_recipe("electrolyser",
 {
 	ingredients = {
 		{type="item", name="stone-brick", amount=10},
@@ -51,7 +51,7 @@ update_recipe("electrolyser",
 	}
 })
 
-update_recipe("electrolyser-2",
+marathon.update_recipe("electrolyser-2",
 {
 	ingredients = {
 		{type="item", name="electrolyser", amount=1},
@@ -62,7 +62,7 @@ update_recipe("electrolyser-2",
 	}
 })
 
-update_recipe("water-pump",
+marathon.update_recipe("water-pump",
 {
 	energy_required = 7,
 	ingredients = {
@@ -73,7 +73,7 @@ update_recipe("water-pump",
 	}
 })
 
-update_recipe("water-pump-2",
+marathon.update_recipe("water-pump-2",
 {
 	ingredients = {
 		{type="item", name="water-pump", amount=1},
@@ -84,7 +84,7 @@ update_recipe("water-pump-2",
 	}
 })
 
-update_recipe("void-pump",
+marathon.update_recipe("void-pump",
 {
 	ingredients = {
 		{type="item", name="iron-plate", amount=10},
@@ -95,28 +95,28 @@ update_recipe("void-pump",
 })
 
 if data.raw.item["basic-circuit-board"] then
-	bobmods.lib.replace_recipe_item ("electrolyser", "electronic-circuit", "basic-circuit-board")
+	marathon.replace_recipe_item("electrolyser", "electronic-circuit", "basic-circuit-board")
 end
 
 if data.raw.item["steel-pipe"] then
-	bobmods.lib.replace_recipe_item ("chemical-plant-2", "pipe", "steel-pipe")
+	marathon.replace_recipe_item("chemical-plant-2", "pipe", "steel-pipe")
 end
 
 if data.raw.item["stone-pipe"] then
-	bobmods.lib.replace_recipe_item ("electrolyser", "pipe", "stone-pipe")
+	marathon.replace_recipe_item("electrolyser", "pipe", "stone-pipe")
 end
 
 if data.raw.item["plastic-pipe"] then
-	bobmods.lib.replace_recipe_item ("electrolyser-2", "pipe", "plastic-pipe")
+	marathon.replace_recipe_item("electrolyser-2", "pipe", "plastic-pipe")
 end
 
 if data.raw.item["copper-pipe"] then
-	bobmods.lib.replace_recipe_item ("air-pump", "pipe", "copper-pipe")
-	bobmods.lib.replace_recipe_item ("water-pump", "pipe", "copper-pipe")
-	bobmods.lib.replace_recipe_item ("void-pump", "pipe", "copper-pipe")
+	marathon.replace_recipe_item("air-pump", "pipe", "copper-pipe")
+	marathon.replace_recipe_item("water-pump", "pipe", "copper-pipe")
+	marathon.replace_recipe_item("void-pump", "pipe", "copper-pipe")
 end
 
 if data.raw.item["bronze-pipe"] then
-	bobmods.lib.replace_recipe_item ("air-pump-2", "pipe", "bronze-pipe")
-	bobmods.lib.replace_recipe_item ("water-pump-2", "pipe", "bronze-pipe")
+	marathon.replace_recipe_item("air-pump-2", "pipe", "bronze-pipe")
+	marathon.replace_recipe_item("water-pump-2", "pipe", "bronze-pipe")
 end

@@ -1,4 +1,4 @@
-update_recipe("bob-resin-oil",
+marathon.update_recipe("bob-resin-oil",
 {
 	energy_required = 2.5,
 	ingredients = {
@@ -6,12 +6,12 @@ update_recipe("bob-resin-oil",
 	}
 })
 
-update_recipe("bob-resin-wood",
+marathon.update_recipe("bob-resin-wood",
 {
 	energy_required = 5
 })
 
-update_recipe("bob-rubber",
+marathon.update_recipe("bob-rubber",
 {
 	energy_required = 7,
 	ingredients = {
@@ -19,12 +19,12 @@ update_recipe("bob-rubber",
 	}
 })
 
-update_recipe("empty-canister",
+marathon.update_recipe("empty-canister",
 {
 	result_count = 1
 })
 
-update_recipe("gas-canister",
+marathon.update_recipe("gas-canister",
 {
 	energy_required = 2,
 	ingredients = {
@@ -32,12 +32,12 @@ update_recipe("gas-canister",
 	}
 })
 
-update_recipe("silicon-wafer",
+marathon.update_recipe("silicon-wafer",
 {
 	result_count = 6
 })
 
-update_recipe("solid-fuel-from-hydrogen",
+marathon.update_recipe("solid-fuel-from-hydrogen",
 {
 	energy_required = 5,
 	ingredients = {

@@ -1,5 +1,5 @@
 
-update_recipe("alumina",
+marathon.update_recipe("alumina",
 {
 	energy_required = 6,
 	result_count = 6,
@@ -9,8 +9,8 @@ update_recipe("alumina",
 	}
 })
 
-if bobmods.config.plates.BatteryUpdate then
-	update_recipe("battery",
+if bobmods.config.plates.BatteryUpdate and data.raw.item["lead-plate"] and data.raw.item["sulfuric-acid"] then
+	marathon.update_recipe("battery",
 	{
 		ingredients = {
 			{type="item", name="lead-plate", amount=4},
@@ -20,7 +20,7 @@ if bobmods.config.plates.BatteryUpdate then
 	})
 end
 
-update_recipe("coal-cracking",
+marathon.update_recipe("coal-cracking",
 {
 	energy_required = 6,
 	ingredients = {
@@ -32,7 +32,7 @@ update_recipe("coal-cracking",
 	}
 })
 
-update_recipe("ferric-chloride-solution",
+marathon.update_recipe("ferric-chloride-solution",
 {
 	energy_required = 5,
 	results = {
@@ -40,7 +40,7 @@ update_recipe("ferric-chloride-solution",
 	}
 })
 
-update_recipe("liquid-fuel",
+marathon.update_recipe("liquid-fuel",
 {
 	energy_required = 3,
 	ingredients = {
@@ -48,7 +48,7 @@ update_recipe("liquid-fuel",
 	}
 })
 
-update_recipe("lithium-chloride",
+marathon.update_recipe("lithium-chloride",
 {
 	energy_required = 2,
 	ingredients = {
@@ -56,12 +56,12 @@ update_recipe("lithium-chloride",
 	}
 })
 
-update_recipe("sulfur-2",
+marathon.update_recipe("sulfur-2",
 {
 	energy_required = 1.5
 })
 
-update_recipe("sulfuric-acid-2",
+marathon.update_recipe("sulfuric-acid-2",
 {
 	ingredients = {
 		{type="fluid", name="water", amount=1},

@@ -1,6 +1,6 @@
 {
   "name": "marathon",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "title": "Marathon Mod",
   "author": "Benoit Girard & Afforess",
   "contributors": ["Wulfson", "KeepOnDigging", "gheift"],
@@ -20,5 +20,5 @@
     "? bobpower >= 0.12.6",
     "? bobtech >= 0.12.4",
     "? bobwarfare >= 0.12.9"
-    ] 
+    ]
 }

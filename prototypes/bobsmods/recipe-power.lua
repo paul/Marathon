@@ -1,4 +1,4 @@
-update_recipe("boiler-2",
+marathon.update_recipe("boiler-2",
 {
 	ingredients = {
 		{type="item", name="boiler", amount=1},
@@ -6,7 +6,7 @@ update_recipe("boiler-2",
 	}
 })
 
-update_recipe("boiler-3",
+marathon.update_recipe("boiler-3",
 {
 	ingredients = {
 		{type="item", name="boiler-2", amount=1},
@@ -14,7 +14,7 @@ update_recipe("boiler-3",
 	}
 })
 
-update_recipe("boiler-4",
+marathon.update_recipe("boiler-4",
 {
 	ingredients = {
 		{type="item", name="boiler-3", amount=1},
@@ -22,7 +22,7 @@ update_recipe("boiler-4",
 	}
 })
 
-update_recipe("fast-accumulator",
+marathon.update_recipe("fast-accumulator",
 {
 	energy_required = 20,
 	ingredients = {
@@ -32,7 +32,7 @@ update_recipe("fast-accumulator",
 	}
 })
 
-update_recipe("fast-accumulator-2",
+marathon.update_recipe("fast-accumulator-2",
 {
 	energy_required = 20,
 	ingredients = {
@@ -43,7 +43,7 @@ update_recipe("fast-accumulator-2",
 	}
 })
 
-update_recipe("fast-accumulator-3",
+marathon.update_recipe("fast-accumulator-3",
 {
 	energy_required = 20,
 	ingredients = {
@@ -54,7 +54,7 @@ update_recipe("fast-accumulator-3",
 	}
 })
 
-update_recipe("large-accumulator",
+marathon.update_recipe("large-accumulator",
 {
 	energy_required = 20,
 	ingredients = {
@@ -63,7 +63,7 @@ update_recipe("large-accumulator",
 	}
 })
 
-update_recipe("large-accumulator-2",
+marathon.update_recipe("large-accumulator-2",
 {
 	energy_required = 20,
 	ingredients = {
@@ -74,7 +74,7 @@ update_recipe("large-accumulator-2",
 	}
 })
 
-update_recipe("large-accumulator-3",
+marathon.update_recipe("large-accumulator-3",
 {
 	energy_required = 20,
 	ingredients = {
@@ -85,7 +85,7 @@ update_recipe("large-accumulator-3",
 	}
 })
 
-update_recipe("slow-accumulator",
+marathon.update_recipe("slow-accumulator",
 {
 	energy_required = 20,
 	ingredients = {
@@ -95,7 +95,7 @@ update_recipe("slow-accumulator",
 	}
 })
 
-update_recipe("slow-accumulator-2",
+marathon.update_recipe("slow-accumulator-2",
 {
 	energy_required = 20,
 	ingredients = {
@@ -106,7 +106,7 @@ update_recipe("slow-accumulator-2",
 	}
 })
 
-update_recipe("slow-accumulator-3",
+marathon.update_recipe("slow-accumulator-3",
 {
 	energy_required = 20,
 	ingredients = {
@@ -117,7 +117,7 @@ update_recipe("slow-accumulator-3",
 	}
 })
 
-update_recipe("solar-panel",
+marathon.update_recipe("solar-panel",
 {
 	energy_required = 20,
 	ingredients = {
@@ -127,7 +127,7 @@ update_recipe("solar-panel",
 	}
 })
 
-update_recipe("solar-panel-large",
+marathon.update_recipe("solar-panel-large",
 {
 	energy_required = 40,
 	ingredients = {
@@ -137,7 +137,7 @@ update_recipe("solar-panel-large",
 	}
 })
 
-update_recipe("solar-panel-small",
+marathon.update_recipe("solar-panel-small",
 {
 	energy_required = 10,
 	ingredients = {
@@ -147,7 +147,7 @@ update_recipe("solar-panel-small",
 	}
 })
 
-update_recipe("steam-engine-2",
+marathon.update_recipe("steam-engine-2",
 {
 	energy_required = 45,
 	ingredients = {
@@ -157,7 +157,7 @@ update_recipe("steam-engine-2",
 	}
 })
 
-update_recipe("steam-engine-3",
+marathon.update_recipe("steam-engine-3",
 {
 	energy_required = 30,
 	ingredients = {
@@ -169,91 +169,91 @@ update_recipe("steam-engine-3",
 })
 
 if data.raw.item["lithium-ion-battery"] then
-	bobmods.lib.replace_recipe_item ("large-accumulator-2", "battery", "lithium-ion-battery")
-	bobmods.lib.replace_recipe_item ("fast-accumulator-2", "battery", "lithium-ion-battery")
-	bobmods.lib.replace_recipe_item ("slow-accumulator-2", "battery", "lithium-ion-battery")
+	marathon.replace_recipe_item("large-accumulator-2", "battery", "lithium-ion-battery")
+	marathon.replace_recipe_item("fast-accumulator-2", "battery", "lithium-ion-battery")
+	marathon.replace_recipe_item("slow-accumulator-2", "battery", "lithium-ion-battery")
 end
 
 if data.raw.item["titanium-plate"] then
-	bobmods.lib.replace_recipe_item ("large-accumulator-3", "steel-plate", "titanium-plate")
-	bobmods.lib.replace_recipe_item ("fast-accumulator-3", "steel-plate", "titanium-plate")
-	bobmods.lib.replace_recipe_item ("slow-accumulator-3", "steel-plate", "titanium-plate")
+	marathon.replace_recipe_item("large-accumulator-3", "steel-plate", "titanium-plate")
+	marathon.replace_recipe_item("fast-accumulator-3", "steel-plate", "titanium-plate")
+	marathon.replace_recipe_item("slow-accumulator-3", "steel-plate", "titanium-plate")
 else
 	if data.raw.item["aluminium-plate"] then
-		bobmods.lib.replace_recipe_item ("large-accumulator-3", "steel-plate", "aluminium-plate")
-		bobmods.lib.replace_recipe_item ("fast-accumulator-3", "steel-plate", "aluminium-plate")
-		bobmods.lib.replace_recipe_item ("slow-accumulator-3", "steel-plate", "aluminium-plate")
+		marathon.replace_recipe_item("large-accumulator-3", "steel-plate", "aluminium-plate")
+		marathon.replace_recipe_item("fast-accumulator-3", "steel-plate", "aluminium-plate")
+		marathon.replace_recipe_item("slow-accumulator-3", "steel-plate", "aluminium-plate")
 	end
 end
 
 if data.raw.item["silver-zinc-battery"] then
-	bobmods.lib.replace_recipe_item ("large-accumulator-3", "battery", "silver-zinc-battery")
-	bobmods.lib.replace_recipe_item ("fast-accumulator-3", "battery", "silver-zinc-battery")
-	bobmods.lib.replace_recipe_item ("slow-accumulator-3", "battery", "silver-zinc-battery")
+	marathon.replace_recipe_item("large-accumulator-3", "battery", "silver-zinc-battery")
+	marathon.replace_recipe_item("fast-accumulator-3", "battery", "silver-zinc-battery")
+	marathon.replace_recipe_item("slow-accumulator-3", "battery", "silver-zinc-battery")
 else
 	if data.raw.item["lithium-ion-battery"] then
-		bobmods.lib.replace_recipe_item ("large-accumulator-3", "battery", "lithium-ion-battery")
-		bobmods.lib.replace_recipe_item ("fast-accumulator-3", "battery", "lithium-ion-battery")
-		bobmods.lib.replace_recipe_item ("slow-accumulator-3", "battery", "lithium-ion-battery")
+		marathon.replace_recipe_item("large-accumulator-3", "battery", "lithium-ion-battery")
+		marathon.replace_recipe_item("fast-accumulator-3", "battery", "lithium-ion-battery")
+		marathon.replace_recipe_item("slow-accumulator-3", "battery", "lithium-ion-battery")
 	end
 end
 
 if data.raw.item["steel-pipe"] then
-	bobmods.lib.add_recipe_item ("boiler-2", {"steel-pipe", 10})
+	marathon.add_recipe_item("boiler-2", {"steel-pipe", 10})
 end
 
 if data.raw.item["invar-alloy"] then
-	bobmods.lib.replace_recipe_item ("boiler-3", "steel-plate", "invar-alloy")
+	marathon.replace_recipe_item("boiler-3", "steel-plate", "invar-alloy")
 end
 
 if data.raw.item["brass-pipe"] then
-	bobmods.lib.add_recipe_item ("boiler-3", {"brass-pipe", 10})
+	marathon.add_recipe_item("boiler-3", {"brass-pipe", 10})
 end
 
 if data.raw.item["tungsten-plate"] then
-	bobmods.lib.replace_recipe_item ("boiler-4", "steel-plate", "tungsten-plate")
+	marathon.replace_recipe_item("boiler-4", "steel-plate", "tungsten-plate")
 end
 
 if data.raw.item["tungsten-pipe"] then
-	bobmods.lib.add_recipe_item ("boiler-4", {"tungsten-pipe", 5})
+	marathon.add_recipe_item("boiler-4", {"tungsten-pipe", 5})
 end
 
 if data.raw.item["steel-bearing"] then
-	bobmods.lib.add_new_recipe_item ("steam-engine-2", {"steel-bearing", 20})
+	marathon.add_new_recipe_item("steam-engine-2", {"steel-bearing", 20})
 else
-	bobmods.lib.add_new_recipe_item ("steam-engine-2", {"iron-gear-wheel", 30})
+	marathon.add_new_recipe_item("steam-engine-2", {"iron-gear-wheel", 30})
 end
 
 if data.raw.item["steel-gear-wheel"] then
-	bobmods.lib.replace_recipe_item ("steam-engine-2", "iron-gear-wheel", "steel-gear-wheel")
+	marathon.replace_recipe_item("steam-engine-2", "iron-gear-wheel", "steel-gear-wheel")
 end
 
 if data.raw.item["titanium-bearing"] then
-	bobmods.lib.add_new_recipe_item ("steam-engine-3", {"titanium-bearing", 10})
+	marathon.add_new_recipe_item("steam-engine-3", {"titanium-bearing", 10})
 else
 	if data.raw.item["steel-bearing"] then
-		bobmods.lib.add_new_recipe_item ("steam-engine-3", {"steel-bearing", 10})
+		marathon.add_new_recipe_item("steam-engine-3", {"steel-bearing", 10})
 	else
-		bobmods.lib.add_new_recipe_item ("steam-engine-3", {"iron-gear-wheel", 20})
+		marathon.add_new_recipe_item("steam-engine-3", {"iron-gear-wheel", 20})
 	end
 end
 
 if data.raw.item["titanium-gear-wheel"] then
-	bobmods.lib.replace_recipe_item ("steam-engine-3", "iron-gear-wheel", "titanium-gear-wheel")
+	marathon.replace_recipe_item("steam-engine-3", "iron-gear-wheel", "titanium-gear-wheel")
 else
 	if data.raw.item["tungsten-gear-wheel"] then
-		bobmods.lib.replace_recipe_item ("steam-engine-3", "iron-gear-wheel", "tungsten-gear-wheel")
+		marathon.replace_recipe_item("steam-engine-3", "iron-gear-wheel", "tungsten-gear-wheel")
 	else
 		if data.raw.item["steel-gear-wheel"] then
-			bobmods.lib.replace_recipe_item ("steam-engine-3", "iron-gear-wheel", "steel-gear-wheel")
+			marathon.replace_recipe_item("steam-engine-3", "iron-gear-wheel", "steel-gear-wheel")
 		end
 	end
 end
 
 if data.raw.item["titanium-plate"] then
-	bobmods.lib.replace_recipe_item ("steam-engine-3", "steel-plate", "titanium-plate")
+	marathon.replace_recipe_item("steam-engine-3", "steel-plate", "titanium-plate")
 else
 	if data.raw.item["tungsten-plate"] then
-		bobmods.lib.replace_recipe_item ("steam-engine-3", "steel-plate", "tungsten-plate")
+		marathon.replace_recipe_item("steam-engine-3", "steel-plate", "tungsten-plate")
 	end
 end
