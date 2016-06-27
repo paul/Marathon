@@ -17,25 +17,25 @@ data:extend({
 
   {
     type = "recipe",
-    name = "basic-transport-belt",
+    name = "transport-belt",
 
     ingredients = {
       {"iron-plate", 2},
       {"iron-gear-wheel", 1},
     },
-    result = "basic-transport-belt",
+    result = "transport-belt",
     result_count = 2,
   },
   {
     type = "recipe",
-    name = "basic-inserter",
+    name = "inserter",
 
     ingredients = {
       {"electronic-circuit", 1},
       {"iron-gear-wheel", 1},
       {"iron-plate", 2},
     },
-    result = "basic-inserter",
+    result = "inserter",
   },
   {
     type = "recipe",
@@ -55,7 +55,7 @@ data:extend({
     ingredients = {
       {"iron-gear-wheel", 1},
       {"iron-plate", 5},
-      {"basic-inserter", 1},
+      {"inserter", 1},
     },
     result = "long-handed-inserter",
   },
@@ -81,7 +81,7 @@ data:extend({
 
   {
     type = "recipe",
-    name = "straight-rail",
+    name = "rail",
     enabled = false,
 
     ingredients = {
@@ -89,23 +89,10 @@ data:extend({
       {"iron-stick", 2},
       {"steel-plate", 1},
     },
-    result = "straight-rail",
+    result = "rail",
     result_count = 2,
+    requester_paste_multiplier = 4
   },
-  {
-    type = "recipe",
-    name = "curved-rail",
-    enabled = false,
-
-    ingredients = {
-      {"stone", 8},
-      {"iron-stick", 8},
-      {"steel-plate", 4},
-    },
-    result = "curved-rail",
-    result_count = 2,
-  },
-
   {
     type = "recipe",
     name = "medium-electric-pole",

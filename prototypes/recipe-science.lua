@@ -7,7 +7,7 @@ data:extend({
     ingredients = {
       {"electronic-circuit", 25},
       {"iron-gear-wheel", 25},
-      {"basic-transport-belt", 20},
+      {"transport-belt", 20},
     },
     result = "lab",
   },
@@ -28,8 +28,8 @@ data:extend({
 
     energy_required = 15,
     ingredients = {
-      {"basic-inserter", 5},
-      {"basic-transport-belt", 5},
+      {"inserter", 5},
+      {"transport-belt", 5},
     },
     result = "science-pack-2",
   },
@@ -42,7 +42,7 @@ data:extend({
     ingredients = {
       {"battery", 5},
       {"advanced-circuit", 5},
-      {"smart-inserter", 5},
+      {"filter-inserter", 5},
       {"steel-plate", 5},
     },
     result = "science-pack-3",

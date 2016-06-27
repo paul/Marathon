@@ -1,16 +1,16 @@
 data:extend({
   {
     type = "recipe",
-    name = "basic-bullet-magazine",
+    name = "firearm-magazine",
 
     energy_required = 2,
     ingredients = {{"iron-plate", 5}},
-    result = "basic-bullet-magazine",
+    result = "firearm-magazine",
     result_count = 1,
   },
   {
     type = "recipe",
-    name = "piercing-bullet-magazine",
+    name = "piercing-rounds-magazine",
     enabled = false,
 
     energy_required = 3,
@@ -18,7 +18,7 @@ data:extend({
       {"copper-plate", 25},
       {"steel-plate", 1},
     },
-    result = "piercing-bullet-magazine",
+    result = "piercing-rounds-magazine",
   },
   {
     type = "recipe",

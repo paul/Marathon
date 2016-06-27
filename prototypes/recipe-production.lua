@@ -13,7 +13,7 @@ data:extend({
   },
   {
     type = "recipe",
-    name = "basic-mining-drill",
+    name = "electric-mining-drill",
 
     energy_required = 10,
     ingredients = {
@@ -21,7 +21,7 @@ data:extend({
       {"iron-gear-wheel", 25},
       {"iron-plate", 100},
     },
-    result = "basic-mining-drill",
+    result = "electric-mining-drill",
   },
   {
     type = "recipe",
@@ -97,7 +97,7 @@ data:extend({
   },
   {
     type = "recipe",
-    name = "basic-accumulator",
+    name = "accumulator",
     enabled = false,
 
     energy_required = 20,
@@ -105,6 +105,6 @@ data:extend({
       {"iron-plate", 10},
       {"battery", 10},
     },
-    result = "basic-accumulator",
+    result = "accumulator",
   },
 })

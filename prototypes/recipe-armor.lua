@@ -1,12 +1,12 @@
 data:extend({
   {
     type = "recipe",
-    name = "basic-armor",
+    name = "light-armor",
     enabled = false,
 
     energy_required = 3,
     ingredients = {{"iron-plate", 100}},
-    result = "basic-armor",
+    result = "light-armor",
   },
   {
     type = "recipe",
