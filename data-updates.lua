@@ -1,5 +1,4 @@
 
-log(serpent.dump(data.raw['recipe']))
 function marathon.update_recipe(name, values)
 	local recipe = data.raw.recipe[name]
 	if recipe then
