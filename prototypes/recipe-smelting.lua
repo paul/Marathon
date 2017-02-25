@@ -8,7 +8,8 @@ local recipes
 -- slow down all smelting
 marathomaton.slowdown_recipe_category({['smelting']=2.0})
 -- dont slow iron down that much since it's getting exploded below
-multiply('__time__', 0.4, i2r({'iron-plate'}))
+multiply('__time__', 0.5, i2r({'iron-plate'}))
+multiply('__time__', 0.9, i2r({'copper-plate'}))
 
 -- create smelting bottlenecks 
 marathomaton.modify_all_yields(2.5, 'iron-plate')
