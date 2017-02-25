@@ -5,8 +5,8 @@
   "title": "Marathon Mod Made Auto",
   "author": "Benoit Girard & Afforess",
   "contributors": ["Wulfson", "KeepOnDigging", "gheift", "boweiliu"],
-  "homepage": "http://www.factorioforums.com/forum/viewtopic.php?f=91&t=13567",
-  "description": "Automatically increases the resource costs of most recipes causing a marathon game. The will require the players to scale a larger factory and use rail to reach the end game. Incompatible with marathon mod.",
+  "homepage": "",
+  "description": "Automatically increases the resource costs of most recipes causing a marathon game. The will require the players to scale a larger factory and use rail to reach the end game. WARNING: Incompatible with marathon mod.",
   "dependencies": [
     "base >= 0.14.0",
     "? bobassembly >= 0.12.7",
