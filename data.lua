@@ -150,12 +150,12 @@ function marathomaton.modify_recipe(ingredient, multiplier, _recipe_names)
             result_name = recipe_obj.main_product
           end
           if result_name == nil then
-            result_name = recipe_obj.results and recipe_obj.results[0] and recipe_obj.results[0].name
+            result_name = recipe_obj.results and recipe_obj.results[1] and recipe_obj.results[1].name
           end
-          if result_name == nil then
-            log("Couldnt upgrade recipe : " .. serpent.block(recipe_obj))
+          if result_name == nil or ingredient_name == nil or data.raw.item[ingredient_name] == nil or data.raw.item[result_name] == nil then
+            log("Couldnt upgrade recipe for " .. ingredient_name ..  " : " .. serpent.block(recipe_obj))
           end
-          if result_name ~= nil and data.raw.item[ingredient_name].subgroup == data.raw.item[result_name].subgroup and data.raw.item[ingredient_name].place_result ~= nil then
+          if result_name and ingredient_name and data.raw.item[ingredient_name] and data.raw.item[result_name] and data.raw.item[ingredient_name].subgroup == data.raw.item[result_name].subgroup and data.raw.item[ingredient_name].place_result ~= nil then
             return false
           else
             return true
@@ -258,7 +258,7 @@ function marathomaton.modify_all_yields(multiplier, item)
     if fixup_flag == true then
       -- double every ingredient, time, yield of recipe_obj
       marathomaton.multiply({'__inputs__', '__time__', '__yield__'}, 2.0, recipe_name)
-      log('succesfully exploded ' .. recipe_name .. '!\n' .. serpent.block(recipe_obj))
+      -- log('succesfully exploded ' .. recipe_name .. '!\n' .. serpent.block(recipe_obj))
     end
   end
 end
