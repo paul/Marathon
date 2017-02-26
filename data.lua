@@ -144,8 +144,15 @@ function marathomaton.modify_recipe(ingredient, multiplier, _recipe_names)
           return true
         elseif ingredient == '__upgrade__' then
           -- only skip (i.e. return false) the item which shares the same subgroup and is placable
-          -- todo handle multiple results?
-          if recipe_obj.result ~= nil and data.raw.item[ingredient_name].subgroup == data.raw.item[recipe_obj.result].subgroup and data.raw.item[ingredient_name].place_result ~= nil then
+          -- handle multiple results: identify the "main" result and just use that
+          local result_name = recipe_obj.result 
+          if result_name == nil then
+            result_name = recipe_obj.main_product
+          end
+          if result_name == nil then
+            result_name = recipe_obj.results[0].name
+          end
+          if recipe_obj.result ~= nil and data.raw.item[ingredient_name].subgroup == data.raw.item[result_name].subgroup and data.raw.item[ingredient_name].place_result ~= nil then
             return false
           else
             return true
