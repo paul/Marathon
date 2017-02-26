@@ -1,13 +1,13 @@
 #!/bin/bash
 
-VERSION=0.1.0
+VERSION=0.1.1
 CURDIR=`pwd`
 TMPDIR=`mktemp -d /tmp/temp.XXXX`
 echo "$TMPDIR"
 mkdir -p "$TMPDIR"/marathomaton_"$VERSION"
 cp -r . "$TMPDIR"/marathomaton_"$VERSION"
 rm -rf "$TMPDIR"/marathomaton_"$VERSION"/.git
-rm -rf "$TMPDIR"/marathomaton_"$VERSION"/.zip
+rm -rf "$TMPDIR"/marathomaton_"$VERSION"/*.zip
 cd "$TMPDIR"
 zip -r marathomaton_"$VERSION".zip marathomaton_"$VERSION"
 cp marathomaton_"$VERSION".zip "$CURDIR"
