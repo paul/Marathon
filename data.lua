@@ -150,9 +150,12 @@ function marathomaton.modify_recipe(ingredient, multiplier, _recipe_names)
             result_name = recipe_obj.main_product
           end
           if result_name == nil then
-            result_name = recipe_obj.results[0].name
+            result_name = recipe_obj.results and recipe_obj.results[0] and recipe_obj.results[0].name
           end
-          if recipe_obj.result ~= nil and data.raw.item[ingredient_name].subgroup == data.raw.item[result_name].subgroup and data.raw.item[ingredient_name].place_result ~= nil then
+          if result_name == nil then
+            log("Couldnt upgrade recipe : " .. serpent.block(recipe_obj))
+          end
+          if result_name ~= nil and data.raw.item[ingredient_name].subgroup == data.raw.item[result_name].subgroup and data.raw.item[ingredient_name].place_result ~= nil then
             return false
           else
             return true
