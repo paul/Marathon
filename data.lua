@@ -2,11 +2,16 @@ marathomaton = {}
 
 -- deal with shitty data.raw.recipe.ingredients api:
 local function _get_ingredient_name(item_data)
+  item_data = item_data or {}
+  local to_ret
   if item_data.name == nil then
-    return item_data[1]
+    to_ret = item_data[1]
   else
-    return item_data.name
+    to_ret = item_data.name
   end
+  if to_ret == nil then
+    log('marathomaton error : couldn't parse ingredient name from object ' .. serpent.block(item_data))
+  return to_ret
 end
 
 -- array of strings or set of strings to set of strings
@@ -31,6 +36,7 @@ local function to_set(array_or_dict)
 end
 
 -- fixup floating point errors
+-- also there's a hard cap of 65536 for ingredient count (damn you yuoki!)
 local function floor(x)
   x = math.floor(x + 0.001)
   if x > 65535 then
@@ -52,8 +58,10 @@ function marathomaton.get_items_from_category(_categories)
   local categories = to_set(_categories)
   local item_names = {}
   for cat, _ in pairs(categories) do
-    for name, _ in pairs(data.raw[cat]) do
-      item_names[name] = true
+    if data.raw[cat] ~= nil then
+      for name, _ in pairs(data.raw[cat]) do
+        item_names[name] = true
+      end
     end
   end
   return item_names
