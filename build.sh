@@ -7,6 +7,7 @@ echo "$TMPDIR"
 mkdir -p "$TMPDIR"/marathomaton_"$VERSION"
 cp -r . "$TMPDIR"/marathomaton_"$VERSION"
 rm -rf "$TMPDIR"/marathomaton_"$VERSION"/.git
+rm -rf "$TMPDIR"/marathomaton_"$VERSION"/.zip
 cd "$TMPDIR"
 zip -r marathomaton_"$VERSION".zip marathomaton_"$VERSION"
 cp marathomaton_"$VERSION".zip "$CURDIR"
