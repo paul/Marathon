@@ -31,10 +31,10 @@ Contributions are welcomed. The aim of this mod is to not change recipes at the 
 To do
 =====
 Things in progress on this fork:
-* Clean up lua code (wip)
 * Dial down craft times of pumpjacks
-* Dial up burner assembling machine slightly (to match burner drill/inserter)
+* Dial up burner assembling machine slightly (to match burner drill/inserter) (and in general do it for all burner crap)
 * Dial up crafting times of assembling machines 3-6 to match 1&2
+* Clean up lua code (wip)
 * Same for electronics assembling
 * Dial down alien science requirements (ie don't do 5x)?
 * Apply GCF factoring to some alloy recipes (eg brass plate should be dialed down 5x) and in general for all recipes after exploding

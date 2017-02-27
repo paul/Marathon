@@ -35,10 +35,17 @@ multiply('__inputs__', 3.5, i2r({'flying-robot-frame'}))
 
 ------- building slowdowns
 -- slow down early burner game
-multiply('iron-gear-wheel', 2.0, {'burner-inserter', 'inserter', 'long-handed-inserter', 'burner-mining-drill'})
+multiply('iron-gear-wheel', 2.0, i2r({'burner-inserter', 'inserter', 'long-handed-inserter', 'burner-mining-drill', 'burner-assembling-machine'}))
 
 -- slow down T1 automation
-multiply({'__time__', '__upgrade__'} , 6.0, {'electric-mining-drill', 'assembling-machine-1', 'assembling-machine-2', 'lab'})
+-- local buildings = i2r(cat2items('assembling-machine'))
+--  multiply({'__time__', '__upgrade__'}, 2.25, i2r(cat2items('assembling-machine')))
+multiply({'__time__', '__upgrade__'} , 6.0, {'assembling-machine-1', 'assembling-machine-2'})
+
+-- all labs and mining drills 
+multiply({'__time__', '__upgrade__'}, 6.0, i2r(cat2items({'lab', 'mining-drill'}))) 
+-- except for burner (yes includes pumpjack)
+multiply({'__time__', '__upgrade__'}, 0.166666, i2r({'burner-mining-drill'}))
 
 -- slow down T1 electricity
 multiply('pipe', 15, {'boiler'})

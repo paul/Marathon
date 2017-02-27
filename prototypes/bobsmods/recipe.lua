@@ -6,7 +6,7 @@ local multiply = marathomaton.multiply
 
 -- undo some of the specific changes from base that we want to generalize to bobs
 -- see recipe-production
-multiply({'__time__', '__upgrade__'} , .1666666666666, {'electric-mining-drill', 'assembling-machine-1', 'assembling-machine-2', 'lab'})
+-- multiply({'__time__', '__upgrade__'} , .1666666666666, {'assembling-machine-1', 'assembling-machine-2'})
 -- see recipe-power
 multiply('pipe', 0.0666666666666, {'boiler'})
 multiply('__time__', 0.01666666666666, {'steam-engine'})
