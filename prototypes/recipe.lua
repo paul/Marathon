@@ -3,6 +3,7 @@ local subgroup2items = marathomaton.get_items_by_subgroup
 local item2recipes = marathomaton.get_recipes_from_item
 local i2r = item2recipes
 local multiply = marathomaton.multiply
+local replace2item = marathomaton.get_items_from_category_replaceable
 
 local recipes
 
@@ -34,26 +35,38 @@ multiply('__inputs__', 3.5, i2r({'flying-robot-frame'}))
 
 
 ------- building slowdowns
--- slow down early burner game
+-- slow down early burner game. TODO autodetect all burners
 multiply('iron-gear-wheel', 2.0, i2r({'burner-inserter', 'inserter', 'long-handed-inserter', 'burner-mining-drill', 'burner-assembling-machine'}))
 
 -- slower assmebling machines
-local buildings = i2r(marathomaton.get_items_from_category_replaceable('assembling-machine', 'assembling-machine'))
+local buildings = i2r(replace2item('assembling-machine', 'assembling-machine'))
 multiply('__upgrade__', 6.0, buildings)
 multiply('__time__', 6.0, buildings)
 
 -- all labs and mining drills 
-multiply({'__time__', '__upgrade__'}, 6.0, i2r(cat2items({'lab', 'mining-drill'}))) 
--- except for burner (yes includes pumpjack)
+multiply({'__time__', '__upgrade__'}, 6.0, i2r(cat2items({'lab'})))
+multiply({'__time__', '__upgrade__'}, 6.0, i2r(replace2item('mining-drill', 'mining-drill')))
+-- except for burner
 multiply({'__time__', '__upgrade__'}, 0.166666, i2r({'burner-mining-drill'}))
 
 -- slow down T1 electricity
-multiply('pipe', 15, {'boiler'})
-multiply('__time__', 60, {'steam-engine'})
-multiply('__inputs__', 15, {'steam-engine'})
+-- multiply('pipe', 15, {'boiler'})
+-- multiply('__time__', 60, {'steam-engine'})
+-- multiply('__inputs__', 15, {'steam-engine'})
+
+local pipe = cat2items('pipe')
+local boiler = i2r(cat2items('boiler'))
+
+multiply('__upgrade__', 2.0, boiler)
+multiply(pipe, 7.5, boiler)
+local steam_engine = i2r(cat2items({'generator'}))
+multiply('__time__', 60.0, steam_engine)
+multiply('__upgrade__', 4.0, steam_engine)
+multiply('__upgrade__', 4.0, i2r({'steam-engine'}))
 
 -- slow down T2 electricity
-multiply({'__time__', '__inputs__'}, 2, {'solar-panel', 'accumulator', 'steel-furnace'})
+multiply({'__upgrade__', '__time__'}, 2.0, i2r(cat2items({'accumulator' , 'solar-panel'})))
+-- multiply({'__time__', '__inputs__'}, 2, {'solar-panel', 'accumulator', 'steel-furnace'})
 
 -- make getting military harder in early game
 multiply({'iron-gear-wheel', 'iron-plate'}, 2.0, i2r(cat2items({'gun', 'ammo', 'capsule'})))

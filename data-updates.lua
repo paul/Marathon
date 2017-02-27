@@ -15,7 +15,7 @@ else
 	  require("prototypes.bobsmods.recipe-misc")
 	  require("prototypes.bobsmods.recipe-production")
 	  require("prototypes.bobsmods.recipe-logistics")
-	  require("prototypes.bobsmods.recipe-power")
+	  -- require("prototypes.bobsmods.recipe-power")
 	  require("prototypes.bobsmods.recipe-intermediate")
 	  require("prototypes.bobsmods.recipe-smelting")
   end
