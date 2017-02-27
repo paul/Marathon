@@ -10,7 +10,8 @@ local function _get_ingredient_name(item_data)
     to_ret = item_data.name
   end
   if to_ret == nil then
-    log('marathomaton error : couldn't parse ingredient name from object ' .. serpent.block(item_data))
+    log('marathomaton error : couldnt parse ingredient name from object ' .. serpent.block(item_data))
+  end
   return to_ret
 end
 
@@ -50,6 +51,11 @@ local function ceil(x)
     x = 65535
   end
   return x
+end
+-- used for craft time
+local function ceil_tenth(x)
+  x = x - 0.0001
+  return math.ceil(x * 10) * 0.1
 end
 
 -- returns dict of item_name => true if item_name belongs to one of the categories
@@ -115,7 +121,7 @@ function marathomaton.modify_recipe(ingredient, multiplier, _recipe_names)
       if recipe_obj.energy_required == nil then
         recipe_obj.energy_required = 0.5
       end
-      recipe_obj.energy_required = recipe_obj.energy_required * multiplier
+      recipe_obj.energy_required = ceil_tenth(recipe_obj.energy_required * multiplier)
 
     -- yield, modify results dict or result_count
     elseif ingredient == '__yield__' then
@@ -275,7 +281,7 @@ end
 function marathomaton.slowdown_recipe_category(cat2multiplier)
   for _, recipe_obj in pairs(data.raw.recipe) do
     if cat2multiplier[recipe_obj.category] ~= nil then
-      recipe_obj.energy_required = recipe_obj.energy_required * cat2multiplier[recipe_obj.category]
+      recipe_obj.energy_required = ceil_tenth(recipe_obj.energy_required * cat2multiplier[recipe_obj.category])
     end
   end
 end

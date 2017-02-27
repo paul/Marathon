@@ -1,6 +1,12 @@
 #!/bin/bash
 
-VERSION=0.1.4
+if ! jq --version
+then
+  echo "please install jq"
+  exit 1
+fi
+  
+VERSION=`cat info.json | jq -r '.version'`
 CURDIR=`pwd`
 TMPDIR=`mktemp -d /tmp/temp.XXXX`
 echo "$TMPDIR"

@@ -27,3 +27,18 @@ This mod has been tested with bobs mods, and works intended. Other then that thi
 Contributing
 ============
 Contributions are welcomed. The aim of this mod is to not change recipes at the moment so I'd suggest forking this repo if you'd like to explore that.
+
+To do
+=====
+Things in progress on this fork:
+* Clean up lua code (wip)
+* Fix disassembly recipes (burner drill, steel furnace)
+* Dial down craft times of pumpjacks
+* Dial up burner assembling machine slightly (to match burner drill/inserter)
+* Dial up crafting times of assembling machines 3-6 to match 1&2
+* Same for electronics assembling
+* Dial down alien science requirements (ie don't do 5x)?
+* Apply GCF factoring to some alloy recipes (eg brass plate should be dialed down 5x) and in general for all recipes after exploding
+* Automatically deduce circuit board names in bobs
+* Need separate multipliers for all the different types of assembling machines (ore crusher, ore sorter ,floatation ,leaching ,filtration, crystallize, water plants, electrolyser, greenhouse, compressor, pump, chemical/mixing furnaces, liquier, oil/gas separator, gas refiner, air filter, steam cracker, chemical plants, refinery, ...)
+* titanium tetrachloride and ammonium paratungstate dont seem to have scaled up like the other smelting types

@@ -32,24 +32,6 @@ multiply('__time__', 1.5, recipes)
 multiply('__inputs__', 1.5, recipes)
 multiply('__inputs__', 3.5, i2r({'flying-robot-frame'}))
 
---[[
--- slow down all smelting
-multiply('__time__', 2, i2r({'iron-plate', 'stone-brick', 'steel-plate', 'copper-plate'}))
--- dont slow iron down that much since it's getting exploded below
-multiply('__time__', 0.45238095238095, i2r({'iron-plate'}))
-
--- create smelting bottlenecks 
--- marathomaton.explode_item(2.5, 'iron-plate')
--- marathomaton.explode_item(5, 'copper-plate')
-
-recipes = i2r({'iron-plate'})
-multiply('__inputs__', 2, recipes)
-multiply('__yield__', 5, recipes)
--- marathomaton.modify_all_recipes('iron-plate', 2.5)
-multiply('__yield__', 5, i2r({'copper-plate'}))
--- marathomaton.modify_all_recipes('copper-plate', 5)
---]]
-
 
 ------- building slowdowns
 -- slow down early burner game

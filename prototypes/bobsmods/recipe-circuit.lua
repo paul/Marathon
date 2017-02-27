@@ -34,18 +34,21 @@ local boards = {'wooden-board', 'phenolic-board', 'fibreglass-board'}
 local circuit_boards = {"basic-circuit-board", "circuit-board", "superior-circuit-board", "multi-layer-circuit-board"}
 local electronic_boards = {"electronic-circuit",  "advanced-circuit", "processing-unit",  "advanced-processing-unit"}
 
+multiply('__time__', 6.0, i2r(boards))
 multiply('__yield__', 0.5, i2r(boards))
 multiply('__inputs__', 3.0, i2r({'phenolic-board'}))
 
+multiply('__time__', 2.4, i2r(circuit_boards))
 multiply('__inputs__', 3.0, i2r(circuit_boards))
 multiply(boards, 0.33333333, i2r(circuit_boards))
 
-multiply('__time__', 1.6, i2r(electronic_boards))
+multiply('__time__', 1.6 * 2.4, i2r(electronic_boards))
 multiply('__inputs__', 1.75, i2r(electronic_boards))
 -- multiply(circuit_boards, 0.5, i2r(electronic_boards))
 
 multiply('__time__', 2.0, i2r({"solder", "basic-electronic-components"}))
 multiply('__yield__', 0.333333333, i2r({"solder", "basic-electronic-components"}))
 multiply('__inputs__', 3.0, i2r({"electronic-components", "intergrated-electronics", "processing-electronics"}))
-multiply('__time__', 6.0, i2r({ boards[1], circuit_boards[1], electronic_boards[1] }))
+
+multiply('__time__', 2.5, i2r({ circuit_boards[1], electronic_boards[1] }))
 
