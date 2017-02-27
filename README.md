@@ -31,15 +31,12 @@ Contributions are welcomed. The aim of this mod is to not change recipes at the 
 To do
 =====
 Things in progress on this fork:
-* Dial down craft times of pumpjacks
-* Dial up burner assembling machine slightly (to match burner drill/inserter) (and in general do it for all burner crap)
-* Dial up crafting times of assembling machines 3-6 to match 1&2
-* Clean up lua code (wip)
-* Same for electronics assembling
-* Dial down alien science requirements (ie don't do 5x)?
+* Clean up lua code (wip), handle errors better, pass in params dict instead of lots of args
 * Apply GCF factoring to some alloy recipes (eg brass plate should be dialed down 5x) and in general for all recipes after exploding
-* Need separate multipliers for all the different types of assembling machines (ore crusher, ore sorter ,floatation ,leaching ,filtration, crystallize, water plants, electrolyser, greenhouse, compressor, pump, chemical/mixing furnaces, liquier, oil/gas separator, gas refiner, air filter, steam cracker, chemical plants, refinery, ...)
+* Apply 0.5x yield to all products of products of gas: ethane, methane, butane (to match oil)
 
+* Consider separate multipliers for all the different types of assembling machines (ore crusher, ore sorter ,floatation ,leaching ,filtration, crystallize, water plants, electrolyser, greenhouse, compressor, pump, chemical/mixing furnaces, liquier, oil/gas separator, gas refiner, air filter, steam cracker, chemical plants, refinery, ...)
+* Handle all burner buildings the same way
 * Autaomtically deduce smelting categories
 * Automatically deduce circuit board names in bobs
 * Fix disassembly recipes (burner drill, steel furnace)

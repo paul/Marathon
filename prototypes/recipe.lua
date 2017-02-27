@@ -18,6 +18,8 @@ marathomaton.modify_all_recipes('plastic-bar', 2)
 recipes = i2r(cat2items({'tool'}))
 multiply('__time__', 2.5, recipes)
 multiply('__inputs__', 5, recipes)
+-- except ones that require alien artifacts
+multiply('alien-artifact', 0.2, recipes)
 
 -- slow down some select intermediates
 multiply('__time__', 3.0, i2r({'iron-gear-wheel'}))
