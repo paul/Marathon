@@ -37,10 +37,10 @@ multiply('__inputs__', 3.5, i2r({'flying-robot-frame'}))
 -- slow down early burner game
 multiply('iron-gear-wheel', 2.0, i2r({'burner-inserter', 'inserter', 'long-handed-inserter', 'burner-mining-drill', 'burner-assembling-machine'}))
 
--- slow down T1 automation
--- local buildings = i2r(cat2items('assembling-machine'))
---  multiply({'__time__', '__upgrade__'}, 2.25, i2r(cat2items('assembling-machine')))
-multiply({'__time__', '__upgrade__'} , 6.0, {'assembling-machine-1', 'assembling-machine-2'})
+-- slower assmebling machines
+local buildings = i2r(cat2items('assembling-machine'))
+multiply('__upgrade__', 6.0, buildings)
+multiply('__timee__', 2.0, buildings)
 
 -- all labs and mining drills 
 multiply({'__time__', '__upgrade__'}, 6.0, i2r(cat2items({'lab', 'mining-drill'}))) 
