@@ -9,7 +9,9 @@ local multiply = marathomaton.multiply
 local pumps = i2r(subgroup2items('bob-pump'))
 multiply('__upgrade__', 3.5, pumps)
 multiply('__time__', 2.5, pumps)
+
 -- unfortunately bob pumps are coded as assembling machines so we have to fix this
-multiply({'__time__', '__upgrade__'}, 0.166666666, pumps)
+-- multiply('__time__', 0.5, pumps)
+-- multiply('__upgrade__', 0.166666666, pumps)
 
 

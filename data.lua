@@ -76,6 +76,22 @@ function marathomaton.get_items_from_category(_categories)
   return item_names
 end
 
+-- returns dict of item_name => true if item_name belongs to one of the categories and fast_replaceable_group matches given
+-- expects category, fast_replaceable_group
+function marathomaton.get_items_from_category_replaceable(cat, replaceable)
+  local item_names = {}
+  if true then
+    if data.raw[cat] ~= nil then
+      for item_name, item_data in pairs(data.raw[cat]) do
+        if item_data.fast_replaceable_group == replaceable then
+          item_names[item_name] = true
+        end
+      end
+    end
+  end
+  return item_names
+end
+
 -- returns set-dict of recipes that produce any of the given items
 -- expects array, set, or singleton
 function marathomaton.get_recipes_from_item(items)
@@ -118,6 +134,9 @@ function marathomaton.modify_recipe(ingredient, multiplier, _recipe_names)
   local recipe_names = to_set(_recipe_names)
   for recipe_name, _ in pairs(recipe_names) do
     local recipe_obj = data.raw.recipe[recipe_name]
+    if recipe_obj == nil then
+      error('marathomaton error in doing ' .. recipe_name .. '\n' .. serpent.block(recipe_obj))
+    end
 
     -- time, modify energy_required
     if ingredient == '__time__' then
@@ -290,106 +309,4 @@ function marathomaton.slowdown_recipe_category(cat2multiplier)
 end
 
 
----------------------------------------------------------
--- legacy functions
----------------------------------------------------------
-
-function marathomaton.update_recipe(name, values)
-	local recipe = data.raw.recipe[name]
-	if recipe then
-		for key, value in pairs(values) do
-			-- special ingredient error checking for debugging purposes
-			if key == 'ingredients' then
-				for _, item in pairs(value) do
-					if #item == 0 then
-						if not data.raw['item'][item.name] then
-							log("Unable to find item: " .. item.name .. ", failed to update recipe " .. name)
-						end
-					else
-						if not data.raw['item'][item[1]] then
-							log("Unable to find item: " .. item[1] .. ", failed to update recipe " .. name)
-						end
-					end
-				end
-			end
-			recipe[key] = value
-		end
-	end
-end
-
-function marathomaton.replace_recipe_item(recipe, prev_name, new_name)
-	local doit = false
-	local amount = 0
-	if data.raw.recipe[recipe] and data.raw.item[new_name] then
-		local ingredients = data.raw.recipe[recipe].ingredients
-		for i = 1, #ingredients do
-			local ingredient_item = ingredients[i]
-			if ingredient_item[1] == prev_name then
-				if not data.raw['item'][ingredient_item[1]] then
-					log("Unable to find item: " .. ingredient_item[1] .. ", failed to update recipe " .. recipe)
-				end
-				ingredient_item[1] = new_name
-			elseif ingredient_item.name == prev_name then
-				if not data.raw['item'][ingredient_item.name] then
-					log("Unable to find item: " .. ingredient_item.name .. ", failed to update recipe " .. recipe)
-				end
-				ingredient_item.name = new_name
-			end
-		end
-	end
-end
-
-function marathomaton.add_new_recipe_item(recipe, item)
-	local item_name
-	if item.name then
-		item_name = item.name
-	else
-		item_name = item[1]
-	end
-
-	if data.raw.recipe[recipe] and data.raw.item[item_name] then
-		for _, ingredient_item in pairs(data.raw.recipe[recipe].ingredients) do
-			if ingredient_item[1] == item_name then
-				return
-			elseif ingredient_item.name == item_name then
-				return
-			end
-		end
-		if not data.raw['item'][item_name] then
-			log("Unable to find item: " .. item_name .. ", failed to update recipe " .. recipe)
-		end
-		table.insert(data.raw.recipe[recipe].ingredients, item)
-	end
-end
-
-function marathomaton.add_recipe_item(recipe, item)
-	local addit = true
-	local item_name
-	if item.name then
-		item_name = item.name
-	else
-		item_name = item[1]
-	end
-	local item_amount
-	if item.amount then
-		item_amount = item.amount
-	else
-		item_amount = item[2]
-	end
-	if data.raw.recipe[recipe] and data.raw.item[item_name] then
-		for _, ingredient_item in pairs(data.raw.recipe[recipe].ingredients) do
-			if ingredient_item[1] == item_name then
-				ingredient_item[2] = ingredient_item[2] + item_amount
-				return
-			elseif ingredient_item.name == item_name then
-				ingredient_item.amount = ingredient_item.amount + item_amount
-				return
-			end
-		end
-		if not data.raw['item'][item_name] then
-			log("Unable to find item: " .. item_name .. ", failed to update recipe " .. recipe)
-		end
-		table.insert(data.raw.recipe[recipe].ingredients, item)
-	end
-end
 
