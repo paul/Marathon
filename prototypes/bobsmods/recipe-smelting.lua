@@ -43,6 +43,7 @@ local smelting = {
   ['casting']           =3.5, -- affects angel plates
   ['ore-processing']    =4.0, -- making angel processed ore
   ['pellet-pressing']   =5.0, -- making angel processed pellet
+  ['liquifying']        =6.0, -- making chemical liquid angel stuffs
 }
 marathomaton.slowdown_recipe_category(smelting)
 

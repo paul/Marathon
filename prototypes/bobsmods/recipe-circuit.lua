@@ -42,7 +42,7 @@ multiply('__time__', 2.4, i2r(circuit_boards))
 multiply('__inputs__', 3.0, i2r(circuit_boards))
 multiply(boards, 0.33333333, i2r(circuit_boards))
 
-multiply('__time__', 1.6 * 2.4, i2r(electronic_boards))
+multiply('__time__', 4.0, i2r(electronic_boards))
 multiply('__inputs__', 1.75, i2r(electronic_boards))
 -- multiply(circuit_boards, 0.5, i2r(electronic_boards))
 
