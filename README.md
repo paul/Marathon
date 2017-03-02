@@ -31,7 +31,6 @@ Contributions are welcomed. The aim of this mod is to not change recipes at the 
 To do
 =====
 Things in progress on this fork:
-* add config file
 * Clean up lua code (wip), handle errors better, pass in params dict instead of lots of args
 * Apply GCF factoring to some alloy recipes (eg brass plate should be dialed down 5x) and in general for all recipes after exploding
 * Apply 0.5x yield to all products of products of gas: ethane, methane, butane (to match oil)
@@ -41,3 +40,4 @@ Things in progress on this fork:
 * Autaomtically deduce smelting categories
 * Automatically deduce circuit board names in bobs
 * Fix disassembly recipes (burner drill, steel furnace)
+* Improve config file
