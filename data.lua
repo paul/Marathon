@@ -53,11 +53,11 @@ local function ceil(x)
   return x
 end
 -- used for craft time
-local function round_craft_time(x)
+local function round_craft_time(x, multiplier)
   if x == nil then
     x = 0.5
   end
-  x = x - 0.0001
+  x = x * multiplier - 0.0001
   return math.ceil(x * 10) * 0.1
 end
 
@@ -143,7 +143,7 @@ function marathomaton.modify_recipe(ingredient, multiplier, _recipe_names)
       if recipe_obj.energy_required == nil then
         recipe_obj.energy_required = 0.5
       end
-      recipe_obj.energy_required = round_craft_time(recipe_obj.energy_required * multiplier)
+      recipe_obj.energy_required = round_craft_time(recipe_obj.energy_required , multiplier)
 
     -- yield, modify results dict or result_count
     elseif ingredient == '__yield__' then
@@ -303,7 +303,7 @@ end
 function marathomaton.slowdown_recipe_category(cat2multiplier)
   for _, recipe_obj in pairs(data.raw.recipe) do
     if cat2multiplier[recipe_obj.category] ~= nil then
-      recipe_obj.energy_required = round_craft_time(recipe_obj.energy_required * cat2multiplier[recipe_obj.category])
+      recipe_obj.energy_required = round_craft_time(recipe_obj.energy_required , cat2multiplier[recipe_obj.category])
     end
   end
 end
