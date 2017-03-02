@@ -15,11 +15,13 @@ multiply('__inputs__', 2.0, i2r({'solid-fuel'}))
 marathomaton.modify_all_recipes('plastic-bar', 2)
 
 -- slow down all science
-recipes = i2r(cat2items({'tool'}))
-multiply('__time__', 2.5, recipes)
-multiply('__inputs__', 5, recipes)
--- except ones that require alien artifacts
-multiply('alien-artifact', 0.2, recipes)
+if marathomaton.config.modify_science then
+  recipes = i2r(cat2items({'tool'}))
+  multiply('__time__', 2.5, recipes)
+  multiply('__inputs__', 5, recipes)
+  -- except ones that require alien artifacts
+  multiply('alien-artifact', 0.2, recipes)
+end
 
 -- slow down some select intermediates
 multiply('__time__', 3.0, i2r({'iron-gear-wheel'}))
@@ -52,13 +54,8 @@ multiply({'__time__', '__upgrade__'}, 6.0, i2r(replace2item('mining-drill', 'min
 multiply({'__time__', '__upgrade__'}, 0.166666, i2r({'burner-mining-drill'}))
 
 -- slow down T1 electricity
--- multiply('pipe', 15, {'boiler'})
--- multiply('__time__', 60, {'steam-engine'})
--- multiply('__inputs__', 15, {'steam-engine'})
-
 local pipe = cat2items('pipe')
 local boiler = i2r(cat2items('boiler'))
-
 multiply('__upgrade__', 2.0, boiler)
 multiply(pipe, 7.5, boiler)
 local steam_engine = i2r(cat2items({'generator'}))
@@ -68,7 +65,6 @@ multiply('__upgrade__', 4.0, i2r({'steam-engine'}))
 
 -- slow down T2 electricity
 multiply({'__upgrade__', '__time__'}, 2.0, i2r(cat2items({'accumulator' , 'solar-panel'})))
--- multiply({'__time__', '__inputs__'}, 2, {'solar-panel', 'accumulator', 'steel-furnace'})
 
 -- make getting military harder in early game
 multiply({'iron-gear-wheel', 'iron-plate'}, 2.0, i2r(cat2items({'gun', 'ammo', 'capsule'})))

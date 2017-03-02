@@ -14,7 +14,6 @@ multiply('__time__', 0.9, i2r({'copper-plate'}))
 -- 2.5x stone brick inputs
 multiply('__inputs__', 2.5, i2r({'stone-brick'}))
 
-
 -- create smelting bottlenecks 
 marathomaton.modify_all_yields(2.5, 'iron-plate')
 marathomaton.modify_all_recipes('iron-plate', 2.5)
