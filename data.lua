@@ -1,4 +1,5 @@
 marathomaton = {}
+require("config")
 
 -- deal with shitty data.raw.recipe.ingredients api:
 local function _get_ingredient_name(item_data)
