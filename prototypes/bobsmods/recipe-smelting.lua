@@ -22,11 +22,19 @@ local function explode_all(_items)
   for i, item in ipairs(items) do
     -- change every recipe that produces this item to now produce multipler times more of the item,
     -- and if the result is not an integer, multiply each ingredient, time, result of the recipe to compensate
+    log('exploding ' .. item .. ' at rate ' .. expansion_rate[i])
     marathomaton.modify_all_yields(expansion_rate[i], item)
     -- now make everything that uses this item consume multiplier times more
     marathomaton.modify_all_recipes(item, expansion_rate[i])
     -- also increase the stack size
-    data.raw.item[item].stack_size = data.raw.item[item].stack_size * stack_rate[i]
+--    data.raw.item[item].stack_size = data.raw.item[item].stack_size * stack_rate[i]
+    -- also decrease the fuel yield
+    local s = data.raw.item[item].fuel_value
+    if s ~= nil then
+      n = 0 + string.sub(s, 1, #s-2)
+      s = (n / expansion_rate[i]) .. string.sub(s, #s - 1, #s)
+      data.raw.item[item].fuel_value = s
+    end
   end
 end
 
@@ -51,5 +59,5 @@ marathomaton.slowdown_recipe_category(smelting)
 explode_all(subgroup2items({'bob-material'}))
 explode_all(subgroup2items({'bob-alloy'}))
 -- explode_all(subgroup2items({'bob-resource'}))
-explode_all({['carbon']=true, ['glass']=true, ['resin']=true, ['rubber']=true})
+explode_all({['carbon']=true, ['solid-carbon']=true, ['glass']=true, ['resin']=true, ['rubber']=true})
 

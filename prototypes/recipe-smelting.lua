@@ -17,9 +17,9 @@ multiply('__inputs__', 2.5, i2r({'stone-brick'}))
 -- create smelting bottlenecks 
 marathomaton.modify_all_yields(2.5, 'iron-plate')
 marathomaton.modify_all_recipes('iron-plate', 2.5)
-data.raw.item['iron-plate'].stack_size = data.raw.item['iron-plate'].stack_size * 2.5
+-- data.raw.item['iron-plate'].stack_size = data.raw.item['iron-plate'].stack_size * 2.5
 
 marathomaton.modify_all_yields(5, 'copper-plate')
 marathomaton.modify_all_recipes('copper-plate', 5)
-data.raw.item['copper-plate'].stack_size = data.raw.item['copper-plate'].stack_size * 5
+-- data.raw.item['copper-plate'].stack_size = data.raw.item['copper-plate'].stack_size * 5
 
