@@ -32,6 +32,7 @@ To do
 =====
 Things in progress on this fork:
 * Clean up lua code (wip), handle errors better, pass in params dict instead of lots of args
+* Subsume bob's angelthon refining & smelting recipe changes into this mod
 * Apply GCF factoring to some alloy recipes (eg brass plate should be dialed down 5x) and in general for all recipes after exploding
 * Apply 0.5x yield to all products of products of gas: ethane, methane, butane (to match oil)
 
