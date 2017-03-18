@@ -10,8 +10,18 @@ local multiply = marathomaton.multiply
 -- hdyro (angelsore*-chunk) : ore inputs/outputs * 4 ??? or water/sulfur/geode * 0.25 ? and time * 0.75
 -- crystals : acid * 0.25 ? 
 
+-- in other words:
+-- recipe.category == 'ore-sorting':  * 1.2 time
+-- recipe.category == 'ore-sorting-t*' : *(1.5,2,2.25,2.5) time , 1 thru 4 ( this is ore -> crushed/chunks/crystals )
+-- TODO recipe.subgroup == 'ore-sorting-advanced' : ?? 2x time? ( mix ores -> single ore)
+-- stone-crushed: 0.5x yield everywhere
+-- crushed stone -> stone : 0.66x yield 
+-- wastewater production : 0.6x yield  (??)
+-- water usage and acid usage: stable
+-- geode production: stable
 
----- smelting times:
+
+---- smelting times: (already covered in ../recipe-smelting.lua, documented here for reference)
 -- 2x *-ore-processing
 -- 2x *-processed-processing
 -- 1.66x *-ore-smelting
@@ -23,6 +33,4 @@ local multiply = marathomaton.multiply
 -- 2x inputs AND 2x yield (why???) 'angels-*-plate'
 -- angels-solder????
 
-
-some recipes 2x time, some recipes go 0.8->1.333 which is 1.666x time (gold-ore-smelting, 
 
