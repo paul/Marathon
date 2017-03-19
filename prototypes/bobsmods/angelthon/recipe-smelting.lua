@@ -10,7 +10,7 @@ marathomaton.modify_all_yields(0.5, 'stone-crushed')
 multiply('stone-crushed', 1.5, 'stone-crushed')
 
 -- find all recipes of ore-sorting-t2: 0.6x all fluids
-for recipe_name, recipe_obj in data.raw.recipe do
+for recipe_name, recipe_obj in pairs(data.raw.recipe) do
   local cat = recipe_obj.category
   if cat == 'ore-sorting-t2' then
     -- find results which are fluids
@@ -19,7 +19,7 @@ for recipe_name, recipe_obj in data.raw.recipe do
       if result_obj.type == 'fluid' then
         -- 0.6x result fluid
         result_obj.amount = result_obj.amount * 0.6
-        log('changed amount of ' .. serpent.block(result_obj)  .. ' in ' .. recipe_name)
+        -- log('changed amount of ' .. serpent.block(result_obj)  .. ' in ' .. recipe_name)
       end
     end
   end

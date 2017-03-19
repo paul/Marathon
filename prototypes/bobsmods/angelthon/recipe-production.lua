@@ -32,18 +32,47 @@ local multiply = marathomaton.multiply
 
 
 local group_set = {
-  'resource-refining' -> true,
-  'petrochem-refining' -> true,
-  'angels-smelting' -> true,
+  ['resource-refining'] =true,
+  ['petrochem-refining']=true,
+  ['angels-smelting']   =true,
 }
-
+-- why are liquifiers not working?
 for recipe_name, recipe_obj in pairs(data.raw.recipe) do
-  local group
-  if data['item-subgroup'][recipe_obj.subgroup] != nil then
-    group = data.item_groups[recipe_obj.subgroup].group
+  local subgroup = recipe_obj.subgroup
+  local placeable = false
+  if recipe_obj ~= nil then
+    -- log('subgroup not found for ' .. recipe_name .. ' object: ' .. serpent.block(recipe_obj))
+    -- look up the main result item
+    local main_result = recipe_obj.result
+    if main_result == nil then
+      main_result = recipe_obj.main_product
+    end
+    if main_result == nil then
+      for i, result_obj in ipairs(recipe_obj.results) do
+        if result_obj.amount == 1 then
+          main_result = result_obj.name
+          break
+        end
+      end
+    end
+    if main_result ~= nil then
+      local item = data.raw.item[main_result]
+      if item ~= nil then
+        if subgroup == nil then
+          subgroup = item.subgroup
+        end
+        placeable = (item.place_result ~= nil)
+      end
+    end
   end
-  log('got group ' .. group)
-  if group_set[group] != nil or recipe_obj.subgroup == 'angels-silos' then
+  -- log('got group ' .. serpent.block(group) .. ' and subgroup ' .. serpent.block(subgroup) .. ' for recipe name ' .. recipe_name)
+  local group = ''
+  if subgroup ~= nil and data.raw['item-subgroup'][subgroup] ~= nil then
+    group = data.raw['item-subgroup'][subgroup].group
+  end
+  -- check if item result is placeable
+  if placeable and group ~= nil and (group_set[group] ~= nil or recipe_obj.subgroup == 'angels-silos') then
+    log('got group ' .. group .. ' and subgroup ' .. subgroup .. ' for recipe name ' .. recipe_name)
     -- modify the recipe
     multiply('__upgrade__', 4.0, recipe_name)
     if recipe_obj.subgroup == 'angels-silos' then
@@ -56,5 +85,7 @@ for recipe_name, recipe_obj in pairs(data.raw.recipe) do
     multiply('__upgrade__', 16.0, recipe_name)
   end
 end
+-- somehow the above code misses the vanilla chemical machine and refinery;
+multiply('__upgrade__', 4.0, i2r({'chemical-plant', 'oil-refinery'}))
 multiply('steel-plate', 5.0, i2r({'angels-flare-stack'}))
 
