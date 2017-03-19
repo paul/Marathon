@@ -3,6 +3,29 @@ local subgroup2items = marathomaton.get_items_by_subgroup
 local i2r = marathomaton.get_recipes_from_item
 local multiply = marathomaton.multiply
 
+-- 0.5x stone yield everywhere (e.g. ore-sorting-t1)
+marathomaton.modify_all_yields(0.5, 'stone-crushed')
+
+-- crushed stone -> stone : from 2 crushed to 3 crushed
+multiply('stone-crushed', 1.5, 'stone-crushed')
+
+-- find all recipes of ore-sorting-t2: 0.6x all fluids
+for recipe_name, recipe_obj in data.raw.recipe do
+  local cat = recipe_obj.category
+  if cat == 'ore-sorting-t2' then
+    -- find results which are fluids
+    local results = recipe_obj.results
+    for _, result_obj in ipairs(results) do
+      if result_obj.type == 'fluid' then
+        -- 0.6x result fluid
+        result_obj.amount = result_obj.amount * 0.6
+        log('changed amount of ' .. serpent.block(result_obj)  .. ' in ' .. recipe_name)
+      end
+    end
+  end
+end
+
+
 -- angels-powdered-x : no change afaik
 -- make stone creation 1.5x harder (i.e. 0.66x stone yield everywhere)
 -- ore crushing : 0.5x yield for stone-crushed, 0.75x time requirements

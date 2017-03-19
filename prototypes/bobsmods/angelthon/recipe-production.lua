@@ -24,7 +24,37 @@ local multiply = marathomaton.multiply
 -- to find what tab is a recipe in: lookup recipe.subgroup in data.item_groups[recipe.subgroup].group
 
 ---------------
+
 -- easy way: every machine in refining/metallurgy -> 4x upgrade AND .5x stone brick, AND
 -- ore silos 3x stone brick, AND
 -- flare stack: 5x steel,
 -- every building in barreling/pumps: 16x inputs
+
+
+local group_set = {
+  'resource-refining' -> true,
+  'petrochem-refining' -> true,
+  'angels-smelting' -> true,
+}
+
+for recipe_name, recipe_obj in pairs(data.raw.recipe) do
+  local group
+  if data['item-subgroup'][recipe_obj.subgroup] != nil then
+    group = data.item_groups[recipe_obj.subgroup].group
+  end
+  log('got group ' .. group)
+  if group_set[group] != nil or recipe_obj.subgroup == 'angels-silos' then
+    -- modify the recipe
+    multiply('__upgrade__', 4.0, recipe_name)
+    if recipe_obj.subgroup == 'angels-silos' then
+      multiply('stone-brick', 3.0, recipe_name)
+    else
+      multiply('stone-brick', 0.5, recipe_name)
+    end
+  end
+  if group == 'angels-barrels' then
+    multiply('__upgrade__', 16.0, recipe_name)
+  end
+end
+multiply('steel-plate', 5.0, i2r({'angels-flare-stack'}))
+

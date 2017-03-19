@@ -52,7 +52,13 @@ local smelting = {
   ['ore-processing']    =4.0, -- making angel processed ore
   ['pellet-pressing']   =5.0, -- making angel processed pellet
   ['liquifying']        =6.0, -- making chemical liquid angel stuffs
+  ['ore-sorting']       =1.2, -- sorting crushed, chunks, crystals, or pure
+  ['ore-sorting-t1']    =1.5, -- ore to crushed
+  ['ore-sorting-t2']    =2.0, -- crushed to chunks
+  ['ore-sorting-t3']    =2.25,-- chunks to crystals
+  ['ore-sorting-t4']    =2.5, -- crystals to pure
 }
+
 marathomaton.slowdown_recipe_category(smelting)
 
 -- create smelting bottlenecks for all these plate types: (no iron or copper here)

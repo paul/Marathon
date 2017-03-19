@@ -9,6 +9,7 @@ else
   require("prototypes.recipe")
   require("prototypes.recipe-smelting")
   
+  -- i don't think these break even if bobs is not loaded
   if bobmods and bobmods.config then
 	  require("prototypes.bobsmods.recipe")
 	  require("prototypes.bobsmods.recipe-circuit")
@@ -19,8 +20,13 @@ else
 	  require("prototypes.bobsmods.recipe-intermediate")
 	  require("prototypes.bobsmods.recipe-smelting")
   end
+
+  if angelsmods then
+    log('applying angel mods')
+    require("prototypes.bobsmods.angelthon.recipe-smelting")
+    require("prototypes.bobsmods.angelthon.recipe-production")
+  else
+    log('angels mods not found!!')
+  end
 end
-
-
-
 
