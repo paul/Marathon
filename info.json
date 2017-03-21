@@ -1,6 +1,6 @@
 {
   "name": "marathomaton",
-  "version": "0.1.24",
+  "version": "0.1.25",
   "factorio_version": "0.14",
   "title": "Marathon Mod Automated",
   "author": "Benoit Girard & Afforess",
@@ -9,6 +9,7 @@
   "description": "Automatically increases the resource costs of most recipes causing a marathon game. The will require the players to scale a larger factory and use rail to reach the end game. WARNING: Incompatible with marathon mod.",
   "dependencies": [
     "base >= 0.14.0",
+    "? ResearchRevolution >= 0.14.10",
     "? bobassembly >= 0.12.7",
     "? bobconfig >= 0.12.2",
     "? bobelectronics >= 0.12.6",
