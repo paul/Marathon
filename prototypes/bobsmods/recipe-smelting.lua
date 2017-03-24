@@ -2,6 +2,7 @@ local cat2items = marathomaton.get_items_from_category
 local subgroup2items = marathomaton.get_items_by_subgroup
 local item2recipes = marathomaton.get_recipes_from_item
 local multiply = marathomaton.multiply
+local AMF = marathomaton.adjust_multiplier_factor
 
 local function keys_array(dict)
   to_ret = {}
@@ -32,7 +33,7 @@ local function explode_all(_items)
     local s = data.raw.item[item].fuel_value
     if s ~= nil then
       n = 0 + string.sub(s, 1, #s-2)
-      s = (n / expansion_rate[i]) .. string.sub(s, #s - 1, #s)
+      s = (n / AMF(expansion_rate[i])) .. string.sub(s, #s - 1, #s)
       data.raw.item[item].fuel_value = s
     end
   end

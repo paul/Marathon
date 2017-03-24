@@ -1,6 +1,8 @@
 
+local AMF = marathomaton.adjust_multiplier_factor
+
 -- all fuel is 50% as efficient
-local fuel_value_multiplier = 0.5
+local fuel_value_multiplier = AMF(0.5)
 
 for item_name, item_props in pairs(data.raw.item) do
   if item_props['fuel_value'] ~= nil then

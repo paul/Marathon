@@ -2,6 +2,7 @@ local cat2items = marathomaton.get_items_from_category
 local subgroup2items = marathomaton.get_items_by_subgroup
 local i2r = marathomaton.get_recipes_from_item
 local multiply = marathomaton.multiply
+local AMF = marathomaton.adjust_multiplier_factor
 
 -- 0.5x stone yield everywhere (e.g. ore-sorting-t1)
 marathomaton.modify_all_yields(0.5, 'stone-crushed')
@@ -18,7 +19,7 @@ for recipe_name, recipe_obj in pairs(data.raw.recipe) do
     for _, result_obj in ipairs(results) do
       if result_obj.type == 'fluid' then
         -- 0.6x result fluid
-        result_obj.amount = result_obj.amount * 0.6
+        result_obj.amount = result_obj.amount * AMF(0.6)
         -- log('changed amount of ' .. serpent.block(result_obj)  .. ' in ' .. recipe_name)
       end
     end

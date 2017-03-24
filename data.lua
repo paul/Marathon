@@ -1,6 +1,27 @@
 marathomaton = {}
 require("config")
 
+if marathomaton.config.no_bob_cheaper_steel then
+  bobmods.config.plates.CheaperSteel = false
+end
+
+function marathomaton.adjust_multiplier_factor(multiplier)
+  return math.pow(multiplier, marathomaton.config.multiplier_adjust_factor)
+end
+--   if multiplier > 1.0 then
+--     x = multiplier - 1.0
+--     x = x * marathomaton.config.multiplier_adjust_factor
+--     return 1.0 + x
+--   else
+--     x = 1.0 / multiplier
+--     x = x - 1.0
+--     x = x * marathomaton.config.multiplier_adjust_factor
+--     return 1.0 + 1.0 / x
+--   end
+-- end
+
+local AMF = marathomaton.adjust_multiplier_factor
+
 -- deal with shitty data.raw.recipe.ingredients api:
 local function _get_ingredient_name(item_data)
   item_data = item_data or {}
@@ -43,6 +64,9 @@ local function floor(x)
   x = math.floor(x + 0.001)
   if x > 65535 then
     x = 65535
+  end
+  if x < 1 then
+    x = 1
   end
   return x
 end
@@ -132,6 +156,7 @@ end
 -- increase ingredient usage in a recipe by name
 -- accepts set, array, or singleton recipe name
 function marathomaton.modify_recipe(ingredient, multiplier, _recipe_names)
+  multiplier = AMF(multiplier)
   local recipe_names = to_set(_recipe_names)
   for recipe_name, _ in pairs(recipe_names) do
     local recipe_obj = data.raw.recipe[recipe_name]
@@ -234,6 +259,7 @@ end
 
 -- increase ingredient usage in all recipes
 function marathomaton.modify_all_recipes(ingredient, multiplier)
+  multiplier = AMF(multiplier)
   -- log('MARATHOMATON: modifying all recipes containing ' .. ingredient)
   for recipe_name, recipe_obj in pairs(data.raw.recipe) do
     local ingredient_list = recipe_obj['ingredients']
@@ -257,6 +283,7 @@ end
 
 -- increase result yield of this specific item in all recipes, but not any other results
 function marathomaton.modify_all_yields(multiplier, item)
+  multiplier = AMF(multiplier)
   -- runs into problems when resulting result_count is non-integer
   -- for now, just hanlde half-integer
   for recipe_name, recipe_obj in pairs(data.raw.recipe) do
@@ -304,7 +331,7 @@ end
 function marathomaton.slowdown_recipe_category(cat2multiplier)
   for _, recipe_obj in pairs(data.raw.recipe) do
     if cat2multiplier[recipe_obj.category] ~= nil then
-      recipe_obj.energy_required = round_craft_time(recipe_obj.energy_required , cat2multiplier[recipe_obj.category])
+      recipe_obj.energy_required = round_craft_time(recipe_obj.energy_required , AMF(cat2multiplier[recipe_obj.category]))
     end
   end
 end
