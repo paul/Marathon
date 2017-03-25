@@ -71,18 +71,20 @@ for recipe_name, recipe_obj in pairs(data.raw.recipe) do
     group = data.raw['item-subgroup'][subgroup].group
   end
   -- check if item result is placeable
-  if placeable and group ~= nil and (group_set[group] ~= nil or recipe_obj.subgroup == 'angels-silos') then
-    log('got group ' .. group .. ' and subgroup ' .. subgroup .. ' for recipe name ' .. recipe_name)
-    -- modify the recipe
-    multiply('__upgrade__', 4.0, recipe_name)
-    if recipe_obj.subgroup == 'angels-silos' then
-      multiply('stone-brick', 3.0, recipe_name)
-    else
-      multiply('stone-brick', 0.5, recipe_name)
+  if placeable then
+    if group ~= nil and (group_set[group] ~= nil or recipe_obj.subgroup == 'angels-silos') then
+      log('got group ' .. group .. ' and subgroup ' .. subgroup .. ' for recipe name ' .. recipe_name)
+      -- modify the recipe
+      multiply('__upgrade__', 4.0, recipe_name)
+      if recipe_obj.subgroup == 'angels-silos' then
+        multiply('stone-brick', 3.0, recipe_name)
+      else
+        multiply('stone-brick', 0.5, recipe_name)
+      end
     end
-  end
-  if group == 'angels-barrels' then
-    multiply('__upgrade__', 16.0, recipe_name)
+    if group == 'angels-barrels' then
+      multiply('__upgrade__', 16.0, recipe_name)
+    end
   end
 end
 -- somehow the above code misses the vanilla chemical machine and refinery;
