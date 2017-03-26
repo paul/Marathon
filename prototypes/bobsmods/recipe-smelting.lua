@@ -6,8 +6,10 @@ local AMF = marathomaton.adjust_multiplier_factor
 
 local function keys_array(dict)
   to_ret = {}
-  for key, _ in pairs(dict) do
-    table.insert(to_ret, key)
+  for key, val in pairs(dict) do
+    if val then
+      table.insert(to_ret, key)
+    end
   end
   return to_ret
 end
@@ -66,5 +68,9 @@ marathomaton.slowdown_recipe_category(smelting)
 explode_all(subgroup2items({'bob-material'}))
 explode_all(subgroup2items({'bob-alloy'}))
 -- explode_all(subgroup2items({'bob-resource'}))
-explode_all({['carbon']=true, ['solid-carbon']=true, ['glass']=true, ['resin']=true, ['rubber']=true})
+local resource_stuff = {['carbon']=true, ['solid-carbon']=true, ['glass']=true, ['resin']=true, ['rubber']=true}
+for key, val in pairs(resource_stuff) do
+  resource_stuff[key] = data.raw.item[key]
+end
+explode_all(resource_stuff)
 

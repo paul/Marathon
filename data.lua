@@ -1,8 +1,10 @@
 marathomaton = {}
 require("config")
 
-if marathomaton.config.no_bob_cheaper_steel then
-  bobmods.config.plates.CheaperSteel = false
+if bobmods and bobmods.config and bobmods.config.plates then
+  if marathomaton.config.no_bob_cheaper_steel then
+    bobmods.config.plates.CheaperSteel = false
+  end
 end
 
 function marathomaton.adjust_multiplier_factor(multiplier)
