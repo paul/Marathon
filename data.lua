@@ -157,8 +157,12 @@ end
 
 -- increase ingredient usage in a recipe by name
 -- accepts set, array, or singleton recipe name
-function marathomaton.modify_recipe(ingredient, multiplier, _recipe_names)
-  multiplier = AMF(multiplier)
+function marathomaton.modify_recipe(ingredient, multiplier, _recipe_names, flag)
+  if flag ~= true then -- passing flag = true disables AMF
+    multiplier = AMF(multiplier)
+  else
+    log('skipping AMF for ' .. serpent.block(ingredient) .. serpent.block(multiplier) .. serpent.block(_recipe_names))
+  end
   local recipe_names = to_set(_recipe_names)
   for recipe_name, _ in pairs(recipe_names) do
     local recipe_obj = data.raw.recipe[recipe_name]
@@ -253,15 +257,17 @@ function marathomaton.modify_recipe(ingredient, multiplier, _recipe_names)
 end
 
 -- allow multiple fields in first argument
-function marathomaton.multiply(a, b, c)
+function marathomaton.multiply(a, b, c, flag)
   for t, _ in pairs(to_set(a)) do
-    marathomaton.modify_recipe(t,b,c)
+    marathomaton.modify_recipe(t,b,c, flag)
   end
 end
 
 -- increase ingredient usage in all recipes
-function marathomaton.modify_all_recipes(ingredient, multiplier)
-  multiplier = AMF(multiplier)
+function marathomaton.modify_all_recipes(ingredient, multiplier, flag)
+  if flag ~= true then
+    multiplier = AMF(multiplier)
+  end
   -- log('MARATHOMATON: modifying all recipes containing ' .. ingredient)
   for recipe_name, recipe_obj in pairs(data.raw.recipe) do
     local ingredient_list = recipe_obj['ingredients']
@@ -285,7 +291,7 @@ end
 
 -- increase result yield of this specific item in all recipes, but not any other results
 function marathomaton.modify_all_yields(multiplier, item)
-  multiplier = AMF(multiplier)
+  -- multiplier = AMF(multiplier)
   -- runs into problems when resulting result_count is non-integer
   -- for now, just hanlde half-integer
   for recipe_name, recipe_obj in pairs(data.raw.recipe) do
@@ -323,7 +329,7 @@ function marathomaton.modify_all_yields(multiplier, item)
     end
     if fixup_flag == true then
       -- double every ingredient, time, yield of recipe_obj
-      marathomaton.multiply({'__inputs__', '__time__', '__yield__'}, 2.0, recipe_name)
+      marathomaton.multiply({'__inputs__', '__time__', '__yield__'}, 2.0, recipe_name, true)
       -- log('succesfully exploded ' .. recipe_name .. '!\n' .. serpent.block(recipe_obj))
     end
   end

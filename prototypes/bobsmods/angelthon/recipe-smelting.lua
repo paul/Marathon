@@ -26,6 +26,20 @@ for recipe_name, recipe_obj in pairs(data.raw.recipe) do
   end
 end
 
+-- experimental!!
+-- make casting slightly more efficient so as to incentivize copper -> ingot -> molten -> plate
+-- over ordinary copper ore -> plate.
+-- stats: iron through molten is +25% prod, through processed is +50%, through pellet is +87%
+-- copper through molten is +0% , through processsed is +25%, through pellet is +50%
+-- this will improve productivities by a further 11% across the board
+
+for recipe_name, recipe_obj in pairs(data.raw.recipe) do
+  if recipe_obj.category == 'casting' then
+    multiply('__inputs__', 0.9, recipe_name)
+  end
+end
+
+
 
 -- angels-powdered-x : no change afaik
 -- make stone creation 1.5x harder (i.e. 0.66x stone yield everywhere)

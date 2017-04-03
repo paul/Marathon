@@ -28,7 +28,7 @@ local function explode_all(_items)
     log('exploding ' .. item .. ' at rate ' .. expansion_rate[i])
     marathomaton.modify_all_yields(expansion_rate[i], item)
     -- now make everything that uses this item consume multiplier times more
-    marathomaton.modify_all_recipes(item, expansion_rate[i])
+    marathomaton.modify_all_recipes(item, expansion_rate[i], true)
     -- also increase the stack size
 --    data.raw.item[item].stack_size = data.raw.item[item].stack_size * stack_rate[i]
     -- also decrease the fuel yield
