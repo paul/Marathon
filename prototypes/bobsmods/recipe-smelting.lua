@@ -14,7 +14,7 @@ local function keys_array(dict)
   return to_ret
 end
 
-local expansion_rate = { 2.5, 2.5, 2.5, 3.0, 3.0, 3.5, 4.0, 4.0, 5.0, 5.0, 5.0, 5.0, 6.0, 6.0, 6.0 }
+local expansion_rate = { 2.5,2.5,2.5,3.0,3.0,3.5,4.0,4.0,4.5,5.0,5.0,5.0,6.0,6.0,6.0,7.0,7.0,7.5,8.0}
 local stack_rate     = { 2.5, 2.5, 2.5, 2.5, 2.5, 2.5, 5.0, 5.0, 5.0, 5.0, 5.0, 5.0, 5.0, 5.0, 5.0 }
 
 local function explode_all(_items)
@@ -49,12 +49,15 @@ end
 local smelting = {
   ['mixing-furnace']    =1.5, -- affects alloy plates
   ['chemical-furnace']  =2.0, -- chemical plates and powders
-  ['blast-smelting']    =2.5, -- making angel ingot
+  ['blast-smelting']    =2.5, -- making angel ingot from any
   ['induction-smelting']=3.0, -- making angel molten
-  ['casting']           =3.5, -- affects angel plates
-  ['ore-processing']    =4.0, -- making angel processed ore
-  ['pellet-pressing']   =5.0, -- making angel processed pellet
+  ['casting']           =3.5, -- making angel plates and wire coil
+  ['ore-processing']    =4.0, -- making angel processed from ore
+  ['pellet-pressing']   =5.0, -- making angel pellet from processed
   ['liquifying']        =6.0, -- making chemical liquid angel stuffs
+  ['chemical-smelting'] =6.0, -- making chemical solid angel stuffs
+  ['advanced-crafting'] =8.0, -- making angels wires out of coil
+  ['strand-casting']    =9.0, -- making angels sheet coil out of molten
   ['ore-sorting']       =1.2, -- sorting crushed, chunks, crystals, or pure
   ['ore-sorting-t1']    =1.5, -- ore to crushed
   ['ore-sorting-t2']    =2.0, -- crushed to chunks
@@ -65,7 +68,13 @@ local smelting = {
 marathomaton.slowdown_recipe_category(smelting)
 
 -- create smelting bottlenecks for all these plate types: (no iron or copper here)
-explode_all(subgroup2items({'bob-material'}))
+local plates_list = subgroup2items({'bob-material'})
+-- hardcode these for now until bob adds them to bob-material
+plates_list['angels-plate-chrome'] = true
+plates_list['angels-plate-manganese'] = true
+plates_list['angels-plate-platinum'] = true
+
+explode_all(plates_list)
 explode_all(subgroup2items({'bob-alloy'}))
 -- explode_all(subgroup2items({'bob-resource'}))
 local resource_stuff = {['carbon']=true, ['solid-carbon']=true, ['glass']=true, ['resin']=true, ['rubber']=true}
