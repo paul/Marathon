@@ -1,6 +1,6 @@
 {
   "name": "marathomaton",
-  "version": "0.1.33",
+  "version": "0.1.35",
   "factorio_version": "0.14",
   "title": "Marathon Mod Automated",
   "author": "Benoit Girard & Afforess",
@@ -10,7 +10,7 @@
   "dependencies": [
     "base >= 0.14.0",
     "? ResearchRevolution >= 0.14.10",
-    "? angelssmelting >= 0.2.2",
+    "? angelssmelting >= 0.2.3",
     "? bobassembly >= 0.12.7",
     "? bobconfig >= 0.12.2",
     "? bobelectronics >= 0.12.6",
