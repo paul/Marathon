@@ -73,7 +73,7 @@ for recipe_name, recipe_obj in pairs(data.raw.recipe) do
   -- check if item result is placeable
   if placeable then
     if group ~= nil and (group_set[group] ~= nil or recipe_obj.subgroup == 'angels-silos') then
-      log('got group ' .. group .. ' and subgroup ' .. subgroup .. ' for recipe name ' .. recipe_name)
+      -- log('got group ' .. group .. ' and subgroup ' .. subgroup .. ' for recipe name ' .. recipe_name)
       -- modify the recipe
       multiply('__upgrade__', 4.0, recipe_name)
       if recipe_obj.subgroup == 'angels-silos' then

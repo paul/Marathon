@@ -161,7 +161,7 @@ function marathomaton.modify_recipe(ingredient, multiplier, _recipe_names, flag)
   if flag ~= true then -- passing flag = true disables AMF
     multiplier = AMF(multiplier)
   else
-    log('skipping AMF for ' .. serpent.block(ingredient) .. serpent.block(multiplier) .. serpent.block(_recipe_names))
+    -- log('skipping AMF for ' .. serpent.block(ingredient) .. serpent.block(multiplier) .. serpent.block(_recipe_names))
   end
   local recipe_names = to_set(_recipe_names)
   for recipe_name, _ in pairs(recipe_names) do
