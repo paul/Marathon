@@ -104,7 +104,10 @@ for item_name, _ in pairs(ingots_set) do
     ingots_set[item_name] = false
   end
 end
-explode_all(ingots_set, ingot_expansion_rate) -- slightly different from ordinary expansion rate.
+
+if marathomaton.config.enable_ingot_explosion then
+  explode_all(ingots_set, ingot_expansion_rate) -- slightly different from ordinary expansion rate.
+end
 
 explode_all(plates_list)
 explode_all(subgroup2items({'bob-alloy'}))

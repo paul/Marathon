@@ -13,3 +13,6 @@ marathomaton.config.multiplier_adjust_factor = 1.0
 -- default true
 marathomaton.config.no_bob_cheaper_steel = true
 
+-- if true, explodes ingot volume by 2-10x (varying).
+-- default true
+marathomaton.config.enable_ingot_explosion = true
