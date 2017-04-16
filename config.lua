@@ -11,7 +11,7 @@ marathomaton.config.multiplier_adjust_factor = 1.0
 
 -- if true, sets bob's cheaper steel to false if it was true.
 -- default true
-marathomaton.config.no_bob_cheaper_steel = true
+marathomaton.config.no_bob_cheaper_steel = false
 
 -- if true, explodes ingot volume by 2-10x (varying).
 -- default true

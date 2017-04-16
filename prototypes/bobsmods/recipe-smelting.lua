@@ -87,6 +87,9 @@ local plates_list = subgroup2items({'bob-material'})
 plates_list['angels-plate-chrome'] = true
 plates_list['angels-plate-manganese'] = true
 plates_list['angels-plate-platinum'] = true
+plates_list['iron-plate'] = false -- these guys were handled already in vanilla
+plates_list['copper-plate'] = false
+plates_list['steel-plate'] = false
 
 -- find all the angel ingots and explode them too
 -- they are inputs to recipes in the category "induction-smelting"
@@ -103,6 +106,11 @@ for item_name, _ in pairs(ingots_set) do
   if string.find(item_name, 'ingot') == nil and string.find(item_name, 'powder') == nil then
     ingots_set[item_name] = false
   end
+end
+
+if marathomaton.config.no_bob_cheaper_steel == false then
+  -- if bob cheaper steel is on, have to disable this because angel refining will overwrite stuff
+  ingots_set['ingot-steel'] = false
 end
 
 if marathomaton.config.enable_ingot_explosion then

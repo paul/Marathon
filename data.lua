@@ -4,6 +4,9 @@ require("config")
 if bobmods and bobmods.config and bobmods.config.plates then
   if marathomaton.config.no_bob_cheaper_steel then
     bobmods.config.plates.CheaperSteel = false
+    if bobmods.plates then
+      bobmods.plates.CheaperSteel = false
+    end
   end
 end
 
