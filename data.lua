@@ -335,8 +335,46 @@ function marathomaton.modify_all_yields(multiplier, item)
       marathomaton.multiply({'__inputs__', '__time__', '__yield__'}, 2.0, recipe_name, true)
       -- log('succesfully exploded ' .. recipe_name .. '!\n' .. serpent.block(recipe_obj))
     end
+    while marathomaton.exceeds_stack_size(recipe_name) do
+      log('stack size exceeded for ' .. recipe_name .. '! halving recipe:')
+      marathomaton.multiply({'__inputs__', '__time__', '__yield__'}, 0.5, recipe_name, true)
+    end
   end
 end
+
+-- checks a recipe to verify that the results are not produced in >stack_size quantity.
+function marathomaton.exceeds_stack_size(recipe_name)
+  local recipe_obj = data.raw.recipe[recipe_name]
+  if recipe_obj == nil then
+    return false
+  end
+  if recipe_obj.results ~= nil then -- results, array of dicts
+    local results = recipe_obj.results
+    for i = 1, #results do
+      local item_name = results[i].name
+      -- check stack size for non-fluids
+      if item_name ~= nil and results[i].type ~= 'fluid' and data.raw.item[item_name] ~= nil and data.raw.item[item_name].stack_size ~= nil then
+        local stack_size = data.raw.item[item_name].stack_size
+        if results[i].amount > stack_size or results[i].amount_max > stack_size then
+          return true
+        end
+      end
+    end
+  else -- singleton results
+    local item_name = recipe_obj.result
+    if item_name ~= nil and data.raw.item[item_name] ~= nil and data.raw.item[item_name].stack_size ~= nil then
+      if recipe_obj.result_count > data.raw.item[item_name].stack_size then
+        return true
+      end
+    end
+  end
+  return false
+end
+
+
+
+
+      local fields = {'amount', 'amount_max'}
 
 -- given a map of crafting category -> time multiplier, slows them all down by that much
 function marathomaton.slowdown_recipe_category(cat2multiplier)
