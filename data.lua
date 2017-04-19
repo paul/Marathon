@@ -355,7 +355,7 @@ function marathomaton.exceeds_stack_size(recipe_name)
       -- check stack size for non-fluids
       if item_name ~= nil and results[i].type ~= 'fluid' and data.raw.item[item_name] ~= nil and data.raw.item[item_name].stack_size ~= nil then
         local stack_size = data.raw.item[item_name].stack_size
-        if results[i].amount > stack_size or results[i].amount_max > stack_size then
+        if results[i].amount ~= nil and results[i].amount > stack_size or results[i].amount_max ~= nil and results[i].amount_max > stack_size then
           return true
         end
       end
@@ -363,7 +363,7 @@ function marathomaton.exceeds_stack_size(recipe_name)
   else -- singleton results
     local item_name = recipe_obj.result
     if item_name ~= nil and data.raw.item[item_name] ~= nil and data.raw.item[item_name].stack_size ~= nil then
-      if recipe_obj.result_count > data.raw.item[item_name].stack_size then
+      if recipe_obj.result_count ~= nil and recipe_obj.result_count > data.raw.item[item_name].stack_size then
         return true
       end
     end
