@@ -36,6 +36,12 @@ if bobmods and bobmods.config and bobmods.config.modules then
     -- raw speed  : speed +0.4, energy +0.4
     -- green      : energy -0.8, poll -0.2
     -- pure prod  : prod +0.1, speed -0.12, energy +0.4, poll +0.2
+    -- recipe costs:
+    -- 2x inputs for beacon and all merged modules
+    -- disable non-merge recipe for merged modules
+    -- make merged modules require the previous merged module ... ?
+    -- fix angels refinery building not having enough mod slots
+    -- fix module parts recipes not being consistent
   if marathomaton.config.rebalance_bobmods then
     -- blah
     -- bobmods.config.modules.ProductivityHasSpeed = true
