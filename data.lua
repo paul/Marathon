@@ -13,30 +13,53 @@ end
 
 -- bob modules override (why so op???)
 if bobmods and bobmods.config and bobmods.config.modules then
-    -- target: speed +0.5, consumption +0.7; efficienty -0.5; prod +0.1, poll +0.1, speed -0.15, consumption +.8
-    -- result: speed,  +0.6, energy +0.8 ; efficiency -0.8;  prod +0.12, pollution +0.2, speed -0.2, consumption +0.8
+    -- vanilla beacons are 50% effective and a good setup feeds 8 (4 per row up & down) beacons per machine, for a total of 4 + (.5 * 8 * 2) = 12 effective modules.
+    -- ordinary bob beacons are 100% effective and can easily feed 32 (8 per row and 2 rows up, 2 rows down per double row of machines) beacons per machine, 
+    -- for a total of 6 + (1.0 * 32 * 6) = a bajillion effective modules.
+    -- we will change this to 6 + (0.1 * 32 * 6) = 6 + 19.2 effective modules (already plenty!!)
+    -- similarly for beacon mk2 which can feed (6 * 3, 2 rows per double row) 18 beacons per machine and 4 slots, 20% efficiency is recommended
+    -- 0.5 * 8 = 4, 0.2 * 18 = 3.6, 0.1 * 32 = 3.2
+    -- made up by # of module slots (2, 4, 6), resulting in effectivley 
+    -- 0.5 * 8 * 2 = 8, 0.2 * 18 * 4 = 14.4, 0.1 * 32 * 6 = 19.2
+    -- can try the scaling:
+    -- 0.5 * 8 * 2 = 8, 0.15 * 18 * 4 = 10.8, 0.075 * 32 * 6 = 14.4
+    -- with heavy beacon placement this goes up to:
+    -- 0.5 * 8 * 2 = 8, 0.15 * (6 * 4) * 4 = 14.4, 0.075 * ( 8 * 6 ) * 6 = 21.6
+
+    -- vanilla: speed +0.5, consumption +0.7; efficienty -0.5; prod +0.1, poll +0.1, speed -0.15, consumption +.8
+    -- plan: 
+    -- speed      : speed +0.4, energy +0.8 
+    -- efficiency : energy -0.8
+    -- prod       : prod +0.1, pollution +0.4, speed -0.24, energy +0.8
+    -- pollution  : polllution -0.4
+    -- pollution  : pollution +2.0
+    -- raw speed  : speed +0.4, energy +0.4
+    -- green      : energy -0.8, poll -0.2
+    -- pure prod  : prod +0.1, speed -0.12, energy +0.4, poll +0.2
   if marathomaton.config.rebalance_bobmods then
     -- blah
-    bobmods.config.modules.ProductivityHasSpeed = true
-    bobmods.config.modules.EnableMergedModules = false
-    bobmods.config.modules.EnableRawSpeedModules = false
-    bobmods.config.modules.EnableGreenModules = false
-    bobmods.config.modules.EnableRawProductivityModules = false
+    -- bobmods.config.modules.ProductivityHasSpeed = true
+    -- can't mess with these, it will break bobmodules due to import order
+    -- still recommend playing with bob merged mods off
+    -- bobmods.config.modules.EnableMergedModules = false
+    -- bobmods.config.modules.EnableRawSpeedModules = false
+    -- bobmods.config.modules.EnableGreenModules = false
+    -- bobmods.config.modules.EnableRawProductivityModules = false
 
-    bobmods.config.modules.SpeedPerLevel = 0.075 -- was 0.2
-    bobmods.config.modules.PollutionPerLevel = 0.025 -- was 0.15
-    bobmods.config.modules.ConsumptionPerLevel = 0.1 -- was 0.1
-    bobmods.config.modules.ProductivityPerLevel = 0.015 -- was 0.05
-    bobmods.config.modules.SpeedPerProductivityLevel = 0.025 -- was 0.05
-    bobmods.config.modules.PollutionCreatePerLevel = 0.25 -- was 0.5
+    -- bobmods.config.modules.SpeedPerLevel = 0.075 -- was 0.2
+    -- bobmods.config.modules.PollutionPerLevel = 0.025 -- was 0.15
+    -- bobmods.config.modules.ConsumptionPerLevel = 0.1 -- was 0.1
+    -- bobmods.config.modules.ProductivityPerLevel = 0.015 -- was 0.05
+    -- bobmods.config.modules.SpeedPerProductivityLevel = 0.025 -- was 0.05
+    -- bobmods.config.modules.PollutionCreatePerLevel = 0.25 -- was 0.5
 
     -- Bonus stats for first module.
-    bobmods.config.modules.SpeedBonus = 0
-    bobmods.config.modules.PollutionBonus = 0
-    bobmods.config.modules.ConsumptionBonus = 0
-    bobmods.config.modules.ProductivityBonus = 0
-    bobmods.config.modules.ProductivitySpeedBonus = 0 -- was 0.2
-    bobmods.config.modules.PollutionCreateBonus = 0
+    -- bobmods.config.modules.SpeedBonus = 0
+    -- bobmods.config.modules.PollutionBonus = 0
+    -- bobmods.config.modules.ConsumptionBonus = 0
+    -- bobmods.config.modules.ProductivityBonus = 0
+    -- bobmods.config.modules.ProductivitySpeedBonus = 0 -- was 0.2
+    -- bobmods.config.modules.PollutionCreateBonus = 0
 
   end
 end
