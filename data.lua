@@ -1,6 +1,7 @@
 marathomaton = {}
 require("config")
 
+-- bob cheaper steel override (why so cheap???)
 if bobmods and bobmods.config and bobmods.config.plates then
   if marathomaton.config.no_bob_cheaper_steel then
     bobmods.config.plates.CheaperSteel = false
@@ -9,6 +10,39 @@ if bobmods and bobmods.config and bobmods.config.plates then
     end
   end
 end
+
+-- bob modules override (why so op???)
+if bobmods and bobmods.config and bobmods.config.modules then
+    -- target: speed +0.5, consumption +0.7; efficienty -0.5; prod +0.1, poll +0.1, speed -0.15, consumption +.8
+    -- result: speed,  +0.6, energy +0.8 ; efficiency -0.8;  prod +0.12, pollution +0.2, speed -0.2, consumption +0.8
+  if marathomaton.config.rebalance_bobmods then
+    -- blah
+    bobmods.config.modules.ProductivityHasSpeed = true
+    bobmods.config.modules.EnableMergedModules = false
+    bobmods.config.modules.EnableRawSpeedModules = false
+    bobmods.config.modules.EnableGreenModules = false
+    bobmods.config.modules.EnableRawProductivityModules = false
+
+    bobmods.config.modules.SpeedPerLevel = 0.075 -- was 0.2
+    bobmods.config.modules.PollutionPerLevel = 0.025 -- was 0.15
+    bobmods.config.modules.ConsumptionPerLevel = 0.1 -- was 0.1
+    bobmods.config.modules.ProductivityPerLevel = 0.015 -- was 0.05
+    bobmods.config.modules.SpeedPerProductivityLevel = 0.025 -- was 0.05
+    bobmods.config.modules.PollutionCreatePerLevel = 0.25 -- was 0.5
+
+    -- Bonus stats for first module.
+    bobmods.config.modules.SpeedBonus = 0
+    bobmods.config.modules.PollutionBonus = 0
+    bobmods.config.modules.ConsumptionBonus = 0
+    bobmods.config.modules.ProductivityBonus = 0
+    bobmods.config.modules.ProductivitySpeedBonus = 0 -- was 0.2
+    bobmods.config.modules.PollutionCreateBonus = 0
+
+  end
+end
+
+
+
 
 function marathomaton.adjust_multiplier_factor(multiplier)
   return math.pow(multiplier, marathomaton.config.multiplier_adjust_factor)
