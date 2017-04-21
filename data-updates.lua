@@ -11,6 +11,7 @@ else
   
   -- i don't think these break even if bobs is not loaded
   if bobmods and bobmods.config then
+	  require("prototypes.bobsmods.item")
 	  require("prototypes.bobsmods.recipe")
 	  require("prototypes.bobsmods.recipe-circuit")
 	  require("prototypes.bobsmods.recipe-misc")

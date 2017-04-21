@@ -16,7 +16,14 @@ marathomaton.modify_all_recipes('plastic-bar', 2)
 
 -- slow down all science
 if marathomaton.config.modify_science then
-  recipes = i2r(cat2items({'tool'}))
+  -- only increase requirements for things with science in the name
+  local actually_science = cat2items({'tool'})
+  for item_name, _ in pairs(actually_science) do
+    if string.find(item_name, 'science') == nil then
+      actually_science[item_name] = nil
+    end
+  end
+  recipes = i2r(actually_science)
   multiply('__time__', 2.5, recipes)
   multiply('__inputs__', 5, recipes)
   -- except ones that require alien artifacts

@@ -37,14 +37,18 @@ if bobmods and bobmods.config and bobmods.config.modules then
     -- green      : energy -0.8, poll -0.2
     -- pure prod  : prod +0.1, speed -0.12, energy +0.4, poll +0.2
     -- recipe costs:
-    -- 2x inputs for beacon and all merged modules
+    -- 5x costs, 2x time for all module components
+    -- 2x inputs (not upgrade!!) for beacon 
+    -- merged modules: raw speed needs 2x speed, green needs 2x green,
+    -- raw prod needs 4x prod, 3x green, 2x poll, 1x speed
     -- disable non-merge recipe for merged modules
     -- make merged modules require the previous merged module ... ?
     -- fix angels refinery building not having enough mod slots
-    -- fix module parts recipes not being consistent
+    -- fix module parts recipes not being consistent - DONE
   if marathomaton.config.rebalance_bobmods then
     -- blah
-    -- bobmods.config.modules.ProductivityHasSpeed = true
+    bobmods.config.modules.ProductivityHasSpeed = true
+    bobmods.modules.ProductivityHasSpeed = true
     -- can't mess with these, it will break bobmodules due to import order
     -- still recommend playing with bob merged mods off
     -- bobmods.config.modules.EnableMergedModules = false
@@ -286,9 +290,9 @@ function marathomaton.modify_recipe(ingredient, multiplier, _recipe_names, flag)
           if result_name == nil then
             result_name = recipe_obj.results and recipe_obj.results[1] and recipe_obj.results[1].name
           end
-          if result_name == nil or ingredient_name == nil or data.raw.item[ingredient_name] == nil or data.raw.item[result_name] == nil then
-            log("Couldnt upgrade recipe for " .. ingredient_name ..  " : " .. serpent.block(recipe_obj))
-          end
+          -- if result_name == nil or ingredient_name == nil or data.raw.item[ingredient_name] == nil or data.raw.item[result_name] == nil then
+          --   log("Couldnt upgrade recipe for " .. ingredient_name ..  " : " .. serpent.block(recipe_obj))
+          -- end
           if result_name and ingredient_name and data.raw.item[ingredient_name] and data.raw.item[result_name] and data.raw.item[ingredient_name].subgroup == data.raw.item[result_name].subgroup and data.raw.item[ingredient_name].place_result ~= nil then
             return false
           else
