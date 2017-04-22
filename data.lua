@@ -11,16 +11,20 @@ if bobmods and bobmods.config and bobmods.config.plates then
   end
 end
 
--- NE expansion override
+-- NE expansion override using metatable fuckery because his data-updates.lua file re-requires config.lua for some obscene reason
 if NE_Expansion_Config then
-  NE_Expansion_Config.ScienceCost = false
+  local _NE = {}
+  _NE.ScienceCost = false
+  NE_Expansion_Config.ScienceCost = nil
+  setmetatable(NE_Expansion_Config, {__index=_NE, __newindex=function(t,k,v) end})
   if marathomaton.config.no_NE_harder_endgame then
-    NE_Expansion_Config.HarderEndGame = false
+    NE_Expansion_Config.HarderEndGame = nil
+    _NE.HarderEndGame = false
   end
+  log(serpent.block(NE_Expansion_Config))
+  log(NE_Expansion_Config.ScienceCost)
+  log(NE_Expansion_Config.HarderEndGame)
 end
-
-
-
 
 -- bob modules override (why so op???)
 if bobmods and bobmods.config and bobmods.config.modules then
@@ -60,28 +64,6 @@ if bobmods and bobmods.config and bobmods.config.modules then
     -- blah
     bobmods.config.modules.ProductivityHasSpeed = true
     bobmods.modules.ProductivityHasSpeed = true
-    -- can't mess with these, it will break bobmodules due to import order
-    -- still recommend playing with bob merged mods off
-    -- bobmods.config.modules.EnableMergedModules = false
-    -- bobmods.config.modules.EnableRawSpeedModules = false
-    -- bobmods.config.modules.EnableGreenModules = false
-    -- bobmods.config.modules.EnableRawProductivityModules = false
-
-    -- bobmods.config.modules.SpeedPerLevel = 0.075 -- was 0.2
-    -- bobmods.config.modules.PollutionPerLevel = 0.025 -- was 0.15
-    -- bobmods.config.modules.ConsumptionPerLevel = 0.1 -- was 0.1
-    -- bobmods.config.modules.ProductivityPerLevel = 0.015 -- was 0.05
-    -- bobmods.config.modules.SpeedPerProductivityLevel = 0.025 -- was 0.05
-    -- bobmods.config.modules.PollutionCreatePerLevel = 0.25 -- was 0.5
-
-    -- Bonus stats for first module.
-    -- bobmods.config.modules.SpeedBonus = 0
-    -- bobmods.config.modules.PollutionBonus = 0
-    -- bobmods.config.modules.ConsumptionBonus = 0
-    -- bobmods.config.modules.ProductivityBonus = 0
-    -- bobmods.config.modules.ProductivitySpeedBonus = 0 -- was 0.2
-    -- bobmods.config.modules.PollutionCreateBonus = 0
-
   end
 end
 

@@ -10,6 +10,7 @@
   "dependencies": [
     "base >= 0.14.0",
     "? ResearchRevolution >= 0.14.10",
+    "? Natural_Evolution_Expansion >= 6.4.0",
     "? angelssmelting >= 0.2.3",
     "? bobassembly >= 0.12.7",
     "? bobconfig >= 0.12.2",
@@ -24,7 +25,6 @@
     "? bobpower >= 0.12.6",
     "? bobtech >= 0.12.4",
     "? bobwarfare >= 0.12.9",
-    "? marathon < 0.0.1",
-    "? Natural_Evolution_Expansion >= 6.4.0"
+    "? marathon < 0.0.1"
     ]
 }
