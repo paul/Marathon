@@ -48,10 +48,12 @@ for recipe_name, recipe_obj in pairs(data.raw.recipe) do
       main_result = recipe_obj.main_product
     end
     if main_result == nil then
-      for i, result_obj in ipairs(recipe_obj.results) do
-        if result_obj.amount == 1 then
-          main_result = result_obj.name
-          break
+      if recipe_obj.results then
+        for i, result_obj in ipairs(recipe_obj.results) do
+          if result_obj.amount == 1 then
+            main_result = result_obj.name
+            break
+          end
         end
       end
     end

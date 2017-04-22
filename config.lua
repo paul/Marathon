@@ -21,4 +21,6 @@ marathomaton.config.enable_ingot_explosion = true
 -- default true
 marathomaton.config.rebalance_bobmods = true
 
-
+-- if true, override NE harder endgame (which doubles rocket cost and adds waves upon building first silo)
+-- default true
+marathomaton.config.no_NE_harder_endgame = true

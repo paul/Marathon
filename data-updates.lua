@@ -14,6 +14,7 @@ else
 	  require("prototypes.bobsmods.item")
 	  require("prototypes.bobsmods.recipe")
 	  require("prototypes.bobsmods.recipe-circuit")
+	  require("prototypes.bobsmods.recipe-module")
 	  require("prototypes.bobsmods.recipe-misc")
 	  require("prototypes.bobsmods.recipe-production")
 	  require("prototypes.bobsmods.recipe-logistics")

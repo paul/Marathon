@@ -1,6 +1,6 @@
 {
   "name": "marathomaton",
-  "version": "0.1.42",
+  "version": "0.1.43",
   "factorio_version": "0.14",
   "title": "Marathon Mod Automated",
   "author": "Benoit Girard & Afforess",
@@ -24,6 +24,7 @@
     "? bobpower >= 0.12.6",
     "? bobtech >= 0.12.4",
     "? bobwarfare >= 0.12.9",
-    "? marathon < 0.0.1"
+    "? marathon < 0.0.1",
+    "? Natural_Evolution_Expansion >= 6.4.0"
     ]
 }

@@ -11,6 +11,17 @@ if bobmods and bobmods.config and bobmods.config.plates then
   end
 end
 
+-- NE expansion override
+if NE_Expansion_Config then
+  NE_Expansion_Config.ScienceCost = false
+  if marathomaton.config.no_NE_harder_endgame then
+    NE_Expansion_Config.HarderEndGame = false
+  end
+end
+
+
+
+
 -- bob modules override (why so op???)
 if bobmods and bobmods.config and bobmods.config.modules then
     -- vanilla beacons are 50% effective and a good setup feeds 8 (4 per row up & down) beacons per machine, for a total of 4 + (.5 * 8 * 2) = 12 effective modules.
@@ -37,10 +48,10 @@ if bobmods and bobmods.config and bobmods.config.modules then
     -- green      : energy -0.8, poll -0.2
     -- pure prod  : prod +0.1, speed -0.12, energy +0.4, poll +0.2
     -- recipe costs:
-    -- 5x costs, 2x time for all module components
-    -- 2x inputs (not upgrade!!) for beacon 
-    -- merged modules: raw speed needs 2x speed, green needs 2x green,
-    -- raw prod needs 4x prod, 3x green, 2x poll, 1x speed
+    -- 5x costs, 2x time for all module components - DONE
+    -- 2x inputs (not upgrade!!) for beacon - DONE
+    -- merged modules: raw speed needs 2x speed, green needs 2x green, - DONE
+    -- raw prod needs 4x prod, 3x green, 2x poll, 1x speed - DONE
     -- disable non-merge recipe for merged modules
     -- make merged modules require the previous merged module ... ?
     -- fix angels refinery building not having enough mod slots
@@ -214,10 +225,17 @@ function marathomaton.get_recipes_from_item(items)
 end
 
 -- returns set-dict of items that are in the given subgroup(s)
-function marathomaton.get_items_by_subgroup(_groups)
+-- also supports setting a category if you dont want item
+function marathomaton.get_items_by_subgroup(_groups, category)
+  if category == nil then
+    category = 'item'
+  end
   local groups = to_set(_groups)
   local to_ret = {}
-  for item_name, item_props in pairs(data.raw.item) do
+  if data.raw[category] == nil then
+    return to_ret
+  end
+  for item_name, item_props in pairs(data.raw[category]) do
     if groups[item_props.subgroup] ~= nil then
       to_ret[item_name] = true
     end
@@ -340,7 +358,7 @@ function marathomaton.modify_all_recipes(ingredient, multiplier, flag)
   end
   -- log('MARATHOMATON: modifying all recipes containing ' .. ingredient)
   for recipe_name, recipe_obj in pairs(data.raw.recipe) do
-    local ingredient_list = recipe_obj['ingredients']
+    local ingredient_list = recipe_obj['ingredients'] or {}
     for i = 1, #ingredient_list do
       local item_data = ingredient_list[i]
       if _get_ingredient_name(item_data) == ingredient then
