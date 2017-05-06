@@ -16,6 +16,7 @@ if NE_Expansion_Config then
   local _NE = {}
   _NE.ScienceCost = false
   NE_Expansion_Config.ScienceCost = nil
+  -- causes lookups to function normally but setting is now noop
   setmetatable(NE_Expansion_Config, {__index=_NE, __newindex=function(t,k,v) end})
   if marathomaton.config.no_NE_harder_endgame then
     NE_Expansion_Config.HarderEndGame = nil
@@ -68,7 +69,25 @@ if bobmods and bobmods.config and bobmods.config.modules then
 end
 
 
-
+function marathomaton.prepare_015_recipe(recipe_name)
+  local recipe_obj = data.raw.recipe[recipe_name]
+  if recipe_obj == nil then
+    return
+  end
+  if recipe_obj['normal'] then
+    recipe_obj['expensive'] = recipe_obj['normal']
+  else
+    recipe_obj['normal'] = {}
+    for k, v in pairs(recipe_obj) do
+      if k == 'name' or k == 'type' then
+        recipe_obj[k] = v
+      else
+        recipe_obj['normal'][k] = v
+      end
+    end
+    recipe_obj['expensive'] = recipe_obj['normal']
+  end
+end
 
 function marathomaton.adjust_multiplier_factor(multiplier)
   return math.pow(multiplier, marathomaton.config.multiplier_adjust_factor)
