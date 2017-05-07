@@ -83,10 +83,12 @@ marathomaton.slowdown_recipe_category(smelting)
 
 -- create smelting bottlenecks for all these plate types: (no iron or copper here)
 local plates_list = subgroup2items({'bob-material'})
+log('MARATHOMATON plates_list ' .. serpent.block(plates_list))
 -- hardcode these for now until bob adds them to bob-material
 plates_list['angels-plate-chrome'] = true
 plates_list['angels-plate-manganese'] = true
 plates_list['angels-plate-platinum'] = true
+plates_list['cobalt-plate'] = true
 plates_list['iron-plate'] = false -- these guys were handled already in vanilla
 plates_list['copper-plate'] = false
 plates_list['steel-plate'] = false
@@ -95,6 +97,7 @@ plates_list['steel-plate'] = false
 -- they are inputs to recipes in the category "induction-smelting"
 local ingots_set = {}
 for recipe_name, recipe_obj in pairs(data.raw.recipe) do
+  recipe_obj = recipe_obj['expensive']
   if recipe_obj.category == "induction-smelting" then
     for _, ingredient_obj in ipairs(recipe_obj.ingredients) do
       ingots_set[ingredient_obj.name] = true

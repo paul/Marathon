@@ -24,8 +24,7 @@ else
   require("prototypes.recipe-smelting")
   
   -- i don't think these break even if bobs is not loaded
-  --[[
-  if bobmods and bobmods.config then
+  if bobmods then
 	  require("prototypes.bobsmods.item")
 	  require("prototypes.bobsmods.recipe")
 	  require("prototypes.bobsmods.recipe-circuit")
@@ -45,6 +44,5 @@ else
   else
     log('angels mods not found!!')
   end
-  --]]
 end
 

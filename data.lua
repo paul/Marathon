@@ -1,6 +1,7 @@
 marathomaton = {}
 require("config")
 
+--[[
 -- bob cheaper steel override (why so cheap???)
 if bobmods and bobmods.config and bobmods.config.plates then
   if marathomaton.config.no_bob_cheaper_steel then
@@ -67,6 +68,7 @@ if bobmods and bobmods.config and bobmods.config.modules then
     bobmods.modules.ProductivityHasSpeed = true
   end
 end
+--]]
 
 -- http://stackoverflow.com/questions/640642/how-do-you-copy-a-lua-table-by-value
 function deepcopy(obj, seen)
@@ -94,7 +96,7 @@ function marathomaton.prepare_015_recipe(recipe_name)
   else
     recipe_obj['normal'] = {}
     for k, v in pairs(recipe_obj) do
-      if k ~= 'name' and k ~= 'type' then
+      if k ~= 'name' and k ~= 'type' and k ~= 'normal' and k~= 'expensive' then
         recipe_obj['normal'][k] = deepcopy(v)
       end
     end

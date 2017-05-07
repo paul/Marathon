@@ -63,7 +63,7 @@ multiply('__time__', 6.0, buildings)
 multiply({'__time__', '__upgrade__'}, 6.0, i2r(cat2items({'lab'})))
 multiply({'__time__', '__upgrade__'}, 6.0, i2r(replace2item('mining-drill', 'mining-drill')))
 -- except for burner
-multiply({'__time__', '__upgrade__'}, 0.166666, i2r({'burner-mining-drill'}))
+multiply({'__time__', '__upgrade__'}, 0.333333, i2r({'burner-mining-drill'}))
 
 -- slow down T1 electricity
 local pipe = cat2items('pipe')
@@ -81,4 +81,13 @@ multiply({'__upgrade__', '__time__'}, 2.0, i2r(cat2items({'accumulator' , 'solar
 -- make getting military harder in early game
 multiply({'iron-gear-wheel', 'iron-plate'}, 2.0, i2r(cat2items({'gun', 'ammo', 'capsule'})))
 multiply({'iron-gear-wheel', 'iron-plate'}, 5.0, i2r(cat2items({'ammo-turret', 'electric-turret', 'fluid-turret'})))
+-- tank nerfs (to match ordinary marathon)
+recipes = {}
+for item_name, item_obj in pairs(data.raw.ammo) do
+  if item_obj.ammo_type and item_obj.ammo_type.category == 'cannon-shell' then
+    recipes[item_name] = true
+  end
+end
+multiply('__inputs__', 2.5, i2r(recipes))
+multiply('__inputs__', 2.5, i2r({'tank'}))
 
