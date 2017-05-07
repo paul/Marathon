@@ -3,19 +3,19 @@ local multiply = marathomaton.multiply
 local sg2i = marathomaton.get_items_by_subgroup
 local recipes
 
-if marathomaton.config.rebalance_bobmods then
+if settings.startup['marathomaton_rebalance_bobmods'].value == true then
   -- 2x time, 5x inputs for all module components
   local module_components = sg2i( {"module-intermediates", "addon-modules1", "addon-modules2"} )
   recipes = i2r(module_components)
   multiply('__time__', 2, recipes)
-  multiply('__inputs__', 5, recipes)
-  multiply(module_components, 0.2, recipes)
+  -- multiply('__inputs__', 5, recipes)
+  -- multiply(module_components, 0.2, recipes)
   -- including the ones used in tech
   local science_module_components = sg2i( {"module-intermediates", "addon-modules1", "addon-modules2"}, 'tool' )
   recipes = i2r(science_module_components)
   multiply('__time__', 2, recipes)
-  multiply('__inputs__', 5, recipes)
-  multiply(module_components, 0.2, recipes)
+  -- multiply('__inputs__', 5, recipes)
+  -- multiply(module_components, 0.2, recipes)
   
   recipes = i2r(sg2i( "module-beacon" ))
   multiply({'__time__','__inputs__'}, 2, recipes)

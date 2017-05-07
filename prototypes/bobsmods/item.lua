@@ -1,6 +1,5 @@
 
 -- bob modules override (why so op???)
-if bobmods and bobmods.config and bobmods.config.modules then
     -- vanilla beacons are 50% effective and a good setup feeds 8 (4 per row up & down) beacons per machine, for a total of 4 + (.5 * 8 * 2) = 12 effective modules.
     -- ordinary bob beacons are 100% effective and can easily feed 32 (8 per row and 2 rows up, 2 rows down per double row of machines) beacons per machine, 
     -- for a total of 6 + (1.0 * 32 * 6) = a bajillion effective modules.
@@ -33,13 +32,8 @@ if bobmods and bobmods.config and bobmods.config.modules then
     -- make merged modules require the previous merged module ... ?
     -- fix angels refinery building not having enough mod slots
     -- fix module parts recipes not being consistent - DONE
-  if marathomaton.config.rebalance_bobmods then
-    -- blah
-    bobmods.config.modules.ProductivityHasSpeed = true
-    bobmods.modules.ProductivityHasSpeed = true
-  end
-end
 
+    -- bobmods.modules.ProductivityHasSpeed = true
 
 -- modify module and beacon stats
     -- v8 modules :

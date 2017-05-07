@@ -1,9 +1,15 @@
 marathomaton = {}
-require("config")
 
 if settings.startup["marathomaton_no_bob_cheaper_steel"].value == true then
+  log('MARATHOMATON DISABLED CHEAPER STEEL')
   settings.startup["bobmods-plates-cheapersteel"].value = false
 end
+if settings.startup["marathomaton_rebalance_bobmods"].value == true then
+  log('MARATHOMATON REBALANCE BOBMODS')
+  settings.startup["bobmods-modules-productivityhasspeed"].value = true
+  bobmods.modules.ProductivityHasSpeed = true
+end
+
 
 --[[
 -- NE expansion override using metatable fuckery because his data-updates.lua file re-requires config.lua for some obscene reason
@@ -64,7 +70,7 @@ function marathomaton.prep_all_recipes()
 end
 
 function marathomaton.adjust_multiplier_factor(multiplier)
-  return math.pow(multiplier, marathomaton.config.multiplier_adjust_factor)
+  return math.pow(multiplier, settings.startup['marathomaton_multiplier_adjust_factor'].value)
 end
 
 local AMF = marathomaton.adjust_multiplier_factor
