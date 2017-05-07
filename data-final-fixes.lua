@@ -19,13 +19,11 @@ if marathon ~= nil then
 else
   marathomaton.incompatible = false
   log('MARATHOMATON ACTIVATED')
-  require("prototypes.item")
   require("prototypes.recipe")
   require("prototypes.recipe-smelting")
   
   -- i don't think these break even if bobs is not loaded
   if bobmods then
-	  require("prototypes.bobsmods.item")
 	  require("prototypes.bobsmods.recipe")
 	  require("prototypes.bobsmods.recipe-circuit")
 	  require("prototypes.bobsmods.recipe-module")

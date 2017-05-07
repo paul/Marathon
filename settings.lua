@@ -1,13 +1,6 @@
 data:extend(
 {
   {
-    type = "bool-setting",
-    name = "marathomaton_modify_science",
-    setting_type = "startup",
-    default_value = false,
-    per_user = false,
-  },
-  {
     type = "double-setting",
     name = "marathomaton_multiplier_adjust_factor",
     setting_type = "startup",
@@ -35,6 +28,7 @@ data:extend(
     default_value = true,
     per_user = false,
   },
+  --[[
   {
     type = "bool-setting",
     name = "marathomaton_no_NE_harder_endgame",
@@ -42,6 +36,7 @@ data:extend(
     default_value = true,
     per_user = false,
   },
+  --]]
 })
 
 --[[
