@@ -7,6 +7,11 @@ print(_NE.c)
 print(NE.c)
 print(NE.d)
 
-
-data = {}
-data:extend({})
+print('------')
+d1 = { a=1 }
+d2 = d1
+print(d1.a)
+print(d2.a)
+d2.a = 3 
+print(d1.a)
+print(d2.a)

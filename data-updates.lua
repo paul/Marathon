@@ -1,5 +1,7 @@
 -- log(serpent.block(data.raw.recipe))
 
+--[[
+
 if marathon ~= nil then
   log('Error! Marathon mod detected -- cannot continue.')
   marathomaton.incompatible = true
@@ -32,3 +34,5 @@ else
   end
 end
 
+
+--]]

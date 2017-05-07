@@ -68,41 +68,45 @@ if bobmods and bobmods.config and bobmods.config.modules then
   end
 end
 
+-- http://stackoverflow.com/questions/640642/how-do-you-copy-a-lua-table-by-value
+function deepcopy(obj, seen)
+  if type(obj) ~= 'table' then return obj end
+  if seen and seen[obj] then return seen[obj] end
+  local s = seen or {}
+  local res = setmetatable({}, getmetatable(obj))
+  s[obj] = res
+  for k, v in pairs(obj) do res[copy(k, s)] = copy(v, s) end
+  return res
+end
+
 
 function marathomaton.prepare_015_recipe(recipe_name)
   local recipe_obj = data.raw.recipe[recipe_name]
   if recipe_obj == nil then
     return
   end
+  -- wipe out old expensive recipe and replace with either normal recipe or default recipe
   if recipe_obj['normal'] then
-    recipe_obj['expensive'] = recipe_obj['normal']
+    recipe_obj['expensive'] = deepcopy(recipe_obj['normal'])
+    for k, v in pairs(recipe_obj['normal']) do
+      recipe_obj[k] = deepcopy(v)
+    end
   else
     recipe_obj['normal'] = {}
     for k, v in pairs(recipe_obj) do
-      if k == 'name' or k == 'type' then
-        recipe_obj[k] = v
-      else
-        recipe_obj['normal'][k] = v
+      if k ~= 'name' and k ~= 'type' then
+        recipe_obj['normal'][k] = deepcopy(v)
       end
     end
-    recipe_obj['expensive'] = recipe_obj['normal']
+    recipe_obj['expensive'] = deepcopy(recipe_obj['normal'])
   end
 end
+
+local prep_r = marathomaton.prepare_015_recipe
 
 function marathomaton.adjust_multiplier_factor(multiplier)
   return math.pow(multiplier, marathomaton.config.multiplier_adjust_factor)
 end
---   if multiplier > 1.0 then
---     x = multiplier - 1.0
---     x = x * marathomaton.config.multiplier_adjust_factor
---     return 1.0 + x
---   else
---     x = 1.0 / multiplier
---     x = x - 1.0
---     x = x * marathomaton.config.multiplier_adjust_factor
---     return 1.0 + 1.0 / x
---   end
--- end
 
 local AMF = marathomaton.adjust_multiplier_factor
 
@@ -121,7 +125,7 @@ local function _get_ingredient_name(item_data)
   return to_ret
 end
 
--- array of strings or set of strings to set of strings
+-- string or array of strings or set of strings to set of strings
 local function to_set(array_or_dict)
   if array_or_dict == nil then
     return {}
@@ -161,6 +165,7 @@ local function ceil(x)
   end
   return x
 end
+
 -- used for craft time
 local function round_craft_time(x, multiplier)
   if x == nil then
@@ -208,6 +213,8 @@ function marathomaton.get_recipes_from_item(items)
   local items_to_modify = to_set(items)
   local recipe_names = {}
   for recipe_name, recipe_obj in pairs(data.raw.recipe) do
+    prep_r(recipe_name)
+    recipe_obj = recipe_obj['expensive']
     -- check if the recipe makes any of our items, if not, skip
     if recipe_obj.result ~= nil then
       if items_to_modify[recipe_obj.result] ~= nil then
@@ -254,7 +261,8 @@ function marathomaton.modify_recipe(ingredient, multiplier, _recipe_names, flag)
   end
   local recipe_names = to_set(_recipe_names)
   for recipe_name, _ in pairs(recipe_names) do
-    local recipe_obj = data.raw.recipe[recipe_name]
+    prep_r(recipe_name)
+    local recipe_obj = data.raw.recipe[recipe_name]['expensive']
     if recipe_obj == nil then
       error('marathomaton error in doing ' .. recipe_name .. '\n' .. serpent.block(recipe_obj))
     end
@@ -359,6 +367,8 @@ function marathomaton.modify_all_recipes(ingredient, multiplier, flag)
   end
   -- log('MARATHOMATON: modifying all recipes containing ' .. ingredient)
   for recipe_name, recipe_obj in pairs(data.raw.recipe) do
+    prep_r(recipe_name)
+    recipe_obj = recipe_obj['expensive']
     local ingredient_list = recipe_obj['ingredients'] or {}
     for i = 1, #ingredient_list do
       local item_data = ingredient_list[i]
@@ -384,6 +394,8 @@ function marathomaton.modify_all_yields(multiplier, item)
   -- runs into problems when resulting result_count is non-integer
   -- for now, just hanlde half-integer
   for recipe_name, recipe_obj in pairs(data.raw.recipe) do
+    prep_r(recipe_name)
+    recipe_obj = recipe_obj['expensive']
     local fixup_flag = false
     if recipe_obj.results ~= nil then -- results, which is a
       local results = recipe_obj.results -- array of dicts
@@ -460,11 +472,12 @@ end
 
 
 
-      local fields = {'amount', 'amount_max'}
 
 -- given a map of crafting category -> time multiplier, slows them all down by that much
 function marathomaton.slowdown_recipe_category(cat2multiplier)
-  for _, recipe_obj in pairs(data.raw.recipe) do
+  for recipe_name, recipe_obj in pairs(data.raw.recipe) do
+    prep_r(recipe_name)
+    recipe_obj = recipe_obj['expensive']
     if cat2multiplier[recipe_obj.category] ~= nil then
       recipe_obj.energy_required = round_craft_time(recipe_obj.energy_required , AMF(cat2multiplier[recipe_obj.category]))
     end

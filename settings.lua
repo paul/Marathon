@@ -44,7 +44,7 @@ data:extend(
   },
 })
 
-
+--[[
 -- if false, don't do the 5x science costs for any science
 -- default true
 marathomaton.config.modify_science = true
@@ -68,3 +68,4 @@ marathomaton.config.rebalance_bobmods = true
 -- if true, override NE harder endgame (which doubles rocket cost and adds waves upon building first silo)
 -- default true
 marathomaton.config.no_NE_harder_endgame = true
+--]]

@@ -15,6 +15,7 @@ multiply('__inputs__', 2.0, i2r({'solid-fuel'}))
 marathomaton.modify_all_recipes('plastic-bar', 2)
 
 -- slow down all science
+--[[
 if marathomaton.config.modify_science then
   -- only increase requirements for things with science in the name
   local actually_science = cat2items({'tool'})
@@ -29,6 +30,7 @@ if marathomaton.config.modify_science then
   -- except ones that require alien artifacts
   multiply('alien-artifact', 0.2, recipes)
 end
+--]]
 
 -- slow down some select intermediates
 multiply('__time__', 3.0, i2r({'iron-gear-wheel'}))
