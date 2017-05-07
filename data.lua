@@ -75,7 +75,7 @@ function deepcopy(obj, seen)
   local s = seen or {}
   local res = setmetatable({}, getmetatable(obj))
   s[obj] = res
-  for k, v in pairs(obj) do res[copy(k, s)] = copy(v, s) end
+  for k, v in pairs(obj) do res[deepcopy(k, s)] = deepcopy(v, s) end
   return res
 end
 
@@ -102,7 +102,11 @@ function marathomaton.prepare_015_recipe(recipe_name)
   end
 end
 
-local prep_r = marathomaton.prepare_015_recipe
+function marathomaton.prep_all_recipes()
+  for recipe_name, recipe_obj in pairs(data.raw.recipe) do
+    marathomaton.prepare_015_recipe(recipe_name)
+  end
+end
 
 function marathomaton.adjust_multiplier_factor(multiplier)
   return math.pow(multiplier, marathomaton.config.multiplier_adjust_factor)
@@ -213,7 +217,6 @@ function marathomaton.get_recipes_from_item(items)
   local items_to_modify = to_set(items)
   local recipe_names = {}
   for recipe_name, recipe_obj in pairs(data.raw.recipe) do
-    prep_r(recipe_name)
     recipe_obj = recipe_obj['expensive']
     -- check if the recipe makes any of our items, if not, skip
     if recipe_obj.result ~= nil then
@@ -261,7 +264,6 @@ function marathomaton.modify_recipe(ingredient, multiplier, _recipe_names, flag)
   end
   local recipe_names = to_set(_recipe_names)
   for recipe_name, _ in pairs(recipe_names) do
-    prep_r(recipe_name)
     local recipe_obj = data.raw.recipe[recipe_name]['expensive']
     if recipe_obj == nil then
       error('marathomaton error in doing ' .. recipe_name .. '\n' .. serpent.block(recipe_obj))
@@ -367,7 +369,6 @@ function marathomaton.modify_all_recipes(ingredient, multiplier, flag)
   end
   -- log('MARATHOMATON: modifying all recipes containing ' .. ingredient)
   for recipe_name, recipe_obj in pairs(data.raw.recipe) do
-    prep_r(recipe_name)
     recipe_obj = recipe_obj['expensive']
     local ingredient_list = recipe_obj['ingredients'] or {}
     for i = 1, #ingredient_list do
@@ -394,7 +395,6 @@ function marathomaton.modify_all_yields(multiplier, item)
   -- runs into problems when resulting result_count is non-integer
   -- for now, just hanlde half-integer
   for recipe_name, recipe_obj in pairs(data.raw.recipe) do
-    prep_r(recipe_name)
     recipe_obj = recipe_obj['expensive']
     local fixup_flag = false
     if recipe_obj.results ~= nil then -- results, which is a
@@ -476,7 +476,6 @@ end
 -- given a map of crafting category -> time multiplier, slows them all down by that much
 function marathomaton.slowdown_recipe_category(cat2multiplier)
   for recipe_name, recipe_obj in pairs(data.raw.recipe) do
-    prep_r(recipe_name)
     recipe_obj = recipe_obj['expensive']
     if cat2multiplier[recipe_obj.category] ~= nil then
       recipe_obj.energy_required = round_craft_time(recipe_obj.energy_required , AMF(cat2multiplier[recipe_obj.category]))

@@ -33,6 +33,9 @@ end
 --]]
 
 -- slow down some select intermediates
+log("MARATHOMATON DEBUG")
+log(serpent.block(i2r({'iron-gear-wheel'})))
+
 multiply('__time__', 3.0, i2r({'iron-gear-wheel'}))
 recipes = i2r({'copper-cable'})
 multiply('__time__', 4.0, recipes)

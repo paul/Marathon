@@ -11,11 +11,14 @@
 
 -- log(serpent.block(data.raw.recipe))
 
+marathomaton.prep_all_recipes()
+
 if marathon ~= nil then
   log('Error! Marathon mod detected -- cannot continue.')
   marathomaton.incompatible = true
 else
   marathomaton.incompatible = false
+  log('MARATHOMATON ACTIVATED')
   require("prototypes.item")
   require("prototypes.recipe")
   require("prototypes.recipe-smelting")
