@@ -111,12 +111,13 @@ for item_name, _ in pairs(ingots_set) do
   end
 end
 
-if settings.startup['marathomaton_no_bob_cheaper_steel'] == false then
+if settings.startup['marathomaton_no_bob_cheaper_steel'].value == false then
   -- if bob cheaper steel is on, have to disable this because angel refining will overwrite stuff
   ingots_set['ingot-steel'] = false
 end
 
-if settings.startup['marathomaton_enable_ingot_explosion'] == true then
+if settings.startup['marathomaton_enable_ingot_explosion'].value == true then
+  log('MARATHOMATON -> ingots_set is ' .. serpent.block(ingots_set))
   explode_all(ingots_set, ingot_expansion_rate) -- slightly different from ordinary expansion rate.
 end
 
