@@ -407,6 +407,7 @@ function marathomaton.exceeds_stack_size(recipe_name)
   if recipe_obj == nil then
     return false
   end
+  recipe_obj = recipe_obj['expensive']
   if recipe_obj.results ~= nil then -- results, array of dicts
     local results = recipe_obj.results
     for i = 1, #results do
