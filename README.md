@@ -32,13 +32,16 @@ To do
 =====
 Things in progress on this fork:
 * Clean up lua code (wip), handle errors better, pass in params dict instead of lots of args
-* Subsume bob's angelthon refining & smelting recipe changes into this mod
-* Apply GCF factoring to some alloy recipes (eg brass plate should be dialed down 5x) and in general for all recipes after exploding
-* Apply 0.5x yield to all products of products of gas: ethane, methane, butane (to match oil)
+* Apply GCF factoring to some alloy recipes (eg brass plate should be dialed down 5x) and in general for all recipes after exploding (?)
+* Apply 0.5x yield to all products of products of gas: ethane, methane, butane (to match oil), and possibly some other key products-of-products
+* Carefully nerf seedling growth recipes
+* Un-increase heat exchanger & heat turbine recipes so much
+* nerf wood -> coal -> fracking recipes. disable vanilla coal fracking if petrochem coal fracking enabled.
+* fix barreling recipes
+* stop treating liquids differently since 0.15 -- disallow fractional liquids
 
 * Consider separate multipliers for all the different types of assembling machines (ore crusher, ore sorter ,floatation ,leaching ,filtration, crystallize, water plants, electrolyser, greenhouse, compressor, pump, chemical/mixing furnaces, liquier, oil/gas separator, gas refiner, air filter, steam cracker, chemical plants, refinery, ...)
 * Handle all burner buildings the same way
 * Autaomtically deduce smelting categories
 * Automatically deduce circuit board names in bobs
 * Fix disassembly recipes (burner drill, steel furnace)
-* Improve config file

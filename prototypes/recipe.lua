@@ -71,5 +71,6 @@ for item_name, item_obj in pairs(data.raw.ammo) do
   end
 end
 multiply('__inputs__', 2.5, i2r(recipes))
-multiply('__inputs__', 2.5, i2r({'tank'}))
+multiply('__inputs__', 2.5, i2r(cat2items('car')))
+multiply('__inputs__', 0.4, i2r('car'))
 

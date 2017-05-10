@@ -105,3 +105,21 @@ if bobmods and bobmods.modules and settings.startup["marathomaton_rebalance_bobm
     end
   end
 end
+
+-- also fix underground belt length to be basically vanilla length
+if bobmods then
+  local dat = data.raw['underground-belt']
+  if dat == nil then
+    dat = {}
+  end
+  for idx, name in ipairs({'underground-belt', 'fast-underground-belt', 'express-underground-belt', 'green-underground-belt', 'purple-underground-belt'}) do
+    if dat[name] then
+      dat[name].max_distance = idx * 2 + 3
+    end
+  end
+end
+
+  
+
+
+
