@@ -38,6 +38,7 @@ local group_set = {
 }
 -- why are liquifiers not working?
 for recipe_name, recipe_obj in pairs(data.raw.recipe) do
+  recipe_obj = recipe_obj['expensive']
   local subgroup = recipe_obj.subgroup
   local placeable = false
   if recipe_obj ~= nil then
