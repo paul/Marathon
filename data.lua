@@ -247,10 +247,8 @@ function marathomaton.modify_recipe(ingredient, multiplier, _recipe_names, flag)
           for _, field in pairs(fields) do
             if results[i][field] ~= nil then
               local v = results[i][field] * multiplier
-              if results[i].type ~= 'fluid' then -- only allow fractional parts for fluids
-                -- round up
-                v = ceil(v)
-              end
+              -- round up
+              v = ceil(v)
               results[i][field] = v
             end
           end
@@ -302,9 +300,7 @@ function marathomaton.modify_recipe(ingredient, multiplier, _recipe_names, flag)
           -- detect if item_data is array of name, amount or dict
           if item_data[1] == nil then -- dict
             local v = item_data.amount * multiplier
-            if item_data.type ~= 'fluid' then -- only allow fractional parts for fluids
-              v = floor(v)
-            end
+            v = floor(v)
             item_data.amount = v
           else -- array
             item_data[2] = floor(item_data[2] * multiplier)
@@ -338,9 +334,7 @@ function marathomaton.modify_all_recipes(ingredient, multiplier, flag)
         -- detect if item_data is array of name, amount or dict
         if item_data[1] == nil then -- dict
           local v = item_data.amount * multiplier
-          if item_data.type ~= 'fluid' then -- only allow fractional parts for fluids
-            v = floor(v)
-          end
+          v = floor(v)
           item_data.amount = v
         else -- array
           item_data[2] = floor(item_data[2] * multiplier)
@@ -367,10 +361,8 @@ function marathomaton.modify_all_yields(multiplier, item)
           for _, field in pairs(fields) do
             if results[i][field] ~= nil then
               local v = results[i][field] * multiplier
-              if results[i].type ~= 'fluid' then -- only allow fractional parts for fluids
-                if v % 1 ~= 0 then
-                  fixup_flag = true
-                end
+              if v % 1 ~= 0 then
+                fixup_flag = true
               end
               results[i][field] = v
             end

@@ -33,7 +33,6 @@ To do
 Things in progress on this fork:
 * Clean up lua code (wip), handle errors better, pass in params dict instead of lots of args
 * hook up bobplates "metal processing" tech to be prerequisite for angel metallurgy "advanced metal smelting 1" tech (and nodule smelting before chrome/manga)
-* stop treating liquids differently since 0.15 -- disallow fractional liquids
 
 Maybe to do
 ===========
