@@ -85,12 +85,12 @@ for recipe_name, recipe_obj in pairs(data.raw.recipe) do
         multiply('stone-brick', 0.5, recipe_name)
       end
     end
-    if group == 'angels-barrels' then
+    if group == 'angels-barrels' or group == 'angels-fluid-control' then
       multiply('__upgrade__', 16.0, recipe_name)
     end
   end
 end
 -- somehow the above code misses the vanilla chemical machine and refinery;
-multiply('__upgrade__', 4.0, i2r({'chemical-plant', 'oil-refinery'}))
-multiply('steel-plate', 5.0, i2r({'angels-flare-stack'}))
+-- multiply('__upgrade__', 4.0, i2r({'chemical-plant', 'oil-refinery'}))
+multiply('steel-plate', 5.0, i2r({'angels-flare-stack', 'flare-stack'}))
 

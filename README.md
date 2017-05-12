@@ -32,18 +32,18 @@ To do
 =====
 Things in progress on this fork:
 * Clean up lua code (wip), handle errors better, pass in params dict instead of lots of args
-* Apply GCF factoring to some alloy recipes (eg brass plate should be dialed down 5x) and in general for all recipes after exploding (?)
-* Apply 0.5x yield to all products of products of gas: ethane, methane, butane (to match oil), and possibly some other key products-of-products
-* Carefully nerf seedling growth recipes
-* Un-increase heat exchanger & heat turbine recipes so much
-* re-fix barreling-category recipes such as pressurized tank
-* make molten metals unable to be barreled
-* stop treating liquids differently since 0.15 -- disallow fractional liquids
 * hook up bobplates "metal processing" tech to be prerequisite for angel metallurgy "advanced metal smelting 1" tech (and nodule smelting before chrome/manga)
-* nerf wood -> coal -> fracking recipes. disable vanilla coal fracking if petrochem coal fracking enabled. also disable/modify bio fuel cracking
+* stop treating liquids differently since 0.15 -- disallow fractional liquids
 
-* Consider separate multipliers for all the different types of assembling machines (ore crusher, ore sorter ,floatation ,leaching ,filtration, crystallize, water plants, electrolyser, greenhouse, compressor, pump, chemical/mixing furnaces, liquier, oil/gas separator, gas refiner, air filter, steam cracker, chemical plants, refinery, ...)
+Maybe to do
+===========
+* Apply GCF factoring to some alloy recipes (eg brass plate should be dialed down 5x) and in general for all recipes after exploding (?)
+* nerf wood -> coal -> fracking recipes. disable vanilla coal fracking if petrochem coal fracking enabled. also disable/modify bio fuel cracking
+* make molten metals unable to be barreled, or nerf somewhat (require special tungsten barrel?)
+* Apply 0.5x yield to all products of products of gas: ethane, methane, butane (to match oil's plastic sulfur and solid-fuel), and possibly some other key products-of-products
+* Un-increase heat exchanger & heat turbine recipes so much
 * Handle all burner buildings the same way
 * Autaomtically deduce smelting categories
 * Automatically deduce circuit board names in bobs
+* Automatically deduce seedling recipe names
 * Fix disassembly recipes (burner drill, steel furnace)

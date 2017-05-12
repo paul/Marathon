@@ -12,6 +12,7 @@ multiply('stone-crushed', 1.5, 'stone-crushed')
 
 -- find all recipes of ore-sorting-t2: 0.6x all fluids
 for recipe_name, recipe_obj in pairs(data.raw.recipe) do
+  recipe_obj = recipe_obj['expensive']
   local cat = recipe_obj.category
   if cat == 'ore-sorting-t2' then
     -- find results which are fluids
@@ -34,6 +35,7 @@ end
 -- this will improve productivities by a further 11% across the board
 
 for recipe_name, recipe_obj in pairs(data.raw.recipe) do
+  recipe_obj = recipe_obj['expensive']
   if recipe_obj.category == 'casting' then
     multiply('__inputs__', 0.9, recipe_name)
   end
