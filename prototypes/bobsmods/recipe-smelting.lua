@@ -83,7 +83,7 @@ marathomaton.slowdown_recipe_category(smelting)
 
 -- create smelting bottlenecks for all these plate types: (no iron or copper here)
 local plates_list = subgroup2items({'bob-material'})
-log('MARATHOMATON plates_list ' .. serpent.block(plates_list))
+-- log('MARATHOMATON plates_list ' .. serpent.block(plates_list))
 -- hardcode these for now until bob adds them to bob-material
 plates_list['angels-plate-chrome'] = true
 plates_list['angels-plate-manganese'] = true
@@ -117,7 +117,7 @@ if settings.startup['marathomaton_no_bob_cheaper_steel'].value == false then
 end
 
 if settings.startup['marathomaton_enable_ingot_explosion'].value == true then
-  log('MARATHOMATON -> ingots_set is ' .. serpent.block(ingots_set))
+  -- log('MARATHOMATON -> ingots_set is ' .. serpent.block(ingots_set))
   explode_all(ingots_set, ingot_expansion_rate) -- slightly different from ordinary expansion rate.
 end
 
