@@ -225,10 +225,11 @@ function marathomaton.modify_recipe(ingredient, multiplier, _recipe_names, flag)
   end
   local recipe_names = to_set(_recipe_names)
   for recipe_name, _ in pairs(recipe_names) do
-    local recipe_obj = data.raw.recipe[recipe_name]['expensive']
+    local recipe_obj = data.raw.recipe[recipe_name]
     if recipe_obj == nil then
       error('marathomaton error in doing ' .. recipe_name .. '\n' .. serpent.block(recipe_obj))
     end
+    recipe_obj = recipe_obj['expensive']
 
     -- time, modify energy_required
     if ingredient == '__time__' then
