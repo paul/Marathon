@@ -20,10 +20,12 @@ multiply('__yield__', 0.5, 'bob-seedling')
 local bob_wood = {'bob-basic-greenhouse-cycle', 'bob-advanced-greenhouse-cycle'}
 multiply('__time__', 2.0, bob_wood)
 multiply('__yield__', 0.66666, bob_wood)
-local bio_wood = {'bi-Logs_Mk1', 'bi-Logs_Mk2', 'bi-Logs_Mk3'}
-multiply('__time__', 1.66666, bio_wood)
-local bio_coal = {'bi-coal', 'bi-coal-2'}
-multiply('__yield__', 0.6666, bio_coal)
+if BI then
+  local bio_wood = {'bi-Logs_Mk1', 'bi-Logs_Mk2', 'bi-Logs_Mk3'}
+  multiply('__time__', 1.66666, bio_wood)
+  local bio_coal = {'bi-coal', 'bi-coal-2'}
+  multiply('__yield__', 0.6666, bio_coal)
+end
 
 
 -- bobgreenhouse: 1 wood -> ~2#5 seedling in 0.5s # HALVE YIELD

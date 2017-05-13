@@ -36,6 +36,7 @@ Things in progress on this fork:
 
 Maybe to do
 ===========
+* Add a single iron plate to wooden board recipe
 * Apply GCF factoring to some alloy recipes (eg brass plate should be dialed down 5x) and in general for all recipes after exploding (?)
 * nerf wood -> coal -> fracking recipes. disable vanilla coal fracking if petrochem coal fracking enabled. also disable/modify bio fuel cracking
 * make molten metals unable to be barreled, or nerf somewhat (require special tungsten barrel?)
@@ -46,3 +47,8 @@ Maybe to do
 * Automatically deduce circuit board names in bobs
 * Automatically deduce seedling recipe names
 * Fix disassembly recipes (burner drill, steel furnace)
+
+Wishlist
+========
+* SpaceMod working with Bob's endgame again. Hopefully by adding tiers to the space science techs?
+* Burner assembling machine 0

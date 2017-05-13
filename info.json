@@ -1,6 +1,6 @@
 {
   "name": "marathomaton",
-  "version": "0.2.8",
+  "version": "0.2.12",
   "factorio_version": "0.15",
   "title": "Marathon Mod Automated",
   "author": "Benoit Girard & Afforess",
@@ -18,12 +18,16 @@
     "? Nanobots >= 1.8.2",
     "? Natural_Evolution_Buildings >= 7.0.0",
     "? Natural_Evolution_Enemies >= 7.0.0",
-    "? Natural_Evolution_Expansion >= 6.4.0",
+    "? Natural_Evolution_Expansion >= 7.0.0",
     "? Orbital Ion Cannon >= 1.4.6",
+    "? PCP >= 0.0.5",
     "? RailTanker >= 1.4.1",
     "? SpaceMod >= 0.3.0",
     "? TheFatController >= 2.0.4",
     "? WaterWell >= 1.0.18",
+    "? YARM >= 0.7.201",
+    "? Yi_Tech_Tree >= 0.15.0",
+    "? Yuoki >= 0.5.69",
     "? angelsaddons-locales >= 0.1.21",
     "? angelsaddons-oresilos >= 0.3.0",
     "? angelsaddons-petrotrain >= 0.2.0",
@@ -56,7 +60,10 @@
     "? burner-assembling-machine >= 0.0.2",
     "? color-coding >= 1.15.1",
     "? creative-mode >= 0.3.2",
+    "? data-raw-prototypes >= 0.3.1",
     "? robotarmy >= 0.3.2",
-    "? marathon < 0.0.1"
+    "? marathon < 0.0.1",
+    "? yi_engines >= 0.5.24",
+    "? yi_railway >= 0.5.18"
     ]
 }
