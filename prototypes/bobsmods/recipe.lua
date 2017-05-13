@@ -25,6 +25,8 @@ if BI then
   multiply('__time__', 1.66666, bio_wood)
   local bio_coal = {'bi-coal', 'bi-coal-2'}
   multiply('__yield__', 0.6666, bio_coal)
+  multiply('__yield__', 0.5, 'bi-woodpulp')
+  multiply('__inputs__', 1.5, 'bi-charcoal')
 end
 
 
@@ -40,9 +42,10 @@ end
 -- bioindustries: 30 seedling, 10 fertiliser -> 75 wood, 260 s
 -- bioindustries: 50 seedling, 5 a. fertiliser -> 150 wood, 150 s
 --  bio-farm uses 0.1 MW for 1x crafting
+-- 2 wood -> 8 pulp # HALVE YIELD
 -- 20 wood -> 18 charcoal (3 MJ) in 20 s
 -- : makes wood worth 63 / 20 = 3.1 MJ
--- 40 pulp -> 18 charcoal (3 MJ) in 12.5 s
+-- 40 pulp -> 18 charcoal (3 MJ) in 12.5 s # 1.5x INPUTS
 -- : makes pulp worth 64 / 40 = 1.6 MJ
 -- 12 charcoal -> 8 coal (4 MJ) in 12 s # HALVE YIELD
 -- : this makes charcoal worth 44/12 = 3.66 MJ

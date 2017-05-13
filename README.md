@@ -32,14 +32,23 @@ To do
 =====
 Things in progress on this fork:
 * Clean up lua code (wip), handle errors better, pass in params dict instead of lots of args
-* hook up bobplates "metal processing" tech to be prerequisite for angel metallurgy "advanced metal smelting 1" tech (and nodule smelting before chrome/manga)
-
-Maybe to do
-===========
-* Add a single iron plate to wooden board recipe
-* Apply GCF factoring to some alloy recipes (eg brass plate should be dialed down 5x) and in general for all recipes after exploding (?)
+* Adjust crating alien artifacts:
+  - alien bacteria from spores should have 30% success rate
+  - alien pre-artifact from bacteria makes 0-3 preartifacts
+  - pink alien pre-artifact from preartifact needs 50 crystal seedling
+  - colored alien pre-arttact from preartifact has 80% success rate
+  - Extracting small alien artifacts now gives: 5, 5%; 1, 25%; 0, 70%; effectively down from 5 to 0.5
+  - recoloring artifacts doesnt work anymore
+  - Making big colored from small colored requires 1 big pink alien artifact. pink big recipe not changed
+* Add settings flag for not-really-marathon content (e.g. technology changes, pipe stack size change, fuel changes, etc.)
+* re-enable craftable alien artifacts
+* disable uranium ore when angels refining exists
+* Add settings flag to provide *some* materials on startup (otherwise way too tedious)
+* Add a single iron plate to (all) wooden board recipes
+* fix wooden pole to only need 1 copper cable not 2
 * nerf wood -> coal -> fracking recipes. disable vanilla coal fracking if petrochem coal fracking enabled. also disable/modify bio fuel cracking
-* make molten metals unable to be barreled, or nerf somewhat (require special tungsten barrel?)
+* Apply GCF factoring to some alloy recipes (eg brass plate should be dialed down 5x) and in general for all recipes after exploding (?)
+* make molten metals unable to be barreled, or nerf somewhat (require special plastic/tungsten barrels?)
 * Apply 0.5x yield to all products of products of gas: ethane, methane, butane (to match oil's plastic sulfur and solid-fuel), and possibly some other key products-of-products
 * Un-increase heat exchanger & heat turbine recipes so much
 * Handle all burner buildings the same way
@@ -52,3 +61,5 @@ Wishlist
 ========
 * SpaceMod working with Bob's endgame again. Hopefully by adding tiers to the space science techs?
 * Burner assembling machine 0
+* fixed biofuel, bioplastic, coal liquefication recipes
+* 
