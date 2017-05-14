@@ -59,7 +59,7 @@ Things in progress on this fork:
 
 Wishlist
 ========
-* SpaceMod working with Bob's endgame again. Hopefully by adding tiers to the space science techs?
+* SpaceMod working with Bob's endgame again. Hopefully by adding tiers to the space science techs? CMHMod as stopgap for now.
 * Burner assembling machine 0
 * fixed biofuel, bioplastic, coal liquefication recipes
 * 

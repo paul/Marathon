@@ -13,6 +13,21 @@ if settings.startup["marathomaton_rebalance_bobmods"].value == true then
     bobmods.modules.ProductivityHasSpeed = true
   end
 end
+if settings.startup["marathomaton_enable_all_bobartifacts"].value == true then
+  if settings.startup["bobmods-enemies-enableartifacts"] then
+    settings.startup["bobmods-enemies-enableartifacts"].value = true
+  end
+  if settings.startup["bobmods-enemies-enablesmallartifacts"] then
+    settings.startup["bobmods-enemies-enablesmallartifacts"].value = true
+  end
+  if settings.startup["bobmods-enemies-enablenewartifacts"] then
+    settings.startup["bobmods-enemies-enablenewartifacts"].value = true
+  end
+  if settings.startup["bobmods-enemies-aliensdropartifacts"] then
+    settings.startup["bobmods-enemies-aliensdropartifacts"].value = true
+  end
+end
+
 
 
 --[[
