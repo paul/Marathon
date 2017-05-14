@@ -54,7 +54,7 @@ if settings.startup['marathomaton_greenhouse_revamp'].value == true then
     marathomaton.modify_all_yields(3, 'bi-woodpulp', 'bi-seedling') -- makes seedlings cost 0.7 MJ at 60% eff or 0.5 MJ at 70% eff, which barely turns a profit at 0.7
     multiply('__time__', 1.5, bio_wood)
     modify_energy_usage(0.6666666, 'assembling-machine', 'bi_bio_farm')
-    modify_energy_usage(0.53, 'solar-panel', "bi_solar-panel_for_Bio_Farm", 'production')
+    modify_energy_usage(0.69, 'solar-panel', "bi_solar-panel_for_Bio_Farm", 'production')
   
     -- nerf charcoal -> coal especially since coal is also convertible to oils with liquefaction
     local bio_coal = {'bi-coal', 'bi-coal-2'}
