@@ -3,7 +3,7 @@ local multiply = marathomaton.multiply
 local sg2i = marathomaton.get_items_by_subgroup
 local recipes
 
-if settings.startup['marathomaton_rebalance_bobmods'].value == true then
+if settings.startup['marathomaton_rebalance_bobmodules'].value == true then
   -- 2x time, 5x inputs for all module components
   local module_components = sg2i( {"module-intermediates", "addon-modules1", "addon-modules2"} )
   recipes = i2r(module_components)

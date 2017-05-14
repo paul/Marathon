@@ -23,7 +23,7 @@ data:extend(
   },
   {
     type = "bool-setting",
-    name = "marathomaton_rebalance_bobmods",
+    name = "marathomaton_rebalance_bobmodules",
     setting_type = "startup",
     default_value = true,
     per_user = false,

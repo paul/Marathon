@@ -70,6 +70,7 @@ if settings.startup['marathomaton_greenhouse_revamp'].value == true then
   
     -- kill bio solar farm (it's fugly)
     -- remove it from unlock list from 'solar-energy-2' tech
+    modify_energy_usage(0.48, 'solar-panel', 'bi_bio_Solar_Farm', 'production')
   end
 end
 

@@ -83,7 +83,7 @@ local effects_per_tier = {
 }
 
 
-if bobmods and bobmods.modules and settings.startup["marathomaton_rebalance_bobmods"].value == true then
+if bobmods and bobmods.modules and settings.startup["marathomaton_rebalance_bobmodules"].value == true then
   -- either mk2: 0.15, mk3: 0.075
   -- or mk2: 0.2, mk3 : 0.1 ( this is still a little overpowered especially at 3:1 beacon:machine ratio tiling
   -- stuff

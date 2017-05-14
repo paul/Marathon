@@ -6,7 +6,7 @@ if settings.startup["marathomaton_no_bob_cheaper_steel"].value == true then
     settings.startup["bobmods-plates-cheapersteel"].value = false
   end
 end
-if settings.startup["marathomaton_rebalance_bobmods"].value == true then
+if settings.startup["marathomaton_rebalance_bobmodules"].value == true then
   -- log('MARATHOMATON REBALANCE BOBMODS')
   if settings.startup["bobmods-modules-productivityhasspeed"] then
     settings.startup["bobmods-modules-productivityhasspeed"].value = true
