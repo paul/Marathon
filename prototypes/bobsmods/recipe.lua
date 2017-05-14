@@ -3,6 +3,7 @@ local subgroup2items = marathomaton.get_items_by_subgroup
 local item2recipes = marathomaton.get_recipes_from_item
 local i2r = item2recipes
 local multiply = marathomaton.multiply
+local unit_multiply = marathomaton.unit_multiply
 local recipes
 
 -- see recipe-circuit
@@ -13,20 +14,63 @@ multiply('__inputs__', 0.33333333333333, recipes)
 -- also multiply "t2" requirements for turrets slightly
 multiply({'steel-plate', 'steel-gear-wheel'}, 2.0, item2recipes(cat2items({'ammo-turret', 'electric-turret', 'fluid-turret'})))
 
+
+local function modify_energy_usage(multiplier, type, name, modifiee)
+  modifiee = modifiee or 'energy_usage'
+  local obj = data.raw[type]
+  if obj then
+    obj = obj[name]
+  end
+  if obj then
+    if obj[modifiee] then
+      obj[modifiee] = unit_multiply(multiplier, obj[modifiee])
+    end
+    --if obj.energy_source and obj.energy_source.drain then
+      --obj.energy_source.drain = unit_multiply(multiplier, obj.energy_source.drain)
+    --end
+  end
+end
+
 -- seedling/wood recipes
 -- goal is: pre-fertiliser, growing wood is energy deficit, and should only be done for the purpose of actually acquiring wood
 
-multiply('__yield__', 0.5, 'bob-seedling')
-local bob_wood = {'bob-basic-greenhouse-cycle', 'bob-advanced-greenhouse-cycle'}
-multiply('__time__', 2.0, bob_wood)
-multiply('__yield__', 0.66666, bob_wood)
-if BI then
-  local bio_wood = {'bi-Logs_Mk1', 'bi-Logs_Mk2', 'bi-Logs_Mk3'}
-  multiply('__time__', 1.66666, bio_wood)
-  local bio_coal = {'bi-coal', 'bi-coal-2'}
-  multiply('__yield__', 0.6666, bio_coal)
-  multiply('__yield__', 0.5, 'bi-woodpulp')
-  multiply('__inputs__', 1.5, 'bi-charcoal')
+if settings.startup['marathomaton_greenhouse_revamp'].value == true then
+  if bobmods.greenhouse then
+    -- just match bob's own expensive recipes
+    multiply('__yield__', 0.5, 'bob-seedling')
+    local bob_wood = {'bob-basic-greenhouse-cycle', 'bob-advanced-greenhouse-cycle'}
+    multiply('__yield__', 0.66666, bob_wood)
+    
+    -- increase energy cost of greenhouse
+    -- multiply('__time__', 2.0, bob_wood)
+    modify_energy_usage(2.6666666, 'assembling-machine', 'bob-greenhouse')
+  end
+  
+  if BI then
+    local bio_wood = {'bi-Logs_Mk1', 'bi-Logs_Mk2', 'bi-Logs_Mk3'}
+    multiply('__time__', 1.66666, bio_wood)
+    -- solidify bio-industries tree production as "slow but efficient" and bobgreenhouse as "fast and practical"
+    multiply('__time__', 16, 'bi-seedling')
+    marathomaton.modify_all_yields(3, 'bi-woodpulp', 'bi-seedling') -- makes seedlings cost 0.7 MJ at 60% eff or 0.5 MJ at 70% eff, which barely turns a profit at 0.7
+    multiply('__time__', 1.5, bio_wood)
+    modify_energy_usage(0.6666666, 'assembling-machine', 'bi_bio_farm')
+    modify_energy_usage(0.53, 'solar-panel', "bi_solar-panel_for_Bio_Farm", 'production')
+  
+    -- nerf charcoal -> coal especially since coal is also convertible to oils with liquefaction
+    local bio_coal = {'bi-coal', 'bi-coal-2'}
+    multiply('__yield__', 0.6666, bio_coal)
+  
+    -- coal down to 5.0 MJ from 5.8 MJ
+    multiply('__time__', 4.0, "bi-coke-coal")
+  
+    -- wood to wood pulp should not be energy efficient
+    multiply('__yield__', 0.5, 'bi-woodpulp')
+    -- wood pulp down to ~0.9 MJ from 1.3 MJ
+    -- multiply('__inputs__', 1.5, 'bi-charcoal')
+  
+    -- kill bio solar farm (it's fugly)
+    -- remove it from unlock list from 'solar-energy-2' tech
+  end
 end
 
 

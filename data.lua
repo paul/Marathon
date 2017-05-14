@@ -2,12 +2,16 @@ marathomaton = {}
 
 if settings.startup["marathomaton_no_bob_cheaper_steel"].value == true then
   -- log('MARATHOMATON DISABLED CHEAPER STEEL')
-  settings.startup["bobmods-plates-cheapersteel"].value = false
+  if settings.startup["bobmods-plates-cheapersteel"] then
+    settings.startup["bobmods-plates-cheapersteel"].value = false
+  end
 end
 if settings.startup["marathomaton_rebalance_bobmods"].value == true then
   -- log('MARATHOMATON REBALANCE BOBMODS')
-  settings.startup["bobmods-modules-productivityhasspeed"].value = true
-  bobmods.modules.ProductivityHasSpeed = true
+  if settings.startup["bobmods-modules-productivityhasspeed"] then
+    settings.startup["bobmods-modules-productivityhasspeed"].value = true
+    bobmods.modules.ProductivityHasSpeed = true
+  end
 end
 
 
@@ -346,50 +350,56 @@ function marathomaton.modify_all_recipes(ingredient, multiplier, flag)
 end
 
 -- increase result yield of this specific item in all recipes, but not any other results
-function marathomaton.modify_all_yields(multiplier, item)
+-- optional third argument is the recipes to apply on
+function marathomaton.modify_all_yields(multiplier, item, recipe_set)
+  if recipe_set then
+    recipe_set = to_set(recipe_set)
+  end
   -- multiplier = AMF(multiplier)
   -- runs into problems when resulting result_count is non-integer
   -- for now, just hanlde half-integer
   for recipe_name, recipe_obj in pairs(data.raw.recipe) do
     recipe_obj = recipe_obj['expensive']
-    local fixup_flag = false
-    if recipe_obj.results ~= nil then -- results, which is a
-      local results = recipe_obj.results -- array of dicts
-      for i = 1, #results do
-        if results[i].name == item then
-          -- either has amount field, or amount_max and amount_min fields
-          local fields = {'amount', 'amount_min', 'amount_max'}
-          for _, field in pairs(fields) do
-            if results[i][field] ~= nil then
-              local v = results[i][field] * multiplier
-              if v % 1 ~= 0 then
-                fixup_flag = true
+    if recipe_obj and (recipe_set == nil or recipe_set[recipe_name]) then
+      local fixup_flag = false
+      if recipe_obj.results ~= nil then -- results, which is a
+        local results = recipe_obj.results -- array of dicts
+        for i = 1, #results do
+          if results[i].name == item then
+            -- either has amount field, or amount_max and amount_min fields
+            local fields = {'amount', 'amount_min', 'amount_max'}
+            for _, field in pairs(fields) do
+              if results[i][field] ~= nil then
+                local v = results[i][field] * multiplier
+                if v % 1 ~= 0 then
+                  fixup_flag = true
+                end
+                results[i][field] = v
               end
-              results[i][field] = v
             end
           end
         end
-      end
-    else -- singleton results
-      if recipe_obj.result == item then
-        local rc = recipe_obj.result_count
-        if rc == nil then
-          rc = 1
+      else -- singleton results
+        if recipe_obj.result == item then
+          local rc = recipe_obj.result_count
+          if rc == nil then
+            rc = 1
+          end
+          if (rc * multiplier) % 1 ~= 0 then
+            fixup_flag = true
+          end
+          recipe_obj.result_count = rc * multiplier
         end
-        if (rc * multiplier) % 1 ~= 0 then
-          fixup_flag = true
-        end
-        recipe_obj.result_count = rc * multiplier
       end
-    end
-    if fixup_flag == true then
-      -- double every ingredient, time, yield of recipe_obj
-      marathomaton.multiply({'__inputs__', '__time__', '__yield__'}, 2.0, recipe_name, true)
-      -- log('succesfully exploded ' .. recipe_name .. '!\n' .. serpent.block(recipe_obj))
-    end
-    while marathomaton.exceeds_stack_size(recipe_name) do
-      log('stack size exceeded for ' .. recipe_name .. '! halving recipe:')
-      marathomaton.multiply({'__inputs__', '__time__', '__yield__'}, 0.5, recipe_name, true)
+      if fixup_flag == true then
+        -- double every ingredient, time, yield of recipe_obj
+        marathomaton.multiply({'__inputs__', '__time__', '__yield__'}, 2.0, recipe_name, true)
+        -- log('succesfully exploded ' .. recipe_name .. '!\n' .. serpent.block(recipe_obj))
+      end
+      while marathomaton.exceeds_stack_size(recipe_name) do
+        log('stack size exceeded for ' .. recipe_name .. '! halving recipe:')
+        marathomaton.multiply({'__inputs__', '__time__', '__yield__'}, 0.5, recipe_name, true)
+      end
     end
   end
 end
@@ -438,7 +448,18 @@ function marathomaton.slowdown_recipe_category(cat2multiplier)
   end
 end
 
-
+function marathomaton.unit_multiply(multiplier, value_with_unit)
+  if value_with_unit == nil then
+    return nil
+  end
+  local l = #value_with_unit
+  local unit = string.sub(value_with_unit, l-1, l)
+  local num = tonumber(string.sub(value_with_unit, 1, l-2))
+  if num == nil then
+    return nil
+  end
+  return tostring(num * multiplier) .. unit
+end
 
 
 -- log('MARATHOMATON TECHNOLOGY ' .. serpent.block(data.raw.technology))

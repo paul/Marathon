@@ -6,12 +6,7 @@ local fuel_value_multiplier = AMF(0.5)
 
 for item_name, item_props in pairs(data.raw.item) do
   if item_props['fuel_value'] ~= nil then
-    s = item_props['fuel_value']
-    if string.sub(s, #s - 1, #s) == 'MJ' then
-      n = 0 + string.sub(s, 1, #s-2)
-      s = (n * fuel_value_multiplier) .. 'MJ'
-    end
-    item_props['fuel_value'] = s
+    item_props['fuel_value'] = marathomaton.unit_multiply(fuel_value_multiplier, item_props['fuel_value'])
   end
 end
 
