@@ -13,8 +13,11 @@ multiply('__time__', 0.9, 'copper-plate')
 
 -- 2.5x stone brick inputs
 multiply('__inputs__', 2.5, i2r({'stone-brick'}))
-multiply('__inputs__', 2, i2r({'steel-plate'}))
+
 -- double steel inputs (to match ordinary marathon
+if settings.startup['marathomaton_expensive_steel'].value == true then
+  multiply('__inputs__', 2, i2r({'steel-plate'}))
+end
 
 -- create smelting bottlenecks 
 marathomaton.modify_all_yields(2.5, 'iron-plate')

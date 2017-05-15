@@ -42,12 +42,11 @@ Things in progress on this fork:
   - recoloring artifacts doesnt work anymore
   - Making big colored from small colored requires 1 big pink alien artifact in addition to 25 small colored. big pink artifact recipe not changed
   - everything uses 20x colored artifact
-* Add settings flag for not-really-marathon content (e.g. technology changes, pipe stack size change, fuel changes, etc.) and make sure it happens in the correct phase (data-updates)
-* re-enable craftable alien artifacts
-* disable uranium ore when angels refining exists
-* Add settings flag to provide *some* materials on startup (otherwise way too tedious)
 * Add a single iron plate to (all) wooden board recipes
 * fix wooden pole to only need 1 copper cable not 2
+* Add settings flag for not-really-marathon content (e.g. technology changes, pipe stack size change, fuel changes, etc.) and make sure it happens in the correct phase (data-updates)
+* disable uranium ore deposits when angels refining exists
+* Add settings flag to provide *some* materials on startup (otherwise way too tedious)
 * nerf wood -> coal -> fracking recipes. disable vanilla coal fracking if petrochem coal fracking enabled. also disable/modify bio fuel cracking
 * Apply GCF factoring to some alloy recipes (eg brass plate should be dialed down 5x) and in general for all recipes after exploding (?)
 * make molten metals unable to be barreled, or nerf somewhat (require special plastic/tungsten barrels?)

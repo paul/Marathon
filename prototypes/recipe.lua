@@ -45,6 +45,8 @@ multiply({'__time__', '__upgrade__'}, 6.0, i2r(replace2item('mining-drill', 'min
 multiply({'__time__', '__upgrade__'}, 0.333333, i2r({'burner-mining-drill'}))
 
 -- slow down T1 electricity
+local wooden_pole = cat2items('small-electric-pole')
+multiply('copper-cable', 0.5, wooden_pole)
 local pipe = cat2items('pipe')
 local boiler = i2r(cat2items('boiler'))
 multiply('__upgrade__', 2.0, boiler)
@@ -69,5 +71,6 @@ for item_name, item_obj in pairs(data.raw.ammo) do
 end
 multiply('__inputs__', 2.5, i2r(recipes))
 multiply('__inputs__', 2.5, i2r(cat2items('car')))
+multiply(i2r(cat2items('car')), 0.4, i2r(cat2items('car')))
 multiply('__inputs__', 0.4, i2r('car'))
 

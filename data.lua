@@ -67,6 +67,11 @@ function marathomaton.prepare_015_recipe(recipe_name)
   end
   -- wipe out old expensive recipe and replace with either normal recipe or default recipe
   if recipe_obj['normal'] then
+    for k, v in pairs(recipe_obj) do
+      if k ~= 'name' and k ~= 'type' and k ~= 'normal' and k~= 'expensive' and recipe_obj['normal'][k] == nil then
+        recipe_obj['normal'][k] = deepcopy(v)
+      end
+    end
     recipe_obj['expensive'] = deepcopy(recipe_obj['normal'])
     for k, v in pairs(recipe_obj['normal']) do
       recipe_obj[k] = deepcopy(v)
