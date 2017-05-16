@@ -42,8 +42,6 @@ Things in progress on this fork:
   - recoloring artifacts doesnt work anymore
   - Making big colored from small colored requires 1 big pink alien artifact in addition to 25 small colored. big pink artifact recipe not changed
   - everything uses 20x colored artifact
-* Add a single iron plate to (all) wooden board recipes
-* fix wooden pole to only need 1 copper cable not 2
 * Add settings flag for not-really-marathon content (e.g. technology changes, pipe stack size change, fuel changes, etc.) and make sure it happens in the correct phase (data-updates)
 * disable uranium ore deposits when angels refining exists
 * Add settings flag to provide *some* materials on startup (otherwise way too tedious)

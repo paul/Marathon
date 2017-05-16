@@ -42,5 +42,6 @@ else
   else
     log('angels mods not found!!')
   end
+  require("prototypes.bobsmods.more-recipe")
 end
 

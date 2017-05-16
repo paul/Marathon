@@ -53,6 +53,13 @@ data:extend(
   },
   {
     type = "bool-setting",
+    name = "marathomaton_wooden_board_requires_iron",
+    setting_type = "startup",
+    default_value = true,
+    per_user = false,
+  },
+  {
+    type = "bool-setting",
     name = "marathomaton_enable_all_bobartifacts",
     setting_type = "startup",
     default_value = true,
