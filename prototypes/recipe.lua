@@ -45,7 +45,7 @@ multiply({'__time__', '__upgrade__'}, 6.0, i2r(replace2item('mining-drill', 'min
 multiply({'__time__', '__upgrade__'}, 0.333333, i2r({'burner-mining-drill'}))
 
 -- slow down T1 electricity
-local wooden_pole = cat2items('small-electric-pole')
+local wooden_pole = i2r('small-electric-pole')
 multiply('copper-cable', 0.5, wooden_pole)
 local pipe = cat2items('pipe')
 local boiler = i2r(cat2items('boiler'))

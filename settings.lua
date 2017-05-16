@@ -65,4 +65,18 @@ data:extend(
     default_value = true,
     per_user = false,
   },
+  {
+    type = "bool-setting",
+    name = "marathomaton_fixup_angels_smelting_tech_order",
+    setting_type = "startup",
+    default_value = true,
+    per_user = false,
+  },
+  {
+    type = "bool-setting",
+    name = "marathomaton_rebalance_angels_bio_artifacts",
+    setting_type = "startup",
+    default_value = true,
+    per_user = false,
+  },
 })

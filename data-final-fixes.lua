@@ -39,6 +39,7 @@ else
     log('applying angel mods')
     require("prototypes.bobsmods.angelthon.recipe-smelting")
     require("prototypes.bobsmods.angelthon.recipe-production")
+    require("prototypes.bobsmods.angelthon.recipe-bio")
   else
     log('angels mods not found!!')
   end
