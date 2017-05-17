@@ -1,3 +1,5 @@
+-- TODO refactor main_result lookup
+
 local cat2items = marathomaton.get_items_from_category
 local subgroup2items = marathomaton.get_items_by_subgroup
 local i2r = marathomaton.get_recipes_from_item
@@ -39,10 +41,11 @@ local group_set = {
 -- why are liquifiers not working?
 for recipe_name, recipe_obj in pairs(data.raw.recipe) do
   recipe_obj = recipe_obj['expensive']
-  local subgroup = recipe_obj.subgroup
+  local subgroup = nil
   local placeable = false
   if recipe_obj ~= nil then
-    -- log('subgroup not found for ' .. recipe_name .. ' object: ' .. serpent.block(recipe_obj))
+    subgroup = recipe_obj.subgroup
+
     -- look up the main result item
     local main_result = recipe_obj.result
     if main_result == nil then
@@ -51,13 +54,14 @@ for recipe_name, recipe_obj in pairs(data.raw.recipe) do
     if main_result == nil then
       if recipe_obj.results then
         for i, result_obj in ipairs(recipe_obj.results) do
-          if result_obj.amount == 1 then
+          if result_obj and result_obj.amount == 1 then
             main_result = result_obj.name
             break
           end
         end
       end
     end
+    -- determine whether its placeable
     if main_result ~= nil then
       local item = data.raw.item[main_result]
       if item ~= nil then
@@ -74,7 +78,7 @@ for recipe_name, recipe_obj in pairs(data.raw.recipe) do
     group = data.raw['item-subgroup'][subgroup].group
   end
   -- check if item result is placeable
-  if placeable then
+  if placeable and recipe_obj then
     if group ~= nil and (group_set[group] ~= nil or recipe_obj.subgroup == 'angels-silos') then
       -- log('got group ' .. group .. ' and subgroup ' .. subgroup .. ' for recipe name ' .. recipe_name)
       -- modify the recipe
@@ -90,7 +94,6 @@ for recipe_name, recipe_obj in pairs(data.raw.recipe) do
     end
   end
 end
--- somehow the above code misses the vanilla chemical machine and refinery;
--- multiply('__upgrade__', 4.0, i2r({'chemical-plant', 'oil-refinery'}))
+
 multiply('steel-plate', 5.0, i2r({'angels-flare-stack', 'flare-stack'}))
 

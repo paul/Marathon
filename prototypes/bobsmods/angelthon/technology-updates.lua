@@ -7,12 +7,14 @@ if settings.startup['marathomaton_fixup_angels_smelting_tech_order'].value == tr
       local metal = string.sub(tech_name, 8, l-11)
       if data.raw.technology[metal .. '-processing'] then
         -- add it to prerequisites
-        if tech_obj.prerequisites then
+        if tech_obj and tech_obj.prerequisites then
           table.insert(tech_obj.prerequisites, metal .. '-processing')
         end
       end
       if metal == 'chrome' or metal == 'manganese' then
-        table.insert(tech_obj.prerequisites, 'nodule-processing')
+        if tech_obj and tech_obj.prerequisites then
+          table.insert(tech_obj.prerequisites, 'nodule-processing')
+        end
       end
     end
   end

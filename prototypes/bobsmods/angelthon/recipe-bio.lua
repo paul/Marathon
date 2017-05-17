@@ -1,3 +1,5 @@
+-- TODO refactor this file!!!
+
 local cat2items = marathomaton.get_items_from_category
 local subgroup2items = marathomaton.get_items_by_subgroup
 local i2r = marathomaton.get_recipes_from_item
@@ -14,35 +16,41 @@ local AMF = marathomaton.adjust_multiplier_factor
   v Extracting small alien artifacts now gives: 5, 5%; 1, 25%; 0, 70%; effectively down from 5 to 0.5
   v recoloring artifacts doesnt work anymore
   v Making big colored from small colored requires 1 big pink alien artifact in addition to 25 small colored. big pink artifact recipe not changed
-  - everything uses 20x colored artifact
+  v everything uses 10x colored artifact
 --]]
 
-
-names = 'small-alien-artifact-blue'
 local colors = {'blue', 'red', 'yellow', 'orange', 'purple', 'green'}
 local colors_base = {'blue', 'red', 'yellow', 'orange', 'purple', 'green', 'base'}
 local artifacts = {'-blue', '-red', '-yellow', '-orange', '-purple', '-green', ''}
 
-
 if settings.startup["marathomaton_rebalance_angels_bio_artifacts"].value == true and angelsmods and angelsmods.bioprocessing then
   -- alien bacteria from spores
   if data.raw.recipe['alien-bacteria'] then
-    local result_obj = data.raw.recipe['alien-bacteria']['expensive'].results[1]
-    result_obj.probability = (result_obj.probability or 1.0) * 0.2
+    local ro = data.raw.recipe['alien-bacteria']
+    ro = ro['expensive'] or {}
+    ro = ro.results or {}
+    ro = ro[1] or {}
+    ro.probability = (ro.probability or 1.0) * 0.2
   end
-
 
   -- alien preartifact from bacteria
   if data.raw.recipe['alien-pre-artifact'] then
-    local result_obj = data.raw.recipe['alien-pre-artifact']['expensive'].results[1]
-    log("MARATHOMATON DEBUG PREARTIFACT " .. serpent.block(result_obj))
-    result_obj.probability = 0.5
-    result_obj.amount = 1
-    data.raw.recipe['alien-pre-artifact']['expensive'].results[2] = {}
-    for k, v in pairs(data.raw.recipe['alien-pre-artifact']['expensive'].results[1]) do
-      data.raw.recipe['alien-pre-artifact']['expensive'].results[2][k] = v
+    local ro = data.raw.recipe['alien-pre-artifact']
+    ro = ro['expensive'] or {}
+    ro = ro.results or {}
+    ro = ro[1] or {}
+    ro.probability = 0.5
+    ro.amount = 1
+
+    local ro2 = data.raw.recipe['alien-pre-artifact']
+    ro2 = ro2['expensive'] or {}
+    ro2 = ro2.results or {}
+    ro2[2] = {}
+    ro2 = ro2[2]
+    for k, v in pairs(ro) do
+      ro2[k] = v
     end
-    data.raw.recipe['alien-pre-artifact']['expensive'].results[2].amount = 2
+    ro2.amount = 2
   end
   
   -- pink alien artifact 
@@ -51,45 +59,44 @@ if settings.startup["marathomaton_rebalance_angels_bio_artifacts"].value == true
     local item = 'crystal-seedling'
     local ingredient = { name = 'crystal-seedling', amount = '50', type='fluid' }
     for recipe_name, _ in pairs(recipes) do
-      data.raw.recipe[recipe_name]['expensive'].category = 'advanced-crafting'
-      data.raw.recipe[recipe_name].category = 'advanced-crafting'
-      table.insert(data.raw.recipe[recipe_name]['expensive'].ingredients, ingredient)
-      -- bobmods.lib.recipe.add_difficulty_result(recipe_name, 'expensive', { name = 'crystal-seedling', amount = '50' })
-      -- if data.raw.recipe[recipe_name] and bobmods.lib.item.get_type(bobmods.lib.item.basic_item{item}.name) then
-        -- bobmods.lib.item.add(data.raw.recipe[recipe_name].expensive.ingredients, bobmods.lib.item.basic_item{ingredient})
-      -- end
-      -- log('MARATHOMATON BAD : ' .. serpent.block(data.raw.recipe[recipe_name]))
+      local ro = data.raw.recipe[recipe_name] or {}
+      ro.category = 'advanced-crafting'
+      ro = ro['expensive'] or {}
+      ro.category = 'advanced-crafting'
+      table.insert(ro.ingredients or {}, ingredient)
     end
   end
 
   -- colored alien pre-artifact from preartifact
   for _, color in ipairs(colors_base) do
     local recipe = 'alien-pre-artifact-' .. color
-    if data.raw.recipe[recipe] and data.raw.recipe[recipe]['expensive'] then
-      local result_obj = data.raw.recipe[recipe]['expensive'].results[1]
-      if result_obj == nil then
-        log(recipe .. serpent.block(data.raw.recipe[recipe]))
-        error('blaoh')
-      end
-      result_obj.probability = (result_obj.probability or 1.0) * 0.4
+    if data.raw.recipe[recipe] then
+      local ro = data.raw.recipe[recipe]
+      ro = ro['expensive'] or {}
+      ro = ro.results or {}
+      ro = ro[1] or {}
+      ro.probability = (ro.probability or 1.0) * 0.4
     end
   end
 
   -- extracting small alien artifacts
   for _, color in ipairs(artifacts) do
     local recipe = 'small-alien-artifact' .. color
-    if data.raw.recipe[recipe] and data.raw.recipe[recipe]['expensive'] then
-      local count = data.raw.recipe[recipe]['expensive'].results[1].amount
+    if data.raw.recipe[recipe] then
+      local ro = data.raw.recipe[recipe]
+      ro = ro['expensive'] or {}
+      ro = ro.results or {}
+      ro = ro[1] or {}
+      local count = ro.amount or 0
       local results = {}
-      for i=1, count do
-        table.insert(results, {
-          amount = 1,
-          name = recipe,
-          type = 'item',
-          probability = 0.1
-        })
+      if count > 0 then
+        for i=1, count do
+          table.insert(results, { amount = 1, name = recipe, type = 'item', probability = 0.1 })
+        end
       end
-      data.raw.recipe[recipe]['expensive'].results = results
+      ro = data.raw.recipe[recipe]
+      ro = ro['expensive'] or {}
+      ro.results = results
     end
   end
 
@@ -102,8 +109,8 @@ if settings.startup["marathomaton_rebalance_angels_bio_artifacts"].value == true
   -- small to big
   for _, color in ipairs(colors) do
     data.raw.recipe['alien-artifact-' .. color .. '-from-basic'] = nil
-    local recipe_obj = data.raw.recipe['alien-artifact-' .. color .. '-from-small']['expensive']
-    table.insert(recipe_obj.ingredients, { amount = 1, type = 'item', name = 'alien-artifact' })
+    local ro = data.raw.recipe['alien-artifact-' .. color .. '-from-small']
+    ro = ro['expensive'] or {}
+    table.insert(ro.ingredients or {}, { amount = 1, type = 'item', name = 'alien-artifact' })
   end
-
 end

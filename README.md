@@ -33,16 +33,6 @@ To do
 Things in progress on this fork:
 * Clean up lua code (wip), handle errors better, pass in params dict instead of lots of args
 * Adjust crating alien artifacts:
-  - 1 limestone to 2 calcium carbonate in 1.5 sec in ore crusher, unlocked by limestone unlock (ie washing)
-  - alien bacteria from spores should have 20% success rate (down from 100)
-  - alien bacteria from goo requires 2x goo
-  - alien pre-artifact from bacteria makes 0-3 preartifacts (down from 3)
-  - pink alien pre-artifact from preartifact needs 50 crystal seedling
-  - colored alien pre-arttact from preartifact has 20% success rate
-  - Extracting small alien artifacts now gives: 5, 5%; 1, 25%; 0, 70%; effectively down from 5 to 0.5
-  - recoloring artifacts doesnt work anymore
-  - Making big colored from small colored requires 1 big pink alien artifact in addition to 25 small colored. big pink artifact recipe not changed
-  - everything uses 20x colored artifact
 * Add settings flag for not-really-marathon content (e.g. technology changes, pipe stack size change, fuel changes, etc.) and make sure it happens in the correct phase (data-updates)
 * disable uranium ore deposits when angels refining exists
 * Add settings flag to provide *some* materials on startup (otherwise way too tedious)
