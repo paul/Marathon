@@ -80,3 +80,12 @@ data:extend(
     per_user = false,
   },
 })
+
+
+local names = { "bobmods-enemies-enableartifacts" ,"bobmods-enemies-enablesmallartifacts",  "bobmods-enemies-enablenewartifacts", "bobmods-enemies-aliensdropartifacts"}
+for _, name in ipairs(names) do
+  local s = data.raw['bool-setting'][name] or {}
+  s.default_value = true
+end
+
+-- log("MARATHOMATON settings lua " .. serpent.block(data.raw['bool-setting']))

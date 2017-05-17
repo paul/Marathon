@@ -109,7 +109,7 @@ if settings.startup["marathomaton_rebalance_angels_bio_artifacts"].value == true
   -- small to big
   for _, color in ipairs(colors) do
     data.raw.recipe['alien-artifact-' .. color .. '-from-basic'] = nil
-    local ro = data.raw.recipe['alien-artifact-' .. color .. '-from-small']
+    local ro = data.raw.recipe['alien-artifact-' .. color .. '-from-small'] or {}
     ro = ro['expensive'] or {}
     table.insert(ro.ingredients or {}, { amount = 1, type = 'item', name = 'alien-artifact' })
   end
