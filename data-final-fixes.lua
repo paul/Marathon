@@ -37,12 +37,15 @@ else
 
   if angelsmods then
     log('applying angel mods')
-    require("prototypes.bobsmods.angelthon.recipe-smelting")
-    require("prototypes.bobsmods.angelthon.recipe-production")
-    require("prototypes.bobsmods.angelthon.recipe-bio")
-  else
-    log('angels mods not found!!')
+    require("prototypes.angelsmods.recipe-smelting")
+    require("prototypes.angelsmods.recipe-production")
+    require("prototypes.angelsmods.recipe-bio")
   end
-  require("prototypes.bobsmods.more-recipe")
+  if mods['Yuoki'] then
+    require("prototypes.yuoki.recipe")
+  end
+  if bobmods then
+      require("prototypes.bobsmods.more-recipe")
+  end
 end
 

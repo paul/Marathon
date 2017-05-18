@@ -481,6 +481,24 @@ function marathomaton.unit_multiply(multiplier, value_with_unit)
   return tostring(num * multiplier) .. unit
 end
 
+function marathomaton.modify_energy_usage(multiplier, type, name, modifiee)
+  modifiee = modifiee or 'energy_usage'
+  local obj = data.raw[type]
+  if obj then
+    obj = obj[name]
+  end
+  if obj then
+    if obj[modifiee] then
+      obj[modifiee] = unit_multiply(multiplier, obj[modifiee])
+    end
+    --if obj.energy_source and obj.energy_source.drain then
+      --obj.energy_source.drain = unit_multiply(multiplier, obj.energy_source.drain)
+    --end
+  end
+end
+
+
+
 
 -- log('MARATHOMATON TECHNOLOGY ' .. serpent.block(data.raw.technology))
 

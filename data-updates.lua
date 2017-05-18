@@ -1,6 +1,14 @@
 require("prototypes.item")
-require("prototypes.bobsmods.item")
-require("prototypes.bobsmods.angelthon.technology-updates")
+
+if bobsmods then
+  require("prototypes.bobsmods.item")
+end
+if angelsmods then
+  require("prototypes.angelsmods.technology-updates")
+end
+if mods['Yuoki'] then
+  require("prototypes.yuoki.item")
+end
 
 -- log("MARATHOMATON SETTINGS")
 -- log(serpent.block(settings))
@@ -19,4 +27,5 @@ if settings.startup['marathomaton_greenhouse_revamp'].value == true then
     end
   end
 end
+
 
