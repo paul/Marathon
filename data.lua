@@ -489,10 +489,10 @@ function marathomaton.modify_energy_usage(multiplier, type, name, modifiee)
   end
   if obj then
     if obj[modifiee] then
-      obj[modifiee] = unit_multiply(multiplier, obj[modifiee])
+      obj[modifiee] = marathomaton.unit_multiply(multiplier, obj[modifiee])
     end
     --if obj.energy_source and obj.energy_source.drain then
-      --obj.energy_source.drain = unit_multiply(multiplier, obj.energy_source.drain)
+      --obj.energy_source.drain = marathomaton.unit_multiply(multiplier, obj.energy_source.drain)
     --end
   end
 end

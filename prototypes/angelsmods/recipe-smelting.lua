@@ -39,6 +39,9 @@ for recipe_name, recipe_obj in pairs(data.raw.recipe) do
   if recipe_obj.category == 'casting' then
     multiply('__inputs__', 0.9, recipe_name)
   end
+  if recipe_name == 'angels-concrete' or recipe_name == 'angels-concrete-brick' or recipe_name == 'angels-reinforced-concrete-brick' then
+    multiply('__inputs__', 0.9, recipe_name)
+  end
 end
 
 -- angels-powdered-x : no change afaik

@@ -1,6 +1,6 @@
 {
   "name": "marathomaton",
-  "version": "0.2.27",
+  "version": "0.2.28",
   "factorio_version": "0.15",
   "title": "Marathon Mod Automated",
   "author": "Benoit Girard & Afforess",
@@ -36,7 +36,7 @@
     "? angelsbioprocessing >= 0.4.0",
     "? angelsinfiniteores >= 0.6.6",
     "? angelspetrochem >= 0.5.1",
-    "? angelsrefining >= 0.7.5",
+    "? angelsrefining >= 0.7.11",
     "? angelssmelting >= 0.3.0",
     "? bobassembly >= 0.15.2",
     "? bobconfig >= 0.14.0",

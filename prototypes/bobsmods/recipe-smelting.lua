@@ -110,6 +110,9 @@ for item_name, _ in pairs(ingots_set) do
     ingots_set[item_name] = false
   end
 end
+multiply({'__inputs__', '__yield__', '__time__'}, 12.0, item2recipes({'solid-cement', 'solid-glass-mixture'}))
+ingots_set['solid-cement'] = true
+ingots_set['solid-glass-mixture'] = true
 
 if settings.startup['marathomaton_no_bob_cheaper_steel'].value == false then
   -- if bob cheaper steel is on, have to disable this because angel refining will overwrite stuff

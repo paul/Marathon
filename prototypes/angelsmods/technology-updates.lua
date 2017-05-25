@@ -21,7 +21,7 @@ if settings.startup['marathomaton_fixup_angels_smelting_tech_order'].value == tr
 end
   
 if bobmods and bobmods.lib and settings.startup["marathomaton_rebalance_angels_bio_artifacts"].value == true and angelsmods and angelsmods.bioprocessing then
-  bobmods.lib.tech.add_recipe_unlock('water-washing', 'solid-calcium-carbonate-from-limestone')
+  bobmods.lib.tech.add_recipe_unlock('water-washing-2', 'solid-calcium-carbonate-from-limestone')
   bobmods.lib.tech.add_recipe_unlock('bio-processing-alien', 'alien-bacteria-from-goo')
 end
 
