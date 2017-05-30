@@ -1,7 +1,9 @@
-marathomaton = {}
+if not marathomaton then
+  marathomaton = {}
+end
 
 -- http://stackoverflow.com/questions/640642/how-do-you-copy-a-lua-table-by-value
-function deepcopy(obj, seen)
+local function deepcopy(obj, seen)
   if type(obj) ~= 'table' then return obj end
   if seen and seen[obj] then return seen[obj] end
   local s = seen or {}
@@ -448,44 +450,4 @@ function marathomaton.modify_energy_usage(multiplier, type, name, modifiee)
     --end
   end
 end
-
-
-
-
--- log('MARATHOMATON TECHNOLOGY ' .. serpent.block(data.raw.technology))
-
-if settings.startup["marathomaton_rebalance_angels_bio_artifacts"].value == true and angelsmods and angelsmods.bioprocessing then
-  data:extend({
-    {
-      type = 'recipe',
-      name = 'solid-calcium-carbonate-from-limestone',
-      category = 'ore-sorting-t1',
-      energy_required = 1,
-      enabled = 'false',
-      ingredients = {
-        { type = 'item', name = 'solid-limestone', amount = 1 }
-      },
-      result = 'solid-calcium-carbonate',
-      result_count = 2,
-    },
-    {
-      type = 'recipe',
-      name = 'alien-bacteria-from-goo',
-      category = 'chemistry',
-      energy_required = 3,
-      enabled = 'false',
-      ingredients = {
-        { type = 'fluid', name = 'alien-goo', amount = 20 }
-      },
-      result = 'alien-bacteria',
-      result_count = 1
-    }
-  })
-end
-
-
-  
-
-
-
 

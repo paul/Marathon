@@ -1,5 +1,7 @@
 marathomaton = {}
 
+require('libs/core')
+
 if settings.startup["marathomaton_no_bob_cheaper_steel"].value == true then
   -- log('MARATHOMATON DISABLED CHEAPER STEEL')
   if settings.startup["bobmods-plates-cheapersteel"] then

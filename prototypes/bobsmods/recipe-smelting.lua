@@ -28,6 +28,12 @@ local function explode_all(_items, _expansion_rate)
     _expansion_rate = expansion_rate
   end
   local expansion_rate = _expansion_rate
+  -- prune _items set for nonexistent items
+  for item, _ in pairs(_items) do
+    if not data.raw.item[item] then
+      _items[item] = false
+    end
+  end
   local items = keys_array(_items)
   -- sort by [item].order and use increasing expansion rate (2.5, 2.5, 3, 3, ..)
   table.sort(items, function(a,b) return data.raw.item[a].order < data.raw.item[b].order end)

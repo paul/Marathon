@@ -46,7 +46,7 @@ if settings.startup['marathomaton_greenhouse_revamp'].value == true then
     modify_energy_usage(2.6666666, 'assembling-machine', 'bob-greenhouse')
   end
   
-  if BI then
+  if BI and mods['Bio_Industires'] then
     local bio_wood = {'bi-Logs_Mk1', 'bi-Logs_Mk2', 'bi-Logs_Mk3'}
     multiply('__time__', 1.66666, bio_wood)
     -- solidify bio-industries tree production as "slow but efficient" and bobgreenhouse as "fast and practical"
