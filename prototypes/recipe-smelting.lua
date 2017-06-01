@@ -6,6 +6,7 @@ local multiply = marathomaton.multiply
 -- slow down all smelting
 marathomaton.slowdown_recipe_category({['smelting']=2.0})
 
+-- note that the below changes will only apply to the vanilla ore -> plate recipes
 -- dont slow iron down that much since it's getting exploded below
 multiply('__time__', 0.5, 'iron-plate')
 -- fine adjustment for early game

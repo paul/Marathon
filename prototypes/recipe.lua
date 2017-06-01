@@ -62,7 +62,9 @@ multiply({'__upgrade__', '__time__'}, 2.0, i2r(cat2items({'accumulator' , 'solar
 -- make getting military harder in early game
 multiply({'iron-gear-wheel', 'iron-plate'}, 2.0, i2r(cat2items({'gun', 'ammo', 'capsule'})))
 multiply({'iron-gear-wheel', 'iron-plate'}, 5.0, i2r(cat2items({'ammo-turret', 'electric-turret', 'fluid-turret'})))
+
 -- tank nerfs (to match ordinary marathon)
+-- 2.5x all tank ammo
 recipes = {}
 for item_name, item_obj in pairs(data.raw.ammo) do
   if item_obj.ammo_type and item_obj.ammo_type.category == 'cannon-shell' then
@@ -70,6 +72,8 @@ for item_name, item_obj in pairs(data.raw.ammo) do
   end
 end
 multiply('__inputs__', 2.5, i2r(recipes))
+
+-- 2.5x tank requirements except if tanks are upgraded from other tanks
 multiply('__inputs__', 2.5, i2r(cat2items('car')))
 multiply(i2r(cat2items('car')), 0.4, i2r(cat2items('car')))
 multiply('__inputs__', 0.4, i2r('car'))

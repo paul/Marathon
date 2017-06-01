@@ -1,5 +1,5 @@
 
-
+-- add bobs smelting as a prerequisite tech for angels smelting of the corresponding metal
 if settings.startup['marathomaton_fixup_angels_smelting_tech_order'].value == true and angelsmods then
   for tech_name, tech_obj in pairs(data.raw.technology) do
     local l = #tech_name
@@ -19,7 +19,8 @@ if settings.startup['marathomaton_fixup_angels_smelting_tech_order'].value == tr
     end
   end
 end
-  
+
+-- link up our 2 additional angels bio processing recipes
 if bobmods and bobmods.lib and settings.startup["marathomaton_rebalance_angels_bio_artifacts"].value == true and angelsmods and angelsmods.bioprocessing then
   bobmods.lib.tech.add_recipe_unlock('water-washing-2', 'solid-calcium-carbonate-from-limestone')
   bobmods.lib.tech.add_recipe_unlock('bio-processing-alien', 'alien-bacteria-from-goo')

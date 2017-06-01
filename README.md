@@ -46,6 +46,8 @@ Things in progress on this fork:
 * Automatically deduce circuit board names in bobs
 * Automatically deduce seedling recipe names
 * Fix disassembly recipes (burner drill, steel furnace)
+* Fix rail tanker and petrochem rail tanker recipes not consistent
+* Fix AAI vehicles too expensive/not consistent
 
 Wishlist
 ========
@@ -53,3 +55,7 @@ Wishlist
 * Burner assembling machine 0
 * fixed biofuel, bioplastic, coal liquefication recipes
 * steel mixing & chemical furnaces
+* PCP update to liquid glass/plastic
+* all ore glows...?
+* AAI industry support in marathomaton
+

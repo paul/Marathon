@@ -13,7 +13,7 @@ local AMF = marathomaton.adjust_multiplier_factor
   v alien pre-artifact from bacteria makes 0-3 preartifacts (down from 3)
   v pink alien pre-artifact from preartifact needs 50 crystal seedling
   v colored alien pre-arttact from preartifact has 40% success rate
-  v Extracting small alien artifacts now gives: 5, 5%; 1, 25%; 0, 70%; effectively down from 5 to 0.5
+  v Extracting small alien artifacts now gives: 5x1 each with 10% success rate; effectively down from 5 to 0.5
   v recoloring artifacts doesnt work anymore
   v Making big colored from small colored requires 1 big pink alien artifact in addition to 25 small colored. big pink artifact recipe not changed
   v everything uses 10x colored artifact
