@@ -1,4 +1,4 @@
-Repository for the factorio Marathon mod.
+Repository for the factorio Marathomation mod.
 
 Description
 ===========
@@ -20,9 +20,13 @@ Expect the following:
 * Higher tier research are very costly.
 * Be forced to use trains.
 
+Important
+=========
+You must select the 'marathon' settings (recipe and technology difficulty set to 'expensive') in order for changes to take effect.
+
 Mod compatibility
 =================
-This mod has been tested with bobs mods, and works intended. Other then that this mod's compatibility hasn't been tested, if it works the balance will likely be completely off thus it's not suggested.
+This mod has been tested with Bob and Angel's mods, and works intended. Other then that this mod's compatibility hasn't been tested, if it works the balance will likely be completely off thus it's not suggested.
 
 Contributing
 ============
