@@ -30,7 +30,7 @@ local multiply = marathomaton.multiply
 -- easy way: every machine in refining/metallurgy -> 4x upgrade AND .5x stone brick, AND
 -- ore silos 3x stone brick, AND
 -- flare stack stay the same; only used for discarding resources, and otherwise more expensive than chem plants.
--- every building in barreling/pumps: 16x inputs
+-- every building in barreling/pumps: 16x inputs? Aww hell no. Try 4x.
 
 
 local group_set = {
@@ -90,7 +90,7 @@ for recipe_name, recipe_obj in pairs(data.raw.recipe) do
       end
     end
     if group == 'angels-barrels' or group == 'angels-fluid-control' then
-      multiply('__upgrade__', 16.0, recipe_name)
+      multiply('__upgrade__', 4.0, recipe_name)
     end
   end
 end
