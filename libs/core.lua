@@ -334,45 +334,50 @@ function marathomaton.modify_all_yields(multiplier, item, recipe_set)
   -- for now, just hanlde half-integer
   for recipe_name, recipe_obj in pairs(data.raw.recipe) do
     recipe_obj = recipe_obj['expensive']
-    if recipe_obj and (recipe_set == nil or recipe_set[recipe_name]) then
-      local fixup_flag = false
-      if recipe_obj.results ~= nil then -- results, which is a
-        local results = recipe_obj.results -- array of dicts
-        for i = 1, #results do
-          if results[i].name == item then
-            -- either has amount field, or amount_max and amount_min fields
-            local fields = {'amount', 'amount_min', 'amount_max'}
-            for _, field in pairs(fields) do
-              if results[i][field] ~= nil then
-                local v = results[i][field] * multiplier
-                if v % 1 ~= 0 then
-                  fixup_flag = true
+    -- dont touch barreling recipes
+    if recipe_obj.subgroup and recipe_obj.subgroup == 'fill-barrel' or recipe_obj.category and recipe_obj.category == 'barreling-pump' then
+      -- do nothing
+    else
+      if recipe_obj and (recipe_set == nil or recipe_set[recipe_name]) then
+        local fixup_flag = false
+        if recipe_obj.results ~= nil then -- results, which is a
+          local results = recipe_obj.results -- array of dicts
+          for i = 1, #results do
+            if results[i].name == item then
+              -- either has amount field, or amount_max and amount_min fields
+              local fields = {'amount', 'amount_min', 'amount_max'}
+              for _, field in pairs(fields) do
+                if results[i][field] ~= nil then
+                  local v = results[i][field] * multiplier
+                  if v % 1 ~= 0 then
+                    fixup_flag = true
+                  end
+                  results[i][field] = v
                 end
-                results[i][field] = v
               end
             end
           end
-        end
-      else -- singleton results
-        if recipe_obj.result == item then
-          local rc = recipe_obj.result_count
-          if rc == nil then
-            rc = 1
+        else -- singleton results
+          if recipe_obj.result == item then
+            local rc = recipe_obj.result_count
+            if rc == nil then
+              rc = 1
+            end
+            if (rc * multiplier) % 1 ~= 0 then
+              fixup_flag = true
+            end
+            recipe_obj.result_count = rc * multiplier
           end
-          if (rc * multiplier) % 1 ~= 0 then
-            fixup_flag = true
-          end
-          recipe_obj.result_count = rc * multiplier
         end
-      end
-      if fixup_flag == true then
-        -- double every ingredient, time, yield of recipe_obj
-        marathomaton.multiply({'__inputs__', '__time__', '__yield__'}, 2.0, recipe_name, true)
-        -- log('succesfully exploded ' .. recipe_name .. '!\n' .. serpent.block(recipe_obj))
-      end
-      while marathomaton.exceeds_stack_size(recipe_name) do
-        log('stack size exceeded for ' .. recipe_name .. '! halving recipe:')
-        marathomaton.multiply({'__inputs__', '__time__', '__yield__'}, 0.5, recipe_name, true)
+        if fixup_flag == true then
+          -- double every ingredient, time, yield of recipe_obj
+          marathomaton.multiply({'__inputs__', '__time__', '__yield__'}, 2.0, recipe_name, true)
+          -- log('succesfully exploded ' .. recipe_name .. '!\n' .. serpent.block(recipe_obj))
+        end
+        while marathomaton.exceeds_stack_size(recipe_name) do
+          log('stack size exceeded for ' .. recipe_name .. '! halving recipe:')
+          marathomaton.multiply({'__inputs__', '__time__', '__yield__'}, 0.5, recipe_name, true)
+        end
       end
     end
   end
