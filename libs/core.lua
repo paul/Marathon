@@ -209,8 +209,15 @@ function marathomaton.modify_recipe(ingredient, multiplier, _recipe_names, flag)
     end
     recipe_obj = recipe_obj['expensive']
 
+    if recipe_obj.subgroup and recipe_obj.subgroup == 'fill-barrel' or recipe_obj.category and recipe_obj.category == 'barreling-pump' then
+      -- do nothing
+      -- log(serpent.block(recipe_obj) .. ' skipped because barreling!')
+
+    elseif not ingredient or ingredient == '' then
+      -- do nothing
+
     -- time, modify energy_required
-    if ingredient == '__time__' then
+    elseif ingredient == '__time__' then
       if recipe_obj.energy_required == nil then
         recipe_obj.energy_required = 0.5
       end
@@ -337,6 +344,7 @@ function marathomaton.modify_all_yields(multiplier, item, recipe_set)
     -- dont touch barreling recipes
     if recipe_obj.subgroup and recipe_obj.subgroup == 'fill-barrel' or recipe_obj.category and recipe_obj.category == 'barreling-pump' then
       -- do nothing
+      -- log(serpent.block(recipe_obj) .. ' skipped because barreling!')
     else
       if recipe_obj and (recipe_set == nil or recipe_set[recipe_name]) then
         local fixup_flag = false
