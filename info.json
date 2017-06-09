@@ -1,6 +1,6 @@
 {
   "name": "marathomaton",
-  "version": "0.2.33",
+  "version": "0.2.34",
   "factorio_version": "0.15",
   "title": "Marathon Mod Automated",
   "author": "Benoit Girard & Afforess",
@@ -15,6 +15,8 @@
     "? Factorissimo2 >= 2.1.4",
     "? Flare Stack >= 2.1.0",
     "? Flow Control >= 3.0.1",
+    "? GDIW >= 0.15.2",
+    "? GDIWHotkey >= 1.1.0",
     "? Nanobots >= 1.8.2",
     "? Natural_Evolution_Buildings >= 7.0.0",
     "? Natural_Evolution_Enemies >= 7.0.0",

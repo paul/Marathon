@@ -35,8 +35,11 @@ Contributions are welcomed. The aim of this mod is to not change recipes at the 
 To do
 =====
 Things in progress on this fork:
+* FIX FIX FIX angels only-smelting patch
+* handle AAI-industry compatibility??
 * Clean up lua code (wip), handle errors better, pass in params dict instead of lots of args
-* Adjust crating alien artifacts:
+* Change angel ore processing volume from 6 ore -> 3 processed -> 4 pellet to 6 ore -> 5 processed -> 4 pellet.
+* 40x slowdown to angel coil casting recipes.
 * Add settings flag for not-really-marathon content (e.g. technology changes, pipe stack size change, fuel changes, etc.) and make sure it happens in the correct phase (data-updates)
 * disable uranium ore deposits when angels refining exists
 * Add settings flag to provide *some* materials on startup (otherwise way too tedious)
