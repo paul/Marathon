@@ -41,7 +41,12 @@ Things in progress on this fork:
 * Clean up lua code (wip), handle errors better, pass in params dict instead of lots of args
 * Change angel ore processing volume from 6 ore -> 3 processed -> 4 pellet to 6 ore -> 5 processed -> 4 pellet.
 * 40x slowdown to angel coil casting recipes.
-* Modify explosives recipe to require potassium nitrate (maybe just substitute fertiliser for now? eventually make it from ammonium nitrate so ammonia plus nitric acid and potassium hydroxide similar to sodium hydroxide)
+* Modify explosives recipe to also require potassium nitrate (maybe just substitute fertiliser for now?) in addition to coal, sulfur, water
+  - potassium nitrate made from ammonium nitrate (in-game already i think) and potassium chloride. makes ammonium chloride and potassium nitrate
+  - also possibly from ammonium nitrate + potassium hydroxide to ammonia + potassium nitrate (+ water)
+  - potassium chloride made from potassium hydroxide + hydrochloric acid
+  - potassium hydroxide i.e. potash made from leaching ash (so ash + water + evaporation; quite slow); also produces sodium hydroxide as byproduct
+* help out PCP: change his recipes to liquid plastic/glass/resin, remove overlap recipes
 * Add settings flag for not-really-marathon content (e.g. technology changes, pipe stack size change, fuel changes, etc.) and make sure it happens in the correct phase (data-updates)
 * disable uranium ore deposits when angels refining exists
 * Add settings flag to provide *some* materials on startup (otherwise way too tedious)
