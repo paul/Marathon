@@ -46,6 +46,7 @@ Things in progress on this fork:
   - also possibly from ammonium nitrate + potassium hydroxide to ammonia + potassium nitrate (+ water)
   - potassium chloride made from potassium hydroxide + hydrochloric acid
   - potassium hydroxide i.e. potash made from leaching ash (so ash + water + evaporation; quite slow); also produces sodium hydroxide as byproduct
+* build a tool to view recipe_name and item_name in-game (bob does automate locale string somehow - grep for "Something's missing")
 * help out PCP: change his recipes to liquid plastic/glass/resin, remove overlap recipes
 * Add settings flag for not-really-marathon content (e.g. technology changes, pipe stack size change, fuel changes, etc.) and make sure it happens in the correct phase (data-updates)
 * disable uranium ore deposits when angels refining exists
