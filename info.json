@@ -1,6 +1,6 @@
 {
   "name": "marathomaton",
-  "version": "0.2.35",
+  "version": "0.2.36",
   "factorio_version": "0.15",
   "title": "Marathon Mod Automated",
   "author": "Benoit Girard & Afforess",
@@ -30,6 +30,7 @@
     "? YARM >= 0.7.201",
     "? Yi_Tech_Tree >= 0.15.0",
     "? Yuoki >= 0.5.69",
+    "? aai-programmable-vehicles >= 0.3.22",
     "? angelsaddons-locales >= 0.1.21",
     "? angelsaddons-oresilos >= 0.3.0",
     "? angelsaddons-petrotrain >= 0.2.0",
@@ -65,10 +66,8 @@
     "? data-raw-prototypes >= 0.3.1",
     "? robotarmy >= 0.3.2",
     "? marathon < 0.0.1",
-    "? omnimatter >= 1.1.7",
     "? omnimatter_crystal >= 0.1.2",
     "? omnimatter_science >= 0.2.0",
-    "? omnimatter_wood >= 0.1.2",
     "? yi_engines >= 0.5.24",
     "? yi_railway >= 0.5.18"
     ]

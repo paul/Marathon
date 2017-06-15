@@ -78,3 +78,13 @@ if settings.startup["marathomaton_rebalance_angels_bio_artifacts"].value == true
     }
   })
 end
+
+-- undo aai-programmable-vehicles thingy
+if mods['aai-programmable-vehicles'] and data.raw.recipe['engine-unit'] then
+  local r = data.raw.recipe['engine-unit']
+  if r.category == 'crafting' and r.energy_required == 4 then
+    r.category = 'advanced-crafting'
+    r.energy_required = 20
+  end
+end
+

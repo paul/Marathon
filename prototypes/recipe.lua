@@ -27,6 +27,7 @@ recipes = i2r({'battery'})
 multiply('__time__', 1.5, recipes)
 multiply('__inputs__', 1.5, recipes)
 multiply('__inputs__', 3.5, i2r({'flying-robot-frame'}))
+multiply('__time__', 3.0, i2r({'engine-unit'}))
 
 
 ------- building slowdowns
@@ -62,6 +63,10 @@ multiply({'__upgrade__', '__time__'}, 2.0, i2r(cat2items({'accumulator' , 'solar
 -- make getting military harder in early game
 multiply({'iron-gear-wheel', 'iron-plate'}, 2.0, i2r(cat2items({'gun', 'ammo', 'capsule'})))
 multiply({'iron-gear-wheel', 'iron-plate'}, 5.0, i2r(cat2items({'ammo-turret', 'electric-turret', 'fluid-turret'})))
+-- dont apply to military science pack
+multiply({'__yield__', '__time__'}, 3.0, 'military-science-pack')
+multiply('__inputs__', 2.0, 'military-science-pack')
+multiply('gun-turret', 0.5, 'military-science-pack')
 
 -- tank nerfs (to match ordinary marathon)
 -- 2.5x all tank ammo
