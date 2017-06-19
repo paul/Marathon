@@ -36,6 +36,7 @@ To do
 =====
 Things in progress on this fork:
 * FIX FIX FIX angels only-smelting patch (adjust early steel)
+* Water well and nonangels flare stack recipe cost increases
 * Modify bob enriched fuel recipe to consume solid fuel, naptha, oxide, and powder (thermite)
 * handle AAI-industry compatibility??
 * Clean up lua code (wip), handle errors better, pass in params dict instead of lots of args
@@ -67,6 +68,7 @@ Things in progress on this fork:
 Wishlist
 ========
 * SpaceMod working with Bob's endgame again. Hopefully by adding tiers to the space science techs? CMHMod as stopgap for now.
+* tree map_color to (0, 0.9, 0, 0.5) + game.forces.player.rechart() on_config_changed
 * Burner assembling machine 0
 * fixed biofuel, bioplastic, coal liquefication recipes
 * steel mixing & chemical furnaces
