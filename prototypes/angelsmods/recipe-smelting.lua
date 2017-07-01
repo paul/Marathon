@@ -27,6 +27,30 @@ for recipe_name, recipe_obj in pairs(data.raw.recipe) do
   end
 end
 
+-- explode processed-* by 5/3
+-- by first 1.5xing the recipe (4 ore -> 2 processed in 8 s, equiv to 6 ore -> 3 processed in 12 s)
+-- then exploding
+-- category: 'ore-processing'
+local recipes = marathomaton.get_recipes_from_category({'ore-processing'})
+multiply({'__inputs__', '__yield__', '__time__'}, 1.5, recipes)
+
+local item_set = {}
+for recipe_name, recipe_obj in pairs(data.raw.recipe) do
+  recipe_obj = recipe_obj['expensive']
+  if recipe_obj.category == "pellet-pressing" then
+    for _, ingredient_obj in ipairs(recipe_obj.ingredients) do
+      item_set[ingredient_obj.name] = true
+    end
+  end
+end
+
+log('exploding angels!' .. serpent.block(item_set))
+for item_name, _ in pairs(item_set) do
+  marathomaton.modify_all_yields(1.66666666, item_name)
+  marathomaton.modify_all_recipes(item_name, 1.6666666, true)
+end
+
+
 -- experimental!!
 -- make casting slightly more efficient so as to incentivize copper -> ingot -> molten -> plate
 -- over ordinary copper ore -> plate.
@@ -38,9 +62,10 @@ for recipe_name, recipe_obj in pairs(data.raw.recipe) do
   recipe_obj = recipe_obj['expensive'] or {}
   if recipe_obj.category == 'casting' then
     multiply('__inputs__', 0.9, recipe_name)
-  end
-  if recipe_name == 'angels-concrete' or recipe_name == 'angels-concrete-brick' or recipe_name == 'angels-reinforced-concrete-brick' then
-    multiply('__inputs__', 0.9, recipe_name)
+  else
+    if recipe_name == 'angels-concrete' or recipe_name == 'angels-concrete-brick' or recipe_name == 'angels-reinforced-concrete-brick' then
+      multiply('__inputs__', 0.9, recipe_name)
+    end
   end
 end
 

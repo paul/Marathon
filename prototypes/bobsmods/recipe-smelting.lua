@@ -70,6 +70,7 @@ local smelting = {
   ['mixing-furnace']    =1.5, -- affects alloy plates
   ['chemical-furnace']  =2.0, -- chemical plates and powders
   ['blast-smelting']    =2.5, -- making angel ingot from any
+  ['powder-mixing']     =2.5, -- aluminum/glass/cement T1 smelting and tungsten powder
   ['induction-smelting']=3.0, -- making angel molten
   ['casting']           =3.5, -- making angel plates and wire coil
   ['ore-processing']    =4.0, -- making angel processed from ore
@@ -110,15 +111,17 @@ for recipe_name, recipe_obj in pairs(data.raw.recipe) do
     end
   end
 end
+
+
 -- check that all items either begin with powder or ingot (todo: fix this)
-for item_name, _ in pairs(ingots_set) do
-  if string.find(item_name, 'ingot') == nil and string.find(item_name, 'powder') == nil then
-    ingots_set[item_name] = false
-  end
-end
+-- for item_name, _ in pairs(ingots_set) do
+  -- if string.find(item_name, 'ingot') == nil and string.find(item_name, 'powder') == nil then
+    -- ingots_set[item_name] = false
+  -- end
+-- end
 multiply({'__inputs__', '__yield__', '__time__'}, 12.0, item2recipes({'solid-cement', 'solid-glass-mixture'}))
-ingots_set['solid-cement'] = true
-ingots_set['solid-glass-mixture'] = true
+-- ingots_set['solid-cement'] = true
+-- ingots_set['solid-glass-mixture'] = true
 
 if settings.startup['marathomaton_no_bob_cheaper_steel'].value == false then
   -- if bob cheaper steel is on, have to disable this because angel refining will overwrite stuff

@@ -133,6 +133,21 @@ function marathomaton.get_items_from_category(_categories)
   return item_names
 end
 
+-- returns dict of recipe_name => true if recipe_name is in one of the categories
+-- expects array/set/singeleton of categories
+function marathomaton.get_recipes_from_category(_categories)
+  local categories = to_set(_categories)
+  local recipe_names = {}
+  for recipe_name, recipe_obj in pairs(data.raw.recipe) do
+    recipe_obj = recipe_obj['expensive']
+    if recipe_obj.category and categories[recipe_obj.category] ~= nil then
+      recipe_names[recipe_name] = true
+    end
+  end
+  return recipe_names
+end
+
+
 -- returns dict of item_name => true if item_name belongs to one of the categories and fast_replaceable_group matches given
 -- expects category, fast_replaceable_group
 function marathomaton.get_items_from_category_replaceable(cat, replaceable)
