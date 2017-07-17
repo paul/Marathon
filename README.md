@@ -36,12 +36,15 @@ To do
 =====
 Things in progress on this fork:
 * FIX FIX FIX angels only-smelting patch (adjust early steel)
+* Handle angel coil making and coil consuming recipes. 
+  - Coil making ~5x slower. 
+  - Coil explode at same rate as plates. 
+  - Decrease coil/plate compression ratio from 1/4 to 1/2. 
+  - 40x slowdown to angel coil casting recipes.
 * Water well and nonangels flare stack recipe cost increases
 * Modify bob enriched fuel recipe to consume solid fuel, naptha, oxide, and powder (thermite)
 * handle AAI-industry compatibility??
 * Clean up lua code (wip), handle errors better, pass in params dict instead of lots of args
-* Change angel ore processing volume from 6 ore -> 3 processed -> 4 pellet to 6 ore -> 5 processed -> 4 pellet.
-* 40x slowdown to angel coil casting recipes.
 * Modify explosives recipe to also require potassium nitrate (maybe just substitute fertiliser for now?) in addition to coal, sulfur, water
   - potassium nitrate made from ammonium nitrate (in-game already i think) and potassium chloride. makes ammonium chloride and potassium nitrate
   - also possibly from ammonium nitrate + potassium hydroxide to ammonia + potassium nitrate (+ water)
