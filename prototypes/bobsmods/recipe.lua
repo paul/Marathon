@@ -50,8 +50,8 @@ if settings.startup['marathomaton_greenhouse_revamp'].value == true then
     local bio_wood = {'bi-Logs_Mk1', 'bi-Logs_Mk2', 'bi-Logs_Mk3'}
     multiply('__time__', 1.66666, bio_wood)
     -- solidify bio-industries tree production as "slow but efficient" and bobgreenhouse as "fast and practical"
-    multiply('__time__', 16, 'bi-seedling')
-    marathomaton.modify_all_yields(3, 'bi-woodpulp', 'bi-seedling') -- makes seedlings cost 0.7 MJ at 60% eff or 0.5 MJ at 70% eff, which barely turns a profit at 0.7
+    -- multiply('__time__', 16, 'bi-seedling')
+    -- marathomaton.modify_all_yields(3, 'bi-woodpulp', 'bi-seedling') -- makes seedlings cost 0.7 MJ at 60% eff or 0.5 MJ at 70% eff, which barely turns a profit at 0.7
     multiply('__time__', 1.5, bio_wood)
     modify_energy_usage(0.6666666, 'assembling-machine', 'bi_bio_farm')
     modify_energy_usage(0.69, 'solar-panel', "bi_solar-panel_for_Bio_Farm", 'production')
