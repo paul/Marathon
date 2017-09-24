@@ -95,10 +95,32 @@ local plates_list = subgroup2items({'bob-material'})
 plates_list['angels-plate-chrome'] = true
 plates_list['angels-plate-manganese'] = true
 plates_list['angels-plate-platinum'] = true
-plates_list['cobalt-plate'] = true
 plates_list['iron-plate'] = false -- these guys were handled already in vanilla
 plates_list['copper-plate'] = false
 plates_list['steel-plate'] = false
+
+-- With Angel's smelting 0.3.12, all the plates got moved out of the
+-- `bob-material` and `bob-alloy` groups. There may be nicer way to pick these
+-- all up automatically, but for now here's a hard-coded list.
+
+plates_list['tin-plate'] = true
+plates_list['silver-plate'] = true
+plates_list['lead-plate'] = true
+plates_list['gold-plate'] = true
+plates_list['nickel-plate'] = true
+plates_list['zinc-plate'] = true
+plates_list['aluminium-plate'] = true
+plates_list['titanium-plate'] = true
+plates_list['tungsten-plate'] = true
+plates_list['silicon'] = true
+plates_list['cobalt-plate'] = true
+plates_list['brass-alloy'] = true
+plates_list['bronze-alloy'] = true
+plates_list['electrum-alloy'] = true
+plates_list['gunmetal-alloy'] = true
+plates_list['invar-alloy'] = true
+plates_list['nitinol-alloy'] = true
+plates_list['cobalt-steel-alloy'] = true
 
 -- find all the angel ingots and explode them too
 -- they are inputs to recipes in the category "induction-smelting"
