@@ -89,16 +89,33 @@ local smelting = {
 marathomaton.slowdown_recipe_category(smelting)
 
 -- create smelting bottlenecks for all these plate types: (no iron or copper here)
-local plates_list = subgroup2items({'bob-material'})
--- log('MARATHOMATON plates_list ' .. serpent.block(plates_list))
+
+-- bob plates (if angel not installed .. ?)
+-- angel plates : items of any subgroup in 'angels-casting' that end with '-plate'. but try not to include angels-alloys-casting
+local casting_subgroups = marathomaton.get_subgroups_by_group({'angels-casting'})
+casting_subgroups['angels-alloys-casting'] = false
+casting_subgroups['bob-material'] = true
+local plates_list = subgroup2items(casting_subgroups)
+-- filter, only keep things than end with plate
+for item_name, _ in pairs(plates_list) do
+  local len = #item_name -- last 6 letters?
+  if len < 6 or (string.sub(item_name, len-6+1, len) ~= '-plate' and string.sub(item_name, 1, #'angels-plate') ~= 'angels-plate' and item_name ~= 'silicon') then
+    plates_list[item_name] = false
+  end
+end
+
 -- hardcode these for now until bob adds them to bob-material
+--[[
 plates_list['angels-plate-chrome'] = true
 plates_list['angels-plate-manganese'] = true
 plates_list['angels-plate-platinum'] = true
 plates_list['cobalt-plate'] = true
+--]]
 plates_list['iron-plate'] = false -- these guys were handled already in vanilla
 plates_list['copper-plate'] = false
 plates_list['steel-plate'] = false
+plates_list['steel-plate'] = false
+log('MARATHOMATON plates_list ' .. serpent.block(plates_list))
 
 -- find all the angel ingots and explode them too
 -- they are inputs to recipes in the category "induction-smelting"
@@ -128,13 +145,17 @@ if settings.startup['marathomaton_no_bob_cheaper_steel'].value == false then
   ingots_set['ingot-steel'] = false
 end
 
+-- done, start exploding!
+
 if settings.startup['marathomaton_enable_ingot_explosion'].value == true then
   -- log('MARATHOMATON -> ingots_set is ' .. serpent.block(ingots_set))
   explode_all(ingots_set, ingot_expansion_rate) -- slightly different from ordinary expansion rate.
 end
 
 explode_all(plates_list)
-explode_all(subgroup2items({'bob-alloy'}))
+-- angel changes the item subgroup of alloyws
+explode_all(subgroup2items({'bob-alloy', 'angels-alloys-casting'}))
+
 -- explode_all(subgroup2items({'bob-resource'}))
 local resource_stuff = {['carbon']=true, ['solid-carbon']=true, ['glass']=true, ['resin']=true, ['rubber']=true}
 for key, val in pairs(resource_stuff) do

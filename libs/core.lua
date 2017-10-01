@@ -190,7 +190,7 @@ function marathomaton.get_recipes_from_item(items)
 end
 
 -- returns set-dict of items that are in the given subgroup(s)
--- also supports setting a category if you dont want item
+-- also supports setting a category if you dont want 'item' objects but instaed want like recipes or osmething ?
 function marathomaton.get_items_by_subgroup(_groups, category)
   if category == nil then
     category = 'item'
@@ -203,6 +203,18 @@ function marathomaton.get_items_by_subgroup(_groups, category)
   for item_name, item_props in pairs(data.raw[category]) do
     if groups[item_props.subgroup] ~= nil then
       to_ret[item_name] = true
+    end
+  end
+  return to_ret
+end
+
+-- returns set-dict of item-subgroups in the given item-group
+function marathomaton.get_subgroups_by_group(_groups)
+  local groups = to_set(_groups)
+  local to_ret = {}
+  for subgroup_name, subgroup_props in pairs(data.raw['item-subgroup']) do
+    if groups[subgroup_props.group] ~= nil then
+      to_ret[subgroup_name] = true
     end
   end
   return to_ret
