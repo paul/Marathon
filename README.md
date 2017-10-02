@@ -37,10 +37,8 @@ To do
 Things in progress on this fork:
 * FIX FIX FIX angels only-smelting patch (adjust early steel)
 * Handle angel coil making and coil consuming recipes. 
-  - Coil making ~5x slower. 
-  - Coil explode at same rate as plates. 
-  - Decrease coil/plate compression ratio from 1/4 to 1/2. 
-  - 40x slowdown to angel coil casting recipes.
+  - coils/sheet making requires 3000x water/second (was 1/s) or 10x coolant (was 2/s or 10 per sheet)
+  - Coil recipe yield (compared to ordinary casting yield) down from 100% to ~75%
 * Water well and nonangels flare stack recipe cost increases
 * Modify bob enriched fuel recipe to consume solid fuel, naptha, oxide, and powder (thermite)
 * handle AAI-industry compatibility??
