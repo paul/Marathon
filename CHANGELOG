@@ -1,3 +1,15 @@
+0.16.0 - pjf
+
+Changes:
+    - UPDATE: Added Factorio 0.16 compatibility
+    - REBRAND: New maintainer, new name. We're now "Marathon Mod Continued"
+    - INTERNAL: Cleanup of unused code
+    - BALANCE: Barreling pumps are no longer quite as expensive (4x vs 16x)
+    - BALANCE: Flare stacks are dramatically less expensive (40 steel vs 200 steel)
+    - BALANCE: Doubled enriched fuel costs
+
+======
+
 Renamed to Marathomaton
 
 0.1.0 - boweiliu
