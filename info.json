@@ -1,12 +1,12 @@
 {
-  "name": "marathomaton",
-  "version": "0.2.42",
+  "name": "marathon-continued",
+  "version": "0.16.0",
   "factorio_version": "0.16",
-  "title": "Marathon Mod Automated",
-  "author": "Benoit Girard & Afforess",
-  "contributors": ["Wulfson", "KeepOnDigging", "gheift", "boweiliu"],
+  "title": "Maratho Mod Continued",
+  "author": "Benoit Girard & Afforess (Marathon Mod); boweiliu (Marathomation); Paul 'pjf' Fenwick (Continued)",
+  "contributors": ["Wulfson", "KeepOnDigging", "gheift" ],
   "homepage": "",
-  "description": "Automatically increases the resource costs of most recipes causing a marathon game. The will require the players to scale a larger factory and use rail to reach the end game. WARNING: Incompatible with marathon mod.",
+  "description": "Increases recipe costs and rebalances recipes to make a longer, more challenging game. Encourages larger-scale factories and more thoughtful technology choices. NOTE: You must start the game with 'expensive recipes' for this mod to be enabled.",
   "dependencies": [
     "? base >= 0.14.0",
     "? Big_Brother >= 0.4.2",
