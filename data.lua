@@ -30,24 +30,6 @@ if settings.startup["marathomaton_enable_all_bobartifacts"].value == true then
   end
 end
 
---[[
--- NE expansion override using metatable fuckery because his data-updates.lua file re-requires config.lua for some obscene reason
-if NE_Expansion_Config then
-  local _NE = {}
-  _NE.ScienceCost = false
-  NE_Expansion_Config.ScienceCost = nil
-  -- causes lookups to function normally but setting is now noop
-  setmetatable(NE_Expansion_Config, {__index=_NE, __newindex=function(t,k,v) end})
-  if marathomaton.config.no_NE_harder_endgame then
-    NE_Expansion_Config.HarderEndGame = nil
-    _NE.HarderEndGame = false
-  end
-  log(serpent.block(NE_Expansion_Config))
-  log(NE_Expansion_Config.ScienceCost)
-  log(NE_Expansion_Config.HarderEndGame)
-end
---]]
-
 -- log('MARATHOMATON TECHNOLOGY ' .. serpent.block(data.raw.technology))
 
 if settings.startup["marathomaton_rebalance_angels_bio_artifacts"].value == true and angelsmods and angelsmods.bioprocessing then

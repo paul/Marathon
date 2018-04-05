@@ -3,9 +3,6 @@ require("prototypes.item")
 if bobsmods then
   require("prototypes.bobsmods.item")
 end
-if angelsmods then
-  require("prototypes.angelsmods.technology-updates")
-end
 if mods['Yuoki'] then
   require("prototypes.yuoki.item")
 end

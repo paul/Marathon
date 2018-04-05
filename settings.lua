@@ -28,15 +28,6 @@ data:extend(
     default_value = true,
     per_user = false,
   },
-  --[[
-  {
-    type = "bool-setting",
-    name = "marathomaton_no_NE_harder_endgame",
-    setting_type = "startup",
-    default_value = true,
-    per_user = false,
-  },
-  --]]
   {
     type = "bool-setting",
     name = "marathomaton_greenhouse_revamp",
