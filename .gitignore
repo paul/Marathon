@@ -3,5 +3,6 @@ build
 build/*
 factorio_mods
 marathomaton*.zip
+marathon-continued*.zip
 setup.sh
 **/*.swp

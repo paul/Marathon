@@ -9,17 +9,18 @@ fi
 VERSION=`cat info.json | jq -r '.version'`
 CURDIR=`pwd`
 TMPDIR=`mktemp -d /tmp/temp.XXXX`
+MODNAME=marathon-continued
 echo "$TMPDIR"
-mkdir -p "$TMPDIR"/marathomaton_"$VERSION"
-cp -r . "$TMPDIR"/marathomaton_"$VERSION"
-rm -rf "$TMPDIR"/marathomaton_"$VERSION"/.git
-rm -rf "$TMPDIR"/marathomaton_"$VERSION"/*.zip
+mkdir -p "$TMPDIR"/"$MODNAME"_"$VERSION"
+cp -r . "$TMPDIR"/"$MODNAME"_"$VERSION"
+rm -rf "$TMPDIR"/"$MODNAME"_"$VERSION"/.git
+rm -rf "$TMPDIR"/"$MODNAME"_"$VERSION"/*.zip
 cd "$TMPDIR"
-zip -r marathomaton_"$VERSION".zip marathomaton_"$VERSION"
-cp marathomaton_"$VERSION".zip "$CURDIR"
+zip -r "$MODNAME"_"$VERSION".zip "$MODNAME"_"$VERSION"
+cp "$MODNAME"_"$VERSION".zip "$CURDIR"
 if ! test "$FACTORIO_MOD_PATH" = "";
 then
-  cp marathomaton_"$VERSION".zip "$FACTORIO_MOD_PATH"
+  cp "$MODNAME"_"$VERSION".zip "$FACTORIO_MOD_PATH"
 fi
 
 
